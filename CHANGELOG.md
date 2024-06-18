@@ -1,5 +1,23 @@
 # Changelog
 ---
+### 17 JUN 2024
+- Category test suite fails.
+- Attempted to test `Category` (Outlet) component.
+- Created `data.mocks`; includes placeholder data.
+- Utilized `mockReturnValueOnce` for the mocked `fetch` method.
+- Moved fetch method from `Categories` component to `Shop` component.
+---
+### 16 JUN 2024
+- Categories test suite fails.
+- Added children routes to the shop route.
+- Outlet component is rendered inside the `Shop` component; this will be the default shop category.
+---
+### 14 JUN 2024
+- Added `cart-variant` and `progress_activity` SVGs to assets.
+- Style sheets now end with `.module.css`.
+- Created `Cart`, `Categories`, `Loading`, and `Shop` components and respective test templates.
+- Created `PROJECT_SPECIFICATIONS.md`.
+---
 ### 13 JUN 2024
 - Updated README.md.
 - All test suites pass.

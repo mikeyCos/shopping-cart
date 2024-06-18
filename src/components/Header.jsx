@@ -1,32 +1,46 @@
 import { Link } from "react-router-dom";
+import CartIcon from "../assets/icons/cart-variant.svg?react";
 import GitHubIcon from "../assets/icons/github-mark/github-mark.svg?react";
-import "../styles/Header.css";
+import styles from "../styles/Header.module.css";
+import iconStyles from "../styles/icons.module.css";
 
 const Header = () => {
   return (
     <header>
-      <nav>
-        <ul className="nav-left">
+      <nav className={styles.nav}>
+        <ul className={styles.navLeft}>
           <li>
-            <Link to="/">
+            <Link className={styles.anchorNoDecoration} to="/">
               <img src="#" alt="" />
               <h1>Logo</h1>
             </Link>
           </li>
         </ul>
 
-        <ul className="nav-right">
+        <ul className={styles.navRight}>
           <li>
-            <Link to="/Placeholder_00">Placeholder_00</Link>
+            <Link className={styles.anchorNoDecoration} to="/">
+              Home
+            </Link>
           </li>
 
           <li>
-            <Link to="/Placeholder_01">Placeholder_01</Link>
+            <Link className={styles.anchorNoDecoration} to="/shop">
+              Shop
+            </Link>
           </li>
 
           <li>
-            <a href="#" target="_blank">
-              <GitHubIcon className="icon github" />
+            <Link to="/cart">
+              <CartIcon
+                className={`cart ${iconStyles.icon} ${styles.anchorNoDecoration}`}
+              />
+            </Link>
+          </li>
+
+          <li>
+            <a className={styles.anchorNoDecoration} href="#" target="_blank">
+              <GitHubIcon className={`github ${iconStyles.icon}`} />
             </a>
           </li>
         </ul>

@@ -1,8 +1,9 @@
 import BasicLayout from "../layouts/BasicLayout";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
-import Placeholder_00 from "../components/Placeholder_00";
-import Placeholder_01 from "../components/Placeholder_01";
+import Shop from "../components/Shop";
+import Cart from "../components/Cart";
+import Category from "../components/Category";
 
 const routes = [
   {
@@ -14,12 +15,16 @@ const routes = [
         element: <Home />,
       },
       {
-        path: "/placeholder_00",
-        element: <Placeholder_00 />,
+        path: "/shop",
+        element: <Shop />,
+        children: [
+          { index: true, element: <Category /> },
+          { path: "category/:category", element: <Category /> },
+        ],
       },
       {
-        path: "/placeholder_01",
-        element: <Placeholder_01 />,
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

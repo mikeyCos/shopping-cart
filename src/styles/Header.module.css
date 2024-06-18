@@ -9,28 +9,25 @@ nav {
   gap: 0.5rem;
 }
 
-nav ul {
+.listStyleNone {
   list-style: none;
 }
 
-nav a {
+.anchorNoDecoration {
   text-decoration: none;
 }
 
-.nav-left {
+.navLeft {
+  /* composes: listStyleNone; */
   flex: 1;
 }
 
-.nav-left a {
+.navLeft a {
   display: flex;
 }
 
-.nav-right {
+.navRight {
+  /* composes: listStyleNone; */
   display: flex;
   align-items: center;
-}
-
-.icon.github {
-  width: 2.5rem;
-  height: auto;
 }
