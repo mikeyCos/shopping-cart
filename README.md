@@ -148,7 +148,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] Create skeleton components.
-- [ ] Create a media branch for README images.
+- [x] Create test templates.
+- [ ] Refactor routes using loaders.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

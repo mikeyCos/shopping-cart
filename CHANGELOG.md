@@ -1,5 +1,24 @@
 # Changelog
 ---
+### 19 JUN 2024
+- 
+---
+### 18 JUN 2024
+- Split `products` in `data.mocks` into an object and an array.
+- Utility function `parseProducts` is causing `Category` test suite to fail.
+- Created `parseProducts` and `parseCategory`; these utility functions are used to create an object of products with the categories as keys and an array value of their respective products.
+```js
+products = {
+  all: [ ...all products ]
+  electronics: [ ...objects of category "electronics" ],
+  jewelry: [ ...objects of category "jewelry" ],
+  mensClothing: [ ...objects of category "men's clothing" ],
+  womensClothing: [ ...objects of category "women's clothing" ],
+}
+```
+- Created `utilities` directory.
+- Renamed `tests` directory to `__tests__`.
+---
 ### 17 JUN 2024
 - Category test suite fails.
 - Attempted to test `Category` (Outlet) component.

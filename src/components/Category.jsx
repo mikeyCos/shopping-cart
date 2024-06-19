@@ -5,7 +5,11 @@ const Category = () => {
   const [products] = useOutletContext();
   console.log(products);
   console.log(category);
-  return <section>Category</section>;
+  return (
+    <section>
+      <h2>Category</h2>
+    </section>
+  );
 };
 
 export default Category;

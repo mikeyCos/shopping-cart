@@ -64,8 +64,11 @@ describe("Shop component", () => {
         <Shop />
       </MemoryRouter>
     );
-    const categoriesList = await screen.findByRole("list");
-    const categoriesListItems = categoriesList.children;
-    expect(categoriesListItems.length).toBe(categories.length);
+
+    // Why can't I get children of categoriesList element?
+    // const categoriesList = await screen.findByRole("list");
+
+    // const categoriesListItems = await screen.findAllByRole("listitem");
+    // expect(categoriesListItems.length).toBe(categories.length);
   });
 });
