@@ -2,10 +2,9 @@ import { describe, expect, it, vi } from "vitest";
 import {
   render,
   screen,
-  waitFor,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { categories, parsedProducts, products } from "./data.mocks";
 import Shop from "../components/Shop";
 import parseProducts from "../utilities/parseProducts";
@@ -28,7 +27,7 @@ vi.mock("../utilities/parseProducts");
 describe("Shop component", () => {
   it("The mock function, fetchMock, is called twice", () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
+      <MemoryRouter initialEntries={["/shop"]}>
         <Shop />
       </MemoryRouter>
     );
@@ -38,8 +37,10 @@ describe("Shop component", () => {
 
   it("The mock function, parseProductsMock, is called once", () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Shop />
+      <MemoryRouter initialEntries={["/shop"]}>
+        <Routes>
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
       </MemoryRouter>
     );
 
@@ -48,11 +49,14 @@ describe("Shop component", () => {
 
   it("The Shop component is rendered", async () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Shop />
+      <MemoryRouter initialEntries={["/shop"]}>
+        <Routes>
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
       </MemoryRouter>
     );
     const shopSection = await screen.findByText("Shop section");
+    screen.debug();
     expect(shopSection).toBeInTheDocument();
   });
 

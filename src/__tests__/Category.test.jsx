@@ -37,7 +37,6 @@ const Category = () => {
               </picture>
               <div className="info">
                 <h4>{product.title}</h4>
-                <p className="description">{product.description}</p>
               </div>
             </article>
           ))}
@@ -53,11 +52,18 @@ describe("Category component (Outlet)", () => {
   it("Category component is rendered", async () => {
     window.history.pushState({}, "Shop", "/shop/");
     const { container } = render(
-      <MemoryRouter basename="/" initialEntries={["/shop"]}>
+      // <MemoryRouter initialEntries={["/shop"]}>
+      //   <Routes>
+      //     <Route path="/shop" element={<Shop />}>
+      //       <Route path="/shop" element={<Category />} />
+      //       <Route path="/shop/:category" element={<Category />} />
+      //     </Route>
+      //   </Routes>
+      // </MemoryRouter>
+      <MemoryRouter initialEntries={[`/shop`]}>
         <Routes>
           <Route path="/shop" element={<Shop />}>
-            <Route path="/shop" element={<Category />} />
-            <Route path="/shop/:category" element={<Category />} />
+            <Route path="/shop/" element={<Category />} />
           </Route>
         </Routes>
       </MemoryRouter>

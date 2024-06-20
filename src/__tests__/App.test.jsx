@@ -5,7 +5,11 @@ import App from "../App";
 
 describe("App component", () => {
   it("The App component is rendered", () => {
-    const { container } = render(<App />);
+    const { container } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     expect(container).toMatchSnapshot();
   });
 });

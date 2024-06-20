@@ -1,12 +1,14 @@
+import { useRoutes } from "react-router-dom";
 import BasicLayout from "../layouts/BasicLayout";
 import ProductLayout from "../layouts/ProductLayout";
+import Product from "../components/Product";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import Shop from "../components/Shop";
 import Cart from "../components/Cart";
 import Category from "../components/Category";
 
-const routes = [
+const defaultRoutes = [
   {
     element: <BasicLayout />,
     errorElement: <ErrorPage />,
@@ -21,7 +23,6 @@ const routes = [
         children: [
           { index: true, element: <Category /> },
           { path: "category/:category", element: <Category /> },
-          { path: "product/:product", element: <ProductLayout /> },
         ],
       },
       {
@@ -32,4 +33,25 @@ const routes = [
   },
 ];
 
-export default routes;
+const productRoutes = [
+  {
+    element: <ProductLayout />,
+    path: "/shop",
+    children: [
+      { index: true, path: "product/:product", element: <Product /> },
+      { path: "category/:category/product/:product", element: <Product /> },
+    ],
+  },
+];
+
+const DefaultRoutes = ({ location }) => {
+  const routes = useRoutes(defaultRoutes, location);
+  return routes;
+};
+
+const ProductRoutes = () => {
+  const routes = useRoutes(productRoutes);
+  return routes;
+};
+
+export { DefaultRoutes as default, ProductRoutes };

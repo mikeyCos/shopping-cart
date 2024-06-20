@@ -1,4 +1,9 @@
-import { Link, useOutletContext, useParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 import parseCategory from "../utilities/parseCategory";
 import styles from "../styles/Category.module.css";
 
@@ -8,6 +13,7 @@ import styles from "../styles/Category.module.css";
 const Category = () => {
   const { category = "all" } = useParams();
   const [products] = useOutletContext();
+  const { pathname } = useLocation();
   const productKey = parseCategory(category);
   const headingCategory = category.replaceAll("-", " ");
   // console.log(products);
@@ -21,7 +27,10 @@ const Category = () => {
         <section className={styles.products} role="region">
           {products[productKey].map((product) => (
             <article className={styles["product-card"]} key={product.id}>
-              <Link to={`/shop/product/${product.title}`}>
+              <Link
+                to={`product/${product.title}`}
+                state={{ product, previousLocation: pathname }}
+              >
                 <picture>
                   <img
                     className={styles["product-img"]}

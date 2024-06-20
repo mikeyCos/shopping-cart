@@ -1,5 +1,16 @@
 # Changelog
 ---
+### 21 JUN 2024
+- 
+---
+### 20 JUN 2024
+- Test suites for `Category` and `Shop` components are failing; `dataCategories` and `dataProducts` appear to be mock objects.
+- Created test suite for the `Product` component.
+- If a user clicks on a product's image, a modal will appear with more product details.
+- The `useLocation` hook is used in the `App` component to pass in a location prop based on the location's object or if a `state` object property exists, then it's `previousLocation` property.
+- Created `DefaultRoutes` and `ProductRoutes` components in the `routes` module; these return a valid React element to render the route tree. 
+- Declared `BrowserRouter` at the root (`index.jsx`) of the application.
+---
 ### 19 JUN 2024
 - Experimenting with `Product` and `ProductLayout` components; renders a dialog element when a product on the shop page is clicked.
 - The `Category` component no longer renders a unordered list, but a products section with 'X' amount of article elements.

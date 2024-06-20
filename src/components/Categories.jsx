@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // import styles from "../styles/Categories.module.css";
 
 const Categories = ({ categories }) => {
+  console.log(categories);
   return (
     <article>
       {categories ? (

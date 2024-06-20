@@ -8,13 +8,6 @@ exports[`Categories component > The Categories component with categories prop ma
     >
       <li>
         <a
-          href="/category/all"
-        >
-          all
-        </a>
-      </li>
-      <li>
-        <a
           href="/category/electronics"
         >
           electronics

@@ -28,16 +28,14 @@ const Shop = () => {
       .then(([resCategories, resProducts]) => {
         // How to mock response status codes >= 400?
         if (resCategories.status >= 400) throw new Error("ERROR");
-        // return resCategories.json();
         return Promise.all([resCategories.json(), resProducts.json()]);
-        // return Promise.all([resCategories.json()]);
       })
       .then(([dataCategories, dataProducts]) => {
-        // How to use mockReturnValues here?
         const parsedProducts = parseProducts(dataProducts);
+        // console.log(dataCategories);
+        setCategories(["all", ...dataCategories]);
         setCategories(dataCategories);
         setProducts(parsedProducts);
-        // setProducts(dataProducts);
       })
       .catch((error) => setError(error.message));
   }, []);
@@ -64,6 +62,10 @@ export default Shop;
   - Shop
     - Make use of https://fakestoreapi.com/
     - Individual card elements for each product
+      - Is it possible to have clickable images that render a modal?
+        - Each images is wrapped around a Link component
+        - This will need a route
+        - The modal's content is an outlet that renders the information of the product
       - Input quantity (type number)
         - (OPTIONAL), create custom increment and decrement buttons
         - Need to hide the inner-spin-button
@@ -83,7 +85,7 @@ export default Shop;
         - Fetch https://fakestoreapi.com/products/category/${category}
           - In this example, category = 'jewelery'
         - The path should now be /shop/category/${category}
-    - Index should be the 
+    - Index should be the all products
 
   - When does it make sense to fetch data from an API?
     - If I fetch from an API on load, when the application/website first loads
