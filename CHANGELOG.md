@@ -1,7 +1,12 @@
 # Changelog
 ---
 ### 19 JUN 2024
-- 
+- Experimenting with `Product` and `ProductLayout` components; renders a dialog element when a product on the shop page is clicked.
+- The `Category` component no longer renders a unordered list, but a products section with 'X' amount of article elements.
+- The `ErrorPage` component is now rendered if `error` state in the `Shop` component exists; it takes an `errorMessage` prop with a fallback value.
+- Created `Category.module.css`.
+- `Category` and `Categories` test suites match with their respective snapshot.
+- Currently, all test suites now pass.
 ---
 ### 18 JUN 2024
 - Split `products` in `data.mocks` into an object and an array.

@@ -813,6 +813,7 @@ const parsedProducts = {
 };
 
 const categories = [
+  "all",
   "electronics",
   "jewelery",
   "men's clothing",

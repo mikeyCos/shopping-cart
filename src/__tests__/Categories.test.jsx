@@ -6,77 +6,40 @@ import {
 } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Categories from "../components/Categories";
-
-// const categories = [
-//   "electronics",
-//   "jewelery",
-//   "men's clothing",
-//   "women's clothing",
-// ];
-
-// window.fetch = vi.fn(() => {
-//   return Promise.resolve({
-//     json: () => Promise.resolve(categories),
-//   });
-// });
+import { categories } from "./data.mocks";
 
 describe("Categories component", () => {
-  it("The Categories component is rendered", async () => {
+  it("The Categories component with categories prop matches snapshot", () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/shop"]}>
+        <Categories categories={categories} />
+      </MemoryRouter>
+    );
+
+    // const categoriesComponent = await screen.findByRole("article");
+    // expect(categoriesComponent).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("The Categories component without categories prop renders Loading component", () => {
     render(
       <MemoryRouter initialEntries={["/shop"]}>
         <Categories />
       </MemoryRouter>
     );
-    const categoriesComponent = await screen.findByRole("article");
-    expect(categoriesComponent).toBeInTheDocument();
+
+    const categories = screen.getByTitle("Loading");
+    expect(categories).toBeInTheDocument();
   });
 
-  // it("Renders correct text while API request is in progress", async () => {
-  //   render(
-  //     <MemoryRouter initialEntries={["/shop"]}>
-  //       <Categories />
-  //     </MemoryRouter>
-  //   );
-  //   const categoriesComponentLoading = screen.getByTitle("Loading");
-  //   expect(categoriesComponentLoading).toBeInTheDocument();
+  it("The categories list should have 5 items", () => {
+    render(
+      <MemoryRouter initialEntries={["/shop"]}>
+        <Categories categories={categories} />
+      </MemoryRouter>
+    );
 
-  //   await waitForElementToBeRemoved(() => screen.getByTitle("Loading"));
-  // });
-
-  // it("Renders correct list of categories", async () => {
-  //   render(
-  //     <MemoryRouter initialEntries={["/shop"]}>
-  //       <Categories />
-  //     </MemoryRouter>
-  //   );
-  //   const categoriesList = await screen.findByRole("list");
-  //   const categoriesListItems = categoriesList.children;
-  //   expect(categoriesListItems.length).toBe(categories.length);
-  // });
-
-  // it("Renders correct text when fetch fails", async () => {
-  //   window.fetch.mockImplementationOnce(() =>
-  //     Promise.reject({ message: "API is down" })
-  //   );
-
-  //   render(
-  //     <MemoryRouter initialEntries={["/shop"]}>
-  //       <Categories />
-  //     </MemoryRouter>
-  //   );
-
-  //   const errorMessage = await screen.findByText("API is down");
-  //   expect(errorMessage).toBeInTheDocument();
-  // });
+    const categoriesList = screen.getByRole("list");
+    expect(categoriesList.children.length).toEqual(categories.length);
+  });
 });
-
-// Examples for fetching categories data from an API
-/*
-End result, after fetch and parse
-[
-  "electronics",
-  "jewelery",
-  "men's clothing",
-  "women's clothing"
-]
-*/

@@ -8,7 +8,7 @@ const Categories = ({ categories }) => {
   return (
     <article>
       {categories ? (
-        <ul>
+        <ul className="product-categories">
           {categories.map((category) => {
             return (
               <li key={category}>

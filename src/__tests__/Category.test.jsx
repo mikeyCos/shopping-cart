@@ -5,17 +5,8 @@ import {
   waitFor,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import {
-  createBrowserRouter,
-  MemoryRouter,
-  Route,
-  RouterProvider,
-  Routes,
-  useOutlet,
-  useOutletContext,
-  useParams,
-} from "react-router-dom";
-import { categories, products } from "./data.mocks";
+import { MemoryRouter, Route, Routes, useParams } from "react-router-dom";
+import { categories, parsedProducts, products } from "./data.mocks";
 import Shop from "../components/Shop";
 
 const fetchMock = vi.fn(() => {
@@ -28,6 +19,8 @@ const fetchMock = vi.fn(() => {
 });
 
 vi.stubGlobal("fetch", fetchMock);
+// Why and how does mocking the module fix testing issues?
+vi.mock("../utilities/parseProducts");
 
 const Category = () => {
   const { category = "all" } = useParams();
@@ -36,11 +29,19 @@ const Category = () => {
       <h2>Category</h2>
       {category && <h3>{category}</h3>}
       {products && (
-        <ul>
-          {products[category].map((product) => (
-            <li key={product.id}>{product.title}</li>
+        <section role="region">
+          {parsedProducts[category].map((product) => (
+            <article key={product.id}>
+              <picture>
+                <img src={product.image} />
+              </picture>
+              <div className="info">
+                <h4>{product.title}</h4>
+                <p className="description">{product.description}</p>
+              </div>
+            </article>
           ))}
-        </ul>
+        </section>
       )}
     </section>
   );
@@ -51,7 +52,7 @@ describe("Category component (Outlet)", () => {
   // https://stackoverflow.com/questions/70654872/how-to-test-react-router-v6-outlet-using-testing-library-react
   it("Category component is rendered", async () => {
     window.history.pushState({}, "Shop", "/shop/");
-    render(
+    const { container } = render(
       <MemoryRouter basename="/" initialEntries={["/shop"]}>
         <Routes>
           <Route path="/shop" element={<Shop />}>
@@ -62,8 +63,8 @@ describe("Category component (Outlet)", () => {
       </MemoryRouter>
     );
 
-    const categorySection = await screen.findByText("Category");
-    expect(categorySection).toBeInTheDocument();
+    await screen.findByRole("heading", { level: 3 });
+    expect(container).matchSnapshot();
   });
 
   it("Category's heading text should be 'electronics'", async () => {
@@ -86,8 +87,26 @@ describe("Category component (Outlet)", () => {
     expect(categoryElectronics.textContent).toMatch(regExp);
   });
 
-  it("Children length for the category's products should be 20", async () => {
+  it("20 products are listed for the 'all' category", async () => {
+    const allProducts = parsedProducts["all"]; // length of 20
+    render(
+      <MemoryRouter initialEntries={[`/shop`]}>
+        <Routes>
+          <Route path="/shop" element={<Shop />}>
+            <Route path="/shop" element={<Category />} />
+            <Route path="/shop/category/:category" element={<Category />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+
+    const productsList = await screen.findByRole("region");
+    expect(productsList.children.length).toBe(allProducts.length);
+  });
+
+  it("20 products are listed for the 'electronics' category", async () => {
     const category = "electronics";
+    const electronics = parsedProducts[category]; // length of 6
     render(
       <MemoryRouter initialEntries={[`/shop/category/${category}`]}>
         <Routes>
@@ -99,49 +118,7 @@ describe("Category component (Outlet)", () => {
       </MemoryRouter>
     );
 
-    const [categories, productsList] = await screen.findAllByRole("list");
-    console.log(productsList.children);
-    // expect(productsList.children.length).toBe(products.length);
+    const electronicsList = await screen.findByRole("region");
+    expect(electronicsList.children.length).toBe(electronics.length);
   });
 });
-
-/*
-products = {
-  electronics: [],
-  jewelry: [],
-  mens-clothing: [],
-  womens-clothing: [],
-}
-
-"men's clothing" => "mens_Clothing"
-
-
-const replacer = (match, offSet, string) => {
-    return match === `'` ? '' : '_'
-}
-
-"men's clothing".replace(/'|\s/g, replacer)
-
-const replacer = (match, offSet, string) => {
-    console.log("match:", match);
-    console.log("offSet:", offSet);
-    console.log("string:", string);
-    return match === `'` ? '' : '_'
-}
-
-const regExp = /'|\s/g;
-"men's clothing".replace(regExp, replacer)
-
-const replacer = (match, offSet, string) => {
-    console.log("match:", match);
-    console.log("offSet:", offSet);
-    console.log("string:", string);
-    if (match === `'`) {
-      return '';
-    }
-    return `_${string[offSet + 1].toUpperCase()}`;
-}
-
-const regExp = /'|\s/g;
-"men's clothing".replace(regExp, replacer)
-*/

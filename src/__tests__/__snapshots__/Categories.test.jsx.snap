@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Categories component > The Categories component with categories prop matches snapshot 1`] = `
+<div>
+  <article>
+    <ul
+      class="product-categories"
+    >
+      <li>
+        <a
+          href="/category/all"
+        >
+          all
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/electronics"
+        >
+          electronics
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/jewelery"
+        >
+          jewelery
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/men's-clothing"
+        >
+          men's clothing
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/women's-clothing"
+        >
+          women's clothing
+        </a>
+      </li>
+    </ul>
+  </article>
+</div>
+`;

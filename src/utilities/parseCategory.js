@@ -1,4 +1,4 @@
-const regExp = /(')|(\s+)([^\s])/g;
+const regExpDefault = /(')|(\s|-)+([^\s])/g;
 const replacer = (match, p1, p2, p3) => {
   return p3 ? p3.toUpperCase() : "";
 };
@@ -8,7 +8,7 @@ const replacer = (match, p1, p2, p3) => {
  * For example, "men's clothing" => "mensClothing"
  */
 const parseCategory = (category) => {
-  return category.replace(regExp, replacer);
+  return category.replace(regExpDefault, replacer);
 };
 
 export default parseCategory;

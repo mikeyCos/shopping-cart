@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import Categories from "./Categories";
 import Loading from "./Loading";
+import ErrorPage from "./ErrorPage";
 import parseProducts from "../utilities/parseProducts";
 import parseCategory from "../utilities/parseCategory";
 import styles from "../styles/Shop.module.css";
@@ -19,10 +20,10 @@ const Shop = () => {
     //  https://fakestoreapi.com/products
     // Need to send data into Outlet and/or Categories component(s)
     Promise.all([
-      // fetch("https://fakestoreapi.com/products/categories"),
-      // fetch("https://fakestoreapi.com/products"),
-      fetch(""),
-      fetch(""),
+      fetch("https://fakestoreapi.com/products/categories"),
+      fetch("https://fakestoreapi.com/products"),
+      // fetch(""),
+      // fetch(""),
     ])
       .then(([resCategories, resProducts]) => {
         // How to mock response status codes >= 400?
@@ -33,18 +34,15 @@ const Shop = () => {
       })
       .then(([dataCategories, dataProducts]) => {
         // How to use mockReturnValues here?
-        // const parsedProducts = parseProducts(dataProducts);
+        const parsedProducts = parseProducts(dataProducts);
         setCategories(dataCategories);
-        // setProducts(parsedProducts);
-        setProducts(dataProducts);
+        setProducts(parsedProducts);
+        // setProducts(dataProducts);
       })
       .catch((error) => setError(error.message));
   }, []);
 
-  // const productKey = category ? parseCategory(category) : "all";
-  // const activeProduct = products[productKey];
-
-  if (error) return <section>{error}</section>;
+  if (error) return <ErrorPage errorMessage={error} />;
   return (
     <section id="shop">
       Shop section

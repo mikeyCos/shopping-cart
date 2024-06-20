@@ -11,7 +11,7 @@ const Header = () => {
         <ul className={styles.navLeft}>
           <li>
             <Link className={styles.anchorNoDecoration} to="/">
-              <img src="#" alt="" />
+              <img src="#" alt="#" />
               <h1>Logo</h1>
             </Link>
           </li>

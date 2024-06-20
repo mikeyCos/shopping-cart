@@ -1,4 +1,5 @@
 import BasicLayout from "../layouts/BasicLayout";
+import ProductLayout from "../layouts/ProductLayout";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import Shop from "../components/Shop";
@@ -20,6 +21,7 @@ const routes = [
         children: [
           { index: true, element: <Category /> },
           { path: "category/:category", element: <Category /> },
+          { path: "product/:product", element: <ProductLayout /> },
         ],
       },
       {

@@ -6,8 +6,9 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { categories, products } from "./data.mocks";
+import { categories, parsedProducts, products } from "./data.mocks";
 import Shop from "../components/Shop";
+import parseProducts from "../utilities/parseProducts";
 
 const fetchMock = vi.fn(() => {
   return Promise.resolve({
@@ -19,9 +20,32 @@ const fetchMock = vi.fn(() => {
   });
 });
 
+// const parseProductsMock = vi.fn(() => parsedProducts);
+// vi.stubGlobal("parseProducts", parseProductsMock);
 vi.stubGlobal("fetch", fetchMock);
+vi.mock("../utilities/parseProducts");
 
 describe("Shop component", () => {
+  it("The mock function, fetchMock, is called twice", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Shop />
+      </MemoryRouter>
+    );
+
+    expect(fetchMock).toBeCalledTimes(2);
+  });
+
+  it("The mock function, parseProductsMock, is called once", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Shop />
+      </MemoryRouter>
+    );
+
+    expect(parseProducts).toBeCalledTimes(1);
+  });
+
   it("The Shop component is rendered", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
@@ -58,17 +82,16 @@ describe("Shop component", () => {
     expect(errorMessage).toBeInTheDocument();
   });
 
-  it("Renders correct list of categories", async () => {
+  it("The 'All' category is first in the categories list", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <Shop />
       </MemoryRouter>
     );
 
-    // Why can't I get children of categoriesList element?
-    // const categoriesList = await screen.findByRole("list");
-
-    // const categoriesListItems = await screen.findAllByRole("listitem");
-    // expect(categoriesListItems.length).toBe(categories.length);
+    const categoriesList = await screen.findByRole("list");
+    const categoriesListItems = categoriesList.children;
+    const firstCategory = categoriesListItems[0];
+    expect(firstCategory.textContent).match(/all/i);
   });
 });
