@@ -1,7 +1,12 @@
 # Changelog
 ---
 ### 21 JUN 2024
-- 
+- Renamed `data.mocks` to `mocks`, and declared `fetchMock` in module.
+- Renamed `ProductLayout` to `Modal` and moved to `components` directory.
+- For now, fixed `Category` and `Shop` test suites by removing `Promise.resolve()` in the `json` method.
+```js
+json: vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products);
+```
 ---
 ### 20 JUN 2024
 - Test suites for `Category` and `Shop` components are failing; `dataCategories` and `dataProducts` appear to be mock objects.

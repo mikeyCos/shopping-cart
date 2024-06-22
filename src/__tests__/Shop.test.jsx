@@ -1,38 +1,40 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   render,
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { categories, parsedProducts, products } from "./data.mocks";
+import { fetchMock } from "./mocks";
 import Shop from "../components/Shop";
 import parseProducts from "../utilities/parseProducts";
 
-const fetchMock = vi.fn(() => {
-  return Promise.resolve({
-    // json: () => Promise.resolve(categories),
-    json: () =>
-      Promise.resolve(
-        vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products)
-      ),
-  });
+/* Optional
+ * Define fetchMock here
+ * expect(fetchMock).toBeCalledTimes
+ */
+/* const fetchMock = vi.fn(() => {
+  json: vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products);
 });
-
-// const parseProductsMock = vi.fn(() => parsedProducts);
-// vi.stubGlobal("parseProducts", parseProductsMock);
 vi.stubGlobal("fetch", fetchMock);
 vi.mock("../utilities/parseProducts");
+ */
+
+beforeEach(() => {
+  vi.mock("../utilities/parseProducts");
+  fetchMock();
+});
 
 describe("Shop component", () => {
   it("The mock function, fetchMock, is called twice", () => {
+    const spyFetch = vi.spyOn(globalThis, "fetch");
     render(
       <MemoryRouter initialEntries={["/shop"]}>
         <Shop />
       </MemoryRouter>
     );
 
-    expect(fetchMock).toBeCalledTimes(2);
+    expect(spyFetch).toBeCalledTimes(2);
   });
 
   it("The mock function, parseProductsMock, is called once", () => {
@@ -56,7 +58,6 @@ describe("Shop component", () => {
       </MemoryRouter>
     );
     const shopSection = await screen.findByText("Shop section");
-    screen.debug();
     expect(shopSection).toBeInTheDocument();
   });
 

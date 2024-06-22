@@ -1,40 +1,62 @@
-import { describe, expect, it, vi } from "vitest";
-import {
-  render,
-  screen,
-  waitFor,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
-import { MemoryRouter, Route, Routes, useParams } from "react-router-dom";
-import { categories, parsedProducts, products } from "./data.mocks";
+import { beforeEach, describe, expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { Link, MemoryRouter, Route, Routes, useParams } from "react-router-dom";
+import { fetchMock, parsedProducts, products } from "./mocks";
 import Shop from "../components/Shop";
 
-const fetchMock = vi.fn(() => {
-  return Promise.resolve({
-    json: () =>
-      Promise.resolve(
-        vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products)
-      ),
-  });
+/* Optional
+ * Define fetchMock here
+ * expect(fetchMock).toBeCalledTimes
+ */
+/* const fetchMock = vi.fn(() => {
+  json: vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products);
 });
-
 vi.stubGlobal("fetch", fetchMock);
 // Why and how does mocking the module fix testing issues?
 vi.mock("../utilities/parseProducts");
+ */
+
+beforeEach(() => {
+  fetchMock();
+});
 
 const Category = () => {
   const { category = "all" } = useParams();
   return (
+    // <section>
+    //   <h2>Category</h2>
+    //   {category && <h3>{category}</h3>}
+    //   {products && (
+    //     <section role="region">
+    //       {parsedProducts[category].map((product) => (
+    //         <article key={product.id}>
+    //           <picture>
+    //             <img src={product.image} />
+    //           </picture>
+    //           <div className="info">
+    //             <h4>{product.title}</h4>
+    //           </div>
+    //         </article>
+    //       ))}
+    //     </section>
+    //   )}
+    // </section>
     <section>
       <h2>Category</h2>
-      {category && <h3>{category}</h3>}
+      <h3>{category}</h3>
       {products && (
         <section role="region">
           {parsedProducts[category].map((product) => (
             <article key={product.id}>
-              <picture>
-                <img src={product.image} />
-              </picture>
+              <Link
+                to={`product/${encodeURIComponent(product.title)}`}
+                state={{ product, previousLocation: "previousLocation" }}
+              >
+                <picture>
+                  <img src={product.image} loading="lazy" alt="#" />
+                </picture>
+              </Link>
+
               <div className="info">
                 <h4>{product.title}</h4>
               </div>

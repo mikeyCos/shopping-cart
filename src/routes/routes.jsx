@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import BasicLayout from "../layouts/BasicLayout";
-import ProductLayout from "../layouts/ProductLayout";
+import Modal from "../components/Modal";
 import Product from "../components/Product";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
@@ -35,7 +35,7 @@ const defaultRoutes = [
 
 const productRoutes = [
   {
-    element: <ProductLayout />,
+    element: <Modal />,
     path: "/shop",
     children: [
       { index: true, path: "product/:product", element: <Product /> },

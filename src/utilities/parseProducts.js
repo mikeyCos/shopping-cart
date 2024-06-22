@@ -9,7 +9,6 @@ import parseCategory from "./parseCategory";
  * }
  */
 const parseProducts = (data) => {
-  // console.log(data);
   const products = data.reduce(
     (accumulator, currentProduct) => {
       const key = parseCategory(currentProduct.category);

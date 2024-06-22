@@ -1,12 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Categories from "../components/Categories";
-import { categories } from "./data.mocks";
+import { categories } from "./mocks";
 
 describe("Categories component", () => {
   it("The Categories component with categories prop matches snapshot", () => {
@@ -16,8 +12,6 @@ describe("Categories component", () => {
       </MemoryRouter>
     );
 
-    // const categoriesComponent = await screen.findByRole("article");
-    // expect(categoriesComponent).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 

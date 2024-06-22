@@ -28,7 +28,7 @@ const Category = () => {
           {products[productKey].map((product) => (
             <article className={styles["product-card"]} key={product.id}>
               <Link
-                to={`product/${product.title}`}
+                to={`product/${encodeURIComponent(product.title)}`}
                 state={{ product, previousLocation: pathname }}
               >
                 <picture>

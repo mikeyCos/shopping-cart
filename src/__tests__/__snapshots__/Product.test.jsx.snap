@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Product component > Product component matches inline snapshot 1`] = `
+exports[`Product component > Product component matches snapshot 1`] = `
 <article>
   <h4>
     Opna Women's Short Sleeve Moisture
@@ -13,10 +13,33 @@ exports[`Product component > Product component matches inline snapshot 1`] = `
       style="width: 200px;"
     />
   </picture>
-  <div>
+  <form
+    novalidate=""
+  >
     <p>
       100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort
     </p>
-  </div>
+    <p>
+      $
+      7.95
+    </p>
+    <div
+      class="form-item"
+    >
+      <label
+        for="quantity"
+      />
+      <input
+        id="quantity"
+        name="quantity"
+        type="number"
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Add to cart
+    </button>
+  </form>
 </article>
 `;

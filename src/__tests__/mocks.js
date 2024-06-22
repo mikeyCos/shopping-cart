@@ -1,3 +1,5 @@
+import { vi } from "vitest";
+
 const product = {
   id: 19,
   title: "Opna Women's Short Sleeve Moisture",
@@ -833,4 +835,10 @@ const categories = [
   "women's clothing",
 ];
 
-export { categories, parsedProducts, product, products };
+const fetchMock = () => {
+  vi.spyOn(globalThis, "fetch").mockResolvedValue({
+    json: vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products),
+  });
+};
+
+export { categories, fetchMock, parsedProducts, product, products };

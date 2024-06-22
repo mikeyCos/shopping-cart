@@ -32,9 +32,8 @@ const Shop = () => {
       })
       .then(([dataCategories, dataProducts]) => {
         const parsedProducts = parseProducts(dataProducts);
-        // console.log(dataCategories);
         setCategories(["all", ...dataCategories]);
-        setCategories(dataCategories);
+        // setCategories(dataCategories);
         setProducts(parsedProducts);
       })
       .catch((error) => setError(error.message));

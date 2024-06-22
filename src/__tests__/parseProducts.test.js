@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { products } from "./data.mocks";
+import { products } from "./mocks";
 import parseProducts from "../utilities/parseProducts";
 
 describe("Utility createDataProducts", () => {
