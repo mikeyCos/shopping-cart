@@ -1,6 +1,11 @@
 # Changelog
 ---
+### 24 JUN 2024
+- 
+---
 ### 21 JUN 2024
+- Each `product.title` is passed into the `encodeURIComponent()` function to replace conflicting URI characters.
+- Created test suite for the `Modal` component and attempted to test the dialog element.
 - Renamed `data.mocks` to `mocks`, and declared `fetchMock` in module.
 - Renamed `ProductLayout` to `Modal` and moved to `components` directory.
 - For now, fixed `Category` and `Shop` test suites by removing `Promise.resolve()` in the `json` method.

@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { useLocation, useRoutes } from "react-router-dom";
 import BasicLayout from "../layouts/BasicLayout";
 import Modal from "../components/Modal";
 import Product from "../components/Product";
@@ -39,7 +39,10 @@ const productRoutes = [
     path: "/shop",
     children: [
       { index: true, path: "product/:product", element: <Product /> },
-      { path: "category/:category/product/:product", element: <Product /> },
+      {
+        path: "category/:category/product/:product",
+        element: <Product />,
+      },
     ],
   },
 ];
@@ -54,4 +57,16 @@ const ProductRoutes = () => {
   return routes;
 };
 
-export { DefaultRoutes as default, ProductRoutes };
+const Routes = () => {
+  const location = useLocation();
+  const previousLocation = location.state?.previousLocation;
+
+  return (
+    <>
+      <DefaultRoutes location={previousLocation || location} />
+      {previousLocation && <ProductRoutes />}
+    </>
+  );
+};
+
+export default Routes;

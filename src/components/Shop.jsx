@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Categories from "./Categories";
 import Loading from "./Loading";
 import ErrorPage from "./ErrorPage";
 import parseProducts from "../utilities/parseProducts";
-import parseCategory from "../utilities/parseCategory";
 import styles from "../styles/Shop.module.css";
 
 const Shop = () => {
   const [categories, setCategories] = useState(null);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
-  const { category } = useParams();
+
   useEffect(() => {
     // Fetch categories here or in the Categories component?
     // Fetch categories from:
@@ -33,7 +32,6 @@ const Shop = () => {
       .then(([dataCategories, dataProducts]) => {
         const parsedProducts = parseProducts(dataProducts);
         setCategories(["all", ...dataCategories]);
-        // setCategories(dataCategories);
         setProducts(parsedProducts);
       })
       .catch((error) => setError(error.message));

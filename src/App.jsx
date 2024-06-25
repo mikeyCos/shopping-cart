@@ -1,14 +1,16 @@
-import { useLocation } from "react-router-dom";
-import DefaultRoutes, { ProductRoutes } from "./routes/routes";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes/Routes";
 import styles from "./styles/App.module.css";
+import { CartProvider } from "./components/Cart";
 
 const App = () => {
-  const location = useLocation();
-  const previousLocation = location.state?.previousLocation;
   return (
     <div id={styles.app}>
-      <DefaultRoutes location={previousLocation || location} />
-      {previousLocation && <ProductRoutes />}
+      <CartProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 };
@@ -38,4 +40,5 @@ Two pages
         - https://stackoverflow.com/questions/75879418/how-to-remove-arrows-in-input-type-number-inside-the-input
       - Title
       - "Add To Cart" button
+- BrowserRouter does not support the react-router-dom data APIs
 */
