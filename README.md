@@ -82,11 +82,18 @@
 
 [![CV Application Screen Shot][product-screenshot]](https://example.com)
 
-Project: ProjectName
+Project: Shopping Cart
 
 Hello world,
 
 Pellentesque tincidunt vel ante lobortis vehicula. Donec ex justo, volutpat nec ultricies non, elementum nec nibh. Maecenas porttitor est ac nibh congue, sed placerat lorem bibendum. Duis non ante in ex sollicitudin pulvinar nec sit amet turpis. Pellentesque ac elit sed libero vehicula convallis. Pellentesque tincidunt tellus nec lacus mollis pellentesque. Integer tempus sit amet nunc a auctor. Morbi at ullamcorper dolor, non placerat orci. Ut ut efficitur metus. In efficitur enim id sodales porta. Phasellus scelerisque, augue sit amet semper suscipit, lacus nunc laoreet lorem, sit amet elementum orci justo in risus. Ut diam est, egestas sed ligula ut, cursus dignissim nibh. Mauris in est dui. Pellentesque in sem ut dolor laoreet porta. Etiam vitae accumsan tortor. Vestibulum magna mi, sagittis eget consequat a, tincidunt in ligula.
+
+Struggles:
+- Figuring out a good place to fetch data from an API
+- Testing components dependant on internal state
+- Controlling and sharing a Cart state 
+  - Used the React Context API
+- Clicking a product/item's image will render a modal with more product information
 
 To failing forward, cheers!
 
@@ -148,8 +155,17 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] Create skeleton components.
-- [x] Create test templates.
-- [ ] Refactor routes using loaders.
+- [x] Create test suites.
+  - [ ] Test components match their snapshots.
+  - [ ] Test event handlers (attempt).
+- [ ] Fetch from an API for store items/products.
+- [ ] Create routes to home, shop and cart pages.
+  - [ ] Refactor routes using loaders.
+- [ ] Create nested routes for item/product categories.
+- [ ] Render store items/products
+  - [ ] Render image of item/product, 
+  - [ ] Wrap each image with a Link element
+    - [ ] On image click, render a modal containing more product information, an 'Add to Cart' button, and an quantity input.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

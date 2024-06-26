@@ -5,39 +5,11 @@ import { useContext, useState } from "react";
 const Product = () => {
   const { state } = useLocation();
   const { product } = state;
-  const [cart, setCart] = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const addToCartHandler = (e) => {
     e.preventDefault();
-    console.log(product);
-    setCart((prevCart) => {
-      const isInCart = prevCart.some((cartItem) => cartItem.id === product.id);
-
-      return isInCart
-        ? prevCart.reduce((accumulator, currentCartItem) => {
-            /* if (currentCartItem.id === product.id) {
-              return [
-                ...accumulator,
-                {
-                  ...currentCartItem,
-                  quantity: currentCartItem.quantity + quantity,
-                },
-              ];
-            } else {
-              return [...accumulator, currentCartItem];
-            } */
-            return [
-              ...accumulator,
-              currentCartItem.id === product.id
-                ? {
-                    ...currentCartItem,
-                    quantity: currentCartItem.quantity + quantity,
-                  }
-                : currentCartItem,
-            ];
-          }, [])
-        : [...prevCart, { ...product, quantity }];
-    });
+    addToCart(product, quantity);
   };
 
   const quantityHandler = (e) => {
@@ -45,8 +17,7 @@ const Product = () => {
     setQuantity(newQuantity);
   };
 
-  console.log("cart", cart);
-  console.log("location state", state);
+  // console.log("location state", state);
   return (
     <article>
       <h4>{product.title}</h4>

@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Cart component > Cart component matches snapshot 1`] = `
+<section
+  id="cart"
+  role="region"
+>
+  Cart
+  <article>
+    <h4>
+      Opna Women's Short Sleeve Moisture
+    </h4>
+    <picture>
+      <img
+        alt="#"
+        loading="lazy"
+        src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+        style="width: 200px;"
+      />
+    </picture>
+    <p>
+      $
+      7.95
+    </p>
+    <div
+      class="form-item"
+    >
+      <label
+        for="quantity"
+      />
+      <input
+        id="quantity"
+        max="100"
+        min="0"
+        name="quantity"
+        type="number"
+        value="1"
+      />
+    </div>
+    <button
+      type="button"
+    >
+      Delete
+    </button>
+  </article>
+  <p>
+    Subtotal: 
+    <span>
+      $
+      7.95
+    </span>
+  </p>
+</section>
+`;

@@ -19,7 +19,7 @@ const Header = () => {
 
         <ul className={styles.navRight}>
           <li>
-            <Link className={styles.anchorNoDecoration} to="/">
+            <Link className={styles.anchorNoDecoration} to="/home">
               Home
             </Link>
           </li>

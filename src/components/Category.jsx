@@ -29,7 +29,7 @@ const Category = () => {
             <article className={styles["product-card"]} key={product.id}>
               <Link
                 to={`product/${encodeURIComponent(product.title)}`}
-                state={{ product, previousLocation: pathname, cart: [] }}
+                state={{ product, previousLocation: pathname }}
               >
                 <picture>
                   <img
@@ -43,6 +43,7 @@ const Category = () => {
 
               <div className="info">
                 <h4>{product.title}</h4>
+                <p>${product.price}</p>
               </div>
             </article>
           ))}

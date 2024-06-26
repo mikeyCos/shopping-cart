@@ -14,7 +14,7 @@ const defaultRoutes = [
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "/home?",
         element: <Home />,
       },
       {

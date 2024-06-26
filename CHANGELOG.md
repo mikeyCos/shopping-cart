@@ -1,7 +1,20 @@
 # Changelog
 ---
-### 24 JUN 2024
+### 26 JUN 2024
 - 
+---
+### 25 JUN 2024
+- Removed product description in `Cart` component.
+- Quantities can be changed on the cart page; if the quantity input has focus, and the `Backspace` key is pressed, the item is removed from the cart. Changing quantities will update the subtotal.
+- The `Cart` component now renders items that are in the cart and the subtotal; if there are no items in the cart, the component will render a message letting the user know the cart is empty.
+- Provided more tests in the `Cart` test suite.
+---
+### 24 JUN 2024
+- User can now add items into cart; if the same item is added after previously adding it to the cart, the quantities will be added together.
+- Created `CartContext` and `CartProvider` in `Cart` module; currently, `Cart` and `Product` components utilize the `useContext` hook.
+- Moved `BrowserRouter` from the root (`index.jsx`) to the `App` component.
+- A single value is exported from the `Routes` module.
+- Renamed `routes` to `Routes`.
 ---
 ### 21 JUN 2024
 - Each `product.title` is passed into the `encodeURIComponent()` function to replace conflicting URI characters.

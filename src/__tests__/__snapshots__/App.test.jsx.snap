@@ -33,7 +33,7 @@ exports[`App component > The App component is rendered 1`] = `
           <li>
             <a
               class="_anchorNoDecoration_a9d33c"
-              href="/"
+              href="/home"
             >
               Home
             </a>

@@ -64,7 +64,7 @@ describe("Product component", () => {
   });
 
   it.skip("The up arrow increases the quantity input by 1", async () => {
-    /* This test does not work
+    /* This test does not work; why?
      * The keyboard event, for ArrowUp key, does not increment quantity
      */
     const user = userEvent.setup();
