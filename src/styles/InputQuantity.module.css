@@ -1,0 +1,30 @@
+.input-btn-container {
+  position: relative;
+  width: fit-content;
+}
+
+.input-btn {
+  position: absolute;
+  width: 1rem;
+}
+
+.input-btn-left {
+  composes: input-btn;
+  left: 0;
+}
+
+.input-btn-right {
+  composes: input-btn;
+  right: 0;
+}
+
+.input {
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

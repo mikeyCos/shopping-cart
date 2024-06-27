@@ -10,11 +10,11 @@ exports[`App component > The App component is rendered 1`] = `
         class="_nav_a9d33c"
       >
         <ul
-          class="_navLeft_a9d33c"
+          class="_nav-left_a9d33c"
         >
           <li>
             <a
-              class="_anchorNoDecoration_a9d33c"
+              class="_anchor-no-decoration_a9d33c"
               href="/"
             >
               <img
@@ -28,11 +28,11 @@ exports[`App component > The App component is rendered 1`] = `
           </li>
         </ul>
         <ul
-          class="_navRight_a9d33c"
+          class="_nav-right_a9d33c"
         >
           <li>
             <a
-              class="_anchorNoDecoration_a9d33c"
+              class="_anchor-no-decoration_a9d33c"
               href="/home"
             >
               Home
@@ -40,7 +40,7 @@ exports[`App component > The App component is rendered 1`] = `
           </li>
           <li>
             <a
-              class="_anchorNoDecoration_a9d33c"
+              class="_anchor-no-decoration_a9d33c"
               href="/shop"
             >
               Shop
@@ -48,10 +48,16 @@ exports[`App component > The App component is rendered 1`] = `
           </li>
           <li>
             <a
+              class="_cart-anchor_a9d33c"
               href="/cart"
             >
+              <span
+                class="_cart-number_a9d33c"
+              >
+                0
+              </span>
               <svg
-                class="cart _icon_d9d978 _anchorNoDecoration_a9d33c"
+                class="cart _icon_d9d978 _anchor-no-decoration_a9d33c"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -64,7 +70,7 @@ exports[`App component > The App component is rendered 1`] = `
           </li>
           <li>
             <a
-              class="_anchorNoDecoration_a9d33c"
+              class="_anchor-no-decoration_a9d33c"
               href="#"
               target="_blank"
             >

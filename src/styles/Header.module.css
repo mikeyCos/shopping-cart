@@ -9,25 +9,37 @@ nav {
   gap: 0.5rem;
 }
 
-.listStyleNone {
+.list-style-none {
   list-style: none;
 }
 
-.anchorNoDecoration {
+.anchor-no-decoration {
   text-decoration: none;
 }
 
-.navLeft {
-  /* composes: listStyleNone; */
+.nav-left {
   flex: 1;
 }
 
-.navLeft a {
+.nav-left a {
   display: flex;
 }
 
-.navRight {
-  /* composes: listStyleNone; */
+.nav-right {
   display: flex;
   align-items: center;
+}
+
+.cart-anchor {
+  position: relative;
+}
+
+.cart-number {
+  /* Touch up */
+  position: absolute;
+  right: 0;
+  background-color: orange;
+  border-radius: 100%;
+  width: 16px;
+  text-align: center;
 }

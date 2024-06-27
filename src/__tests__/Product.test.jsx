@@ -4,6 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import Product from "../components/Product";
 import { product } from "./mocks";
 import userEvent from "@testing-library/user-event";
+import { CartProvider } from "../components/Cart";
 
 describe("Product component", () => {
   it("Product component matches snapshot", () => {
@@ -26,7 +27,7 @@ describe("Product component", () => {
       </MemoryRouter>
     );
 
-    const quantityInput = screen.getByRole("spinbutton");
+    const quantityInput = screen.getByRole("textbox");
     expect(quantityInput.value).toBe("1");
   });
 
@@ -39,7 +40,7 @@ describe("Product component", () => {
       </MemoryRouter>
     );
 
-    const quantityInput = screen.getByRole("spinbutton");
+    const quantityInput = screen.getByRole("textbox");
 
     await user.clear(quantityInput);
     await user.type(quantityInput, "10");
@@ -56,14 +57,32 @@ describe("Product component", () => {
       </MemoryRouter>
     );
 
-    const quantityInput = screen.getByRole("spinbutton");
+    const quantityInput = screen.getByRole("textbox");
 
     await user.click(quantityInput);
 
     expect(quantityInput).toHaveFocus();
   });
 
-  it.skip("The up arrow increases the quantity input by 1", async () => {
+  it("Clicking the incrementButton increases the quantity input's value by 1 ", async () => {
+    const user = userEvent.setup();
+    const initialEntries = [{ pathname: "/", state: { product } }];
+    render(
+      <CartProvider>
+        <MemoryRouter initialEntries={initialEntries}>
+          <Product />
+        </MemoryRouter>
+      </CartProvider>
+    );
+
+    const quantityInput = screen.getByRole("textbox");
+    const incrementButton = screen.getByRole("button", { name: "+" });
+
+    await user.click(incrementButton);
+    expect(quantityInput.value).toBe("2");
+  });
+
+  it.skip("The up arrow increases the quantity input's value by 1", async () => {
     /* This test does not work; why?
      * The keyboard event, for ArrowUp key, does not increment quantity
      */

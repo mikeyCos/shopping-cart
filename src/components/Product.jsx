@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { CartContext } from "./Cart";
 import { useContext, useState } from "react";
+import InputQuantity from "./InputQuantity";
 
 const Product = () => {
   const { state } = useLocation();
@@ -12,12 +13,21 @@ const Product = () => {
     addToCart(product, quantity);
   };
 
-  const quantityHandler = (e) => {
-    const newQuantity = +e.target.value;
+  const onChangeQuantityHandler = (newQuantity) => {
     setQuantity(newQuantity);
   };
 
-  // console.log("location state", state);
+  const incrementQuantityHandler = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decrementQuantityHandler = () => {
+    setQuantity((prevQuantity) => {
+      const newQuantity = prevQuantity - 1;
+      return newQuantity === 0 ? prevQuantity : newQuantity;
+    });
+  };
+
   return (
     <article>
       <h4>{product.title}</h4>
@@ -32,18 +42,12 @@ const Product = () => {
       <form noValidate={true} onSubmit={addToCartHandler}>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <div className="form-item">
-          <label htmlFor="quantity"></label>
-          <input
-            id="quantity"
-            name="quantity"
-            type="number"
-            value={quantity}
-            min={1}
-            max={100}
-            onChange={quantityHandler}
-          />
-        </div>
+        <InputQuantity
+          quantity={quantity}
+          setQuantity={onChangeQuantityHandler}
+          incrementHandler={incrementQuantityHandler}
+          decrementHandler={decrementQuantityHandler}
+        />
         <button type="submit">Add to cart</button>
       </form>
     </article>

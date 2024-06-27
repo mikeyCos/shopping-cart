@@ -1,7 +1,16 @@
 # Changelog
 ---
-### 26 JUN 2024
+### 27 JUN 2024
 - 
+---
+### 26 JUN 2024
+- Added an `onKeyDown` event handler to the quantity input to prevent certain keyboard keys.
+- Quantity input `min` and `max` attributes changed to `minLength` and `maxLength` 
+- Quantity input type changed from `number` to `text` and added the attribute-value pair `inputMode="numeric"`.
+- Created `InputQuantity` component, it's respective test suite and CSS module; currently, the component accepts four props: `quantity`, `setQuantity`, `incrementHandler`, and `decrementHandler`.
+- Created additional tests to the `Header` test suite for the cart's 'notification' bubble.
+- Created increment and decrement quantity buttons.
+- Added 'notification' bubble near shopping cart icon displaying number of unique items in cart.
 ---
 ### 25 JUN 2024
 - Removed product description in `Cart` component.

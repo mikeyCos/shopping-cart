@@ -1,16 +1,11 @@
 import PropTypes from "prop-types";
 import { createContext, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
+import InputQuantity from "./InputQuantity";
 
 const Cart = () => {
   const location = useLocation();
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
-  // console.log(cart);
-
-  /* Remove item from cart when:
-   *  - Quantity input is 0
-   *  - Delete button is clicked
-   */
 
   const subTotal = cart.reduce((accumulator, currentCartItem) => {
     return accumulator + currentCartItem.price * currentCartItem.quantity;
@@ -34,26 +29,30 @@ const Cart = () => {
                     alt="#"
                   />
                 </picture>
-                {/* <form noValidate={true} onSubmit={addToCartHandler}> */}
-                <p>${item.price}</p>
-                <div className="form-item">
-                  <label htmlFor="quantity"></label>
-                  <input
-                    id="quantity"
-                    name="quantity"
-                    type="number"
-                    value={item.quantity}
-                    min={0}
-                    max={100}
-                    onChange={(e) => {
-                      updateQuantity(item.id, +e.target.value);
+                <form
+                  noValidate={true}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    removeFromCart(item.id);
+                  }}
+                >
+                  <p>${item.price}</p>
+                  <InputQuantity
+                    quantity={item.quantity}
+                    setQuantity={(newQuantity) => {
+                      updateQuantity(item.id, newQuantity);
+                    }}
+                    incrementHandler={() => {
+                      const newQuantity = item.quantity + 1;
+                      updateQuantity(item.id, newQuantity);
+                    }}
+                    decrementHandler={() => {
+                      const newQuantity = item.quantity - 1;
+                      updateQuantity(item.id, newQuantity);
                     }}
                   />
-                </div>
-                <button type="button" onClick={() => removeFromCart(item.id)}>
-                  Delete
-                </button>
-                {/* </form> */}
+                  <button type="submit">Delete</button>
+                </form>
               </article>
             );
           })}
@@ -84,15 +83,6 @@ const CartProvider = ({ children }) => {
    */
   const addToCart = (product, quantity) => {
     const { id } = product;
-    const productInCart = getProductFromCart(id);
-    /* if (productInCart) {
-      setCart((prevCart) => [
-        ...prevCart,
-        { ...product, quantity: productInCart.quantity + quantity },
-      ]);
-    } else {
-      setCart((prevCart) => [...prevCart, { ...product, quantity }]);
-    } */
 
     /* const newCart = productInCart
       ? cart.map((productInCart) => {
@@ -138,7 +128,6 @@ const CartProvider = ({ children }) => {
     //       }, [])
     //     : [...prevCart, { ...product, quantity }];
     // });
-    console.log(cart);
   };
 
   const removeFromCart = (productID) => {
@@ -157,10 +146,6 @@ const CartProvider = ({ children }) => {
         })
       );
     }
-  };
-
-  const getProductFromCart = (productID) => {
-    return cart.find((product) => product.id === productID);
   };
 
   return (
