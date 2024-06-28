@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 import { createContext, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputQuantity from "./InputQuantity";
+import formatPrice from "../utilities/formatPrice";
 
 const Cart = () => {
   const location = useLocation();
-  const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { cart, removeFromCart, setQuantity } = useContext(CartContext);
 
   const subTotal = cart.reduce((accumulator, currentCartItem) => {
     return accumulator + currentCartItem.price * currentCartItem.quantity;
@@ -36,19 +37,20 @@ const Cart = () => {
                     removeFromCart(item.id);
                   }}
                 >
-                  <p>${item.price}</p>
+                  <p>{formatPrice(item.price)}</p>
                   <InputQuantity
                     quantity={item.quantity}
                     setQuantity={(newQuantity) => {
-                      updateQuantity(item.id, newQuantity);
+                      console.log("previous quantity", item.quantity);
+                      setQuantity(item.id, newQuantity);
                     }}
                     incrementHandler={() => {
-                      const newQuantity = item.quantity + 1;
-                      updateQuantity(item.id, newQuantity);
+                      const newQuantity = +item.quantity + 1;
+                      newQuantity <= 999 && setQuantity(item.id, newQuantity);
                     }}
                     decrementHandler={() => {
                       const newQuantity = item.quantity - 1;
-                      updateQuantity(item.id, newQuantity);
+                      newQuantity >= 0 && setQuantity(item.id, newQuantity);
                     }}
                   />
                   <button type="submit">Delete</button>
@@ -57,7 +59,7 @@ const Cart = () => {
             );
           })}
           <p>
-            Subtotal: <span>${subTotal}</span>
+            Subtotal: <span>{formatPrice(subTotal)}</span>
           </p>
         </>
       )}
@@ -65,7 +67,7 @@ const Cart = () => {
   );
 };
 
-/*
+/* React hook createContext
  * https://react.dev/learn/passing-data-deeply-with-context
  */
 const CartContext = createContext([]);
@@ -84,7 +86,8 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, quantity) => {
     const { id } = product;
 
-    /* const newCart = productInCart
+    /* // Option 1:
+    const newCart = productInCart
       ? cart.map((productInCart) => {
           if (productInCart.id === id)
             return {
@@ -111,33 +114,36 @@ const CartProvider = ({ children }) => {
 
     setCart(isInCart ? newCart : [...cart, { ...product, quantity }]);
 
-    // setCart((prevCart) => {
-    //   const isInCart = prevCart.some((cartItem) => cartItem.id === product.id);
+    /* // Option 2:
+    setCart((prevCart) => {
+      const isInCart = prevCart.some((cartItem) => cartItem.id === product.id);
 
-    //   return isInCart
-    //     ? prevCart.reduce((accumulator, currentCartItem) => {
-    //         return [
-    //           ...accumulator,
-    //           currentCartItem.id === product.id
-    //             ? {
-    //                 ...currentCartItem,
-    //                 quantity: currentCartItem.quantity + quantity,
-    //               }
-    //             : currentCartItem,
-    //         ];
-    //       }, [])
-    //     : [...prevCart, { ...product, quantity }];
-    // });
+      return isInCart
+        ? prevCart.reduce((accumulator, currentCartItem) => {
+            return [
+              ...accumulator,
+              currentCartItem.id === product.id
+                ? {
+                    ...currentCartItem,
+                    quantity: currentCartItem.quantity + quantity,
+                  }
+                : currentCartItem,
+            ];
+          }, [])
+        : [...prevCart, { ...product, quantity }];
+    }); */
   };
 
   const removeFromCart = (productID) => {
-    setCart((prevCart) => {
-      return prevCart.filter((product) => product.id !== productID);
-    });
+    setTimeout(() => {
+      setCart((prevCart) => {
+        return prevCart.filter((product) => product.id !== productID);
+      });
+    }, 250);
   };
 
-  const updateQuantity = (productID, quantity) => {
-    if (quantity === 0) {
+  const setQuantity = (productID, quantity) => {
+    if (quantity == 0) {
       removeFromCart(productID);
     } else {
       setCart((prevCart) =>
@@ -150,7 +156,7 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity }}
+      value={{ cart, addToCart, removeFromCart, setQuantity }}
     >
       {children}
     </CartContext.Provider>

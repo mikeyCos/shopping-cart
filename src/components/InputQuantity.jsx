@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import isPressedKeyValid from "../utilities/isPressedKeyValid";
 import styles from "../styles/InputQuantity.module.css";
 
 const InputQuantity = ({
@@ -8,10 +9,17 @@ const InputQuantity = ({
   decrementHandler,
 }) => {
   const onChangeHandler = (e) => {
-    const newQuantity = +e.target.value;
-    setQuantity(newQuantity);
+    const value = e.target.value;
+    setQuantity(value);
   };
 
+  /* Quantity input
+   * Allow numbers only
+   * Backspace can empty the input
+   * - Optional:
+   *  - Delete item from cart; need confirmation modal
+   *  - Confirmation for adding to and removing from cart
+   */
   return (
     <div>
       <label htmlFor="quantity"></label>
@@ -23,12 +31,12 @@ const InputQuantity = ({
         >
           -
         </button>
+
         <input
           id="quantity"
           name="quantity"
           type="text"
-          inputMode="numeric"
-          value={quantity.toString()}
+          value={quantity}
           minLength={1}
           maxLength={3}
           pattern="/\d{1,3}/"
@@ -36,14 +44,14 @@ const InputQuantity = ({
           onKeyDown={(e) => {
             const { key } = e;
             switch (true) {
+              case isPressedKeyValid(key):
               case !isNaN(key):
-              case /backspace$/i.test(key):
                 break;
               default:
                 e.preventDefault();
             }
           }}
-          className={styles.input}
+          className={`quantity-input ${styles.input}`}
         />
         <button
           type="button"
@@ -53,12 +61,15 @@ const InputQuantity = ({
           +
         </button>
       </div>
+      <p className="error-message"></p>
     </div>
   );
 };
 
 InputQuantity.propTypes = {
-  quantity: PropTypes.number.isRequired,
+  minValue: PropTypes.number,
+  quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   setQuantity: PropTypes.func.isRequired,
   incrementHandler: PropTypes.func.isRequired,
   decrementHandler: PropTypes.func.isRequired,

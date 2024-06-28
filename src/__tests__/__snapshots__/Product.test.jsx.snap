@@ -20,8 +20,7 @@ exports[`Product component > Product component matches snapshot 1`] = `
       100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort
     </p>
     <p>
-      $
-      7.95
+      $7.95
     </p>
     <div>
       <label
@@ -37,9 +36,8 @@ exports[`Product component > Product component matches snapshot 1`] = `
           -
         </button>
         <input
-          class="_input_e589d5"
+          class="quantity-input _input_e589d5"
           id="quantity"
-          inputmode="numeric"
           maxlength="3"
           minlength="1"
           name="quantity"
@@ -54,6 +52,9 @@ exports[`Product component > Product component matches snapshot 1`] = `
           +
         </button>
       </div>
+      <p
+        class="error-message"
+      />
     </div>
     <button
       type="submit"

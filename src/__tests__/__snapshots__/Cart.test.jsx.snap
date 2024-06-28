@@ -22,8 +22,7 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
       novalidate=""
     >
       <p>
-        $
-        7.95
+        $7.95
       </p>
       <div>
         <label
@@ -39,9 +38,8 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
             -
           </button>
           <input
-            class="_input_e589d5"
+            class="quantity-input _input_e589d5"
             id="quantity"
-            inputmode="numeric"
             maxlength="3"
             minlength="1"
             name="quantity"
@@ -56,6 +54,9 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
             +
           </button>
         </div>
+        <p
+          class="error-message"
+        />
       </div>
       <button
         type="submit"
@@ -67,8 +68,7 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
   <p>
     Subtotal: 
     <span>
-      $
-      7.95
+      $7.95
     </span>
   </p>
 </section>

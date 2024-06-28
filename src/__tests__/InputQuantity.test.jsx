@@ -18,41 +18,44 @@ describe("InputQuantity component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it.skip("Quantity input's value is '10'", () => {
+  it("Quantity input's value is '10'", () => {
     render(
       <InputQuantity
         quantity={10}
+        setQuantity={() => {}}
         onChangeHandler={() => {}}
         incrementHandler={() => {}}
         decrementHandler={() => {}}
       />
     );
 
-    const input = screen.getByRole("spinbutton");
+    const input = screen.getByRole("textbox");
     expect(input.value).toBe("10");
   });
 
-  it.skip("The typing into input fires the onChangeHandler", async () => {
+  // Simulates double click to highlight input value then entering a number
+  it("Pasting into input fires the setQuantity", async () => {
     const user = userEvent.setup();
-    const onChangeHandler = vi.fn();
+    const setQuantity = vi.fn((newQuantity) => {});
     let quantity = 3;
 
     render(
       <InputQuantity
         quantity={quantity}
-        onChangeHandler={onChangeHandler}
+        setQuantity={setQuantity}
         incrementHandler={() => {}}
         decrementHandler={() => {}}
       />
     );
 
-    const input = screen.getByRole("spinbutton");
-    await user.type(input, "4");
+    const input = screen.getByRole("textbox");
+    await user.dblClick(input);
+    await user.paste("4");
 
-    expect(onChangeHandler).toBeCalled();
+    expect(setQuantity).toBeCalledWith("4");
   });
 
-  it.skip("Clicking the incrementButton will increase the quality input's value by 1, initial value is '3", async () => {
+  it("Clicking the incrementButton will increase the quality input's value by 1, initial value is '3", async () => {
     const user = userEvent.setup();
 
     const ParentComponent = vi.fn(() => {
@@ -62,7 +65,7 @@ describe("InputQuantity component", () => {
         <div>
           <InputQuantity
             quantity={quantity}
-            onChangeHandler={() => {}}
+            setQuantity={setQuantity}
             incrementHandler={() =>
               setQuantity((prevQuantity) => prevQuantity + 1)
             }
@@ -75,7 +78,7 @@ describe("InputQuantity component", () => {
     render(<ParentComponent />);
 
     const incrementButton = screen.getByRole("button", { name: "+" });
-    const input = screen.getByRole("spinbutton");
+    const input = screen.getByRole("textbox");
     await user.click(incrementButton);
 
     expect(input.value).toBe("4");

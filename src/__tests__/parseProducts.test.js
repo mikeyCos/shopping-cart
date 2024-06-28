@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { products } from "./mocks";
 import parseProducts from "../utilities/parseProducts";
 
-describe("Utility createDataProducts", () => {
+describe("Utility parseProducts", () => {
   it("Object keys length equals 5", () => {
     const productsData = parseProducts(products);
     const keys = Object.keys(productsData);

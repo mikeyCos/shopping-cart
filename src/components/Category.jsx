@@ -5,6 +5,7 @@ import {
   useParams,
 } from "react-router-dom";
 import parseCategory from "../utilities/parseCategory";
+import formatPrice from "../utilities/formatPrice";
 import styles from "../styles/Category.module.css";
 
 /* Renders products based on the useParams category value
@@ -43,7 +44,7 @@ const Category = () => {
 
               <div className="info">
                 <h4>{product.title}</h4>
-                <p>${product.price}</p>
+                <p>{formatPrice(product.price)}</p>
               </div>
             </article>
           ))}

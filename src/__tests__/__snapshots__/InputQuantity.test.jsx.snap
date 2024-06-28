@@ -16,9 +16,8 @@ exports[`InputQuantity component > InputQuantity component is rendered 1`] = `
         -
       </button>
       <input
-        class="_input_e589d5"
+        class="quantity-input _input_e589d5"
         id="quantity"
-        inputmode="numeric"
         maxlength="3"
         minlength="1"
         name="quantity"
@@ -33,6 +32,9 @@ exports[`InputQuantity component > InputQuantity component is rendered 1`] = `
         +
       </button>
     </div>
+    <p
+      class="error-message"
+    />
   </div>
 </div>
 `;

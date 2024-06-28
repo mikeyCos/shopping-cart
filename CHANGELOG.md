@@ -1,7 +1,15 @@
 # Changelog
 ---
-### 27 JUN 2024
+### 28 JUN 2024
 - 
+---
+### 27 JUN 2024
+- Currently, all non-skipped tests pass.
+- Created `isPressedKeyValid` utility function; accepts a key, immediately returns `true` if the key is a number, otherwise return a boolean if the key exists in an array of acceptable keys.
+- Pressing the `Backspace` key while on the cart page and focused on a quantity input will remove it's respective item from the cart.
+- Clicking the decrement button will decrement the quantity's value by one and will not exceed 1 unless on the cart page, the respective item will be removed from the cart.
+- Clicking the increment button will increment the quantity's value by one and will not exceed 999.
+- Created `formatPrice` utility function; accepts a number value and returns a string using `new Intl.NumberFormat`. For example, `formatPrice(3.5)` returns `'$3.50'`.
 ---
 ### 26 JUN 2024
 - Added an `onKeyDown` event handler to the quantity input to prevent certain keyboard keys.
