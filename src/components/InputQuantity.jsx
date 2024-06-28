@@ -13,13 +13,6 @@ const InputQuantity = ({
     setQuantity(value);
   };
 
-  /* Quantity input
-   * Allow numbers only
-   * Backspace can empty the input
-   * - Optional:
-   *  - Delete item from cart; need confirmation modal
-   *  - Confirmation for adding to and removing from cart
-   */
   return (
     <div>
       <label htmlFor="quantity"></label>
@@ -39,11 +32,19 @@ const InputQuantity = ({
           value={quantity}
           minLength={1}
           maxLength={3}
-          pattern="/\d{1,3}/"
+          autoComplete="off"
           onChange={onChangeHandler}
           onKeyDown={(e) => {
             const { key } = e;
             switch (true) {
+              case /^arrowup$/i.test(key):
+                e.preventDefault();
+                incrementHandler();
+                break;
+              case /^arrowdown$/i.test(key):
+                e.preventDefault();
+                decrementHandler();
+                break;
               case isPressedKeyValid(key):
               case !isNaN(key):
                 break;

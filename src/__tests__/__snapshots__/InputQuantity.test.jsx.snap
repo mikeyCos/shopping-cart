@@ -16,12 +16,12 @@ exports[`InputQuantity component > InputQuantity component is rendered 1`] = `
         -
       </button>
       <input
+        autocomplete="off"
         class="quantity-input _input_e589d5"
         id="quantity"
         maxlength="3"
         minlength="1"
         name="quantity"
-        pattern="/\\d{1,3}/"
         type="text"
         value="1"
       />

@@ -2,9 +2,14 @@
 ---
 ### 28 JUN 2024
 - 
+- Created `routes-revision` branch.
+- Currently, the `Home` and `Shop` make use of an active class.
+- Created `NavAnchor` component, it's respective stylesheet module, and test suite; returns `NavLink` component.
+- Pressing the arrow up and down keys will increment or decrement the quantity input's value.
 ---
 ### 27 JUN 2024
 - Currently, all non-skipped tests pass.
+- Added basic input validation only when an item is added to the cart.
 - Created `isPressedKeyValid` utility function; accepts a key, immediately returns `true` if the key is a number, otherwise return a boolean if the key exists in an array of acceptable keys.
 - Pressing the `Backspace` key while on the cart page and focused on a quantity input will remove it's respective item from the cart.
 - Clicking the decrement button will decrement the quantity's value by one and will not exceed 1 unless on the cart page, the respective item will be removed from the cart.

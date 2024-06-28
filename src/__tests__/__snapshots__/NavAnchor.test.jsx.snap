@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavAnchor component > NavAnchor component matches snapshot 1`] = `
+<div>
+  <a
+    class=""
+    href="/placeholder"
+  >
+    placeholder
+  </a>
+</div>
+`;

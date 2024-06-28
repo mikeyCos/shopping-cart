@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "./Cart";
+import NavAnchor from "./NavAnchor";
 import CartIcon from "../assets/icons/cart-variant.svg?react";
 import GitHubIcon from "../assets/icons/github-mark/github-mark.svg?react";
 import styles from "../styles/Header.module.css";
@@ -10,10 +11,10 @@ const Header = () => {
   const { cart } = useContext(CartContext);
   return (
     <header>
-      <nav className={styles.nav}>
+      <nav className={styles["nav"]}>
         <ul className={styles["nav-left"]}>
           <li>
-            <Link className={styles["anchor-no-decoration"]} to="/">
+            <Link to="/">
               <img src="#" alt="#" />
               <h1>Logo</h1>
             </Link>
@@ -22,15 +23,11 @@ const Header = () => {
 
         <ul className={styles["nav-right"]}>
           <li>
-            <Link className={styles["anchor-no-decoration"]} to="/home">
-              Home
-            </Link>
+            <NavAnchor pathname="home" />
           </li>
 
           <li>
-            <Link className={styles["anchor-no-decoration"]} to="/shop">
-              Shop
-            </Link>
+            <NavAnchor pathname="shop" />
           </li>
 
           <li>
@@ -44,11 +41,7 @@ const Header = () => {
           </li>
 
           <li>
-            <a
-              className={styles["anchor-no-decoration"]}
-              href="#"
-              target="_blank"
-            >
+            <a href="#" target="_blank">
               <GitHubIcon className={`github ${iconStyles.icon}`} />
             </a>
           </li>

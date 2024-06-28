@@ -1,3 +1,8 @@
+.anchor a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -13,19 +18,18 @@ nav {
   list-style: none;
 }
 
-.anchor-no-decoration {
-  text-decoration: none;
-}
-
 .nav-left {
+  composes: anchor;
   flex: 1;
 }
 
 .nav-left a {
   display: flex;
+  /* text-decoration: none; */
 }
 
 .nav-right {
+  composes: anchor;
   display: flex;
   align-items: center;
 }

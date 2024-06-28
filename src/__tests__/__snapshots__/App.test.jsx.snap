@@ -14,7 +14,6 @@ exports[`App component > The App component is rendered 1`] = `
         >
           <li>
             <a
-              class="_anchor-no-decoration_a9d33c"
               href="/"
             >
               <img
@@ -32,18 +31,18 @@ exports[`App component > The App component is rendered 1`] = `
         >
           <li>
             <a
-              class="_anchor-no-decoration_a9d33c"
+              class=""
               href="/home"
             >
-              Home
+              home
             </a>
           </li>
           <li>
             <a
-              class="_anchor-no-decoration_a9d33c"
+              class=""
               href="/shop"
             >
-              Shop
+              shop
             </a>
           </li>
           <li>
@@ -70,7 +69,6 @@ exports[`App component > The App component is rendered 1`] = `
           </li>
           <li>
             <a
-              class="_anchor-no-decoration_a9d33c"
               href="#"
               target="_blank"
             >

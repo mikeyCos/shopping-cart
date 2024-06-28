@@ -13,8 +13,6 @@ const Product = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    // const input = document.querySelector(".quantity-input");
-    // const isQuantityValid = validateInput(input);
     const isQuantityValid = validateQuantity(quantity, setQuantityValidity);
     isQuantityValid && addToCart(product, quantity);
   };
