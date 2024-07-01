@@ -1,18 +1,61 @@
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./routes/Routes";
+import PropTypes from "prop-types";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  useNavigation,
+} from "react-router-dom";
+import routes from "./routes/routes";
 import styles from "./styles/App.module.css";
 import { CartProvider } from "./components/Cart";
+import { useEffect, useState } from "react";
 
-const App = () => {
+// const App = () => {
+//   const router = createBrowserRouter(routes);
+//   console.log(router);
+//   return (
+//     <div id={styles.app}>
+//       <CartProvider>
+//         <RouterProvider router={router} />
+//       </CartProvider>
+//     </div>
+//   );
+// };
+
+/* Splash screen with react-router
+ * https://www.saurabhmisra.dev/react-router-splash-screen/
+ * https://www.youtube.com/watch?v=s2-mZBf-LVE
+ * For initial load or page refresh, how to render a splash screen with Suspense and Await?
+ */
+const App = ({ router }) => {
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
+
+  useEffect(() => {
+    const splashScreenInterval = setInterval(() => {
+      const navState = router.state.navigation.state;
+      if (navState == "idle") {
+        setShowSplashScreen(false);
+        clearInterval(splashScreenInterval);
+      }
+    }, 1000);
+
+    () => clearInterval(splashScreenInterval);
+  });
+
   return (
     <div id={styles.app}>
-      <CartProvider>
-        <BrowserRouter>
-          <Routes />
-        </BrowserRouter>
-      </CartProvider>
+      {showSplashScreen ? (
+        <p>LOADING...</p>
+      ) : (
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
+      )}
     </div>
   );
+};
+
+App.propTypes = {
+  router: PropTypes.object.isRequired,
 };
 
 export default App;

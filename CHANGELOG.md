@@ -1,7 +1,14 @@
 # Changelog
 ---
-### 28 JUN 2024
+### 01 JUL 2024
 - 
+---
+### 28 JUN 2024
+- The `Modal` component no longer uses an `Outlet` to render a product. Instead, the `Product` component is directly inserted into the `Modal` component.
+- Created `loader` module that will fetch data from an API.
+- Created router with `createBrowserRouter` and passed the router into the `RouterProvider` component; data APIs enabled.
+- Rewrote `routes` module to only have an array of route objects.
+- Renamed `Routes` to `routes`.
 - Created `routes-revision` branch.
 - Currently, the `Home` and `Shop` make use of an active class.
 - Created `NavAnchor` component, it's respective stylesheet module, and test suite; returns `NavLink` component.

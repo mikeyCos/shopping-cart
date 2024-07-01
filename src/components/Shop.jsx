@@ -1,54 +1,17 @@
-import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData, useRouteLoaderData } from "react-router-dom";
 import Categories from "./Categories";
-import Loading from "./Loading";
-import ErrorPage from "./ErrorPage";
-import parseProducts from "../utilities/parseProducts";
 import styles from "../styles/Shop.module.css";
 
 const Shop = () => {
-  const [categories, setCategories] = useState(null);
-  const [products, setProducts] = useState(null);
-  const [error, setError] = useState(null);
+  const { categories, products } = useRouteLoaderData("root");
 
-  useEffect(() => {
-    // Fetch categories here or in the Categories component?
-    // Fetch categories from:
-    //  https://fakestoreapi.com/products/categories
-    // Fetch products from:
-    //  https://fakestoreapi.com/products
-    // Need to send data into Outlet and/or Categories component(s)
-    Promise.all([
-      fetch("https://fakestoreapi.com/products/categories"),
-      fetch("https://fakestoreapi.com/products"),
-      // fetch(""),
-      // fetch(""),
-    ])
-      .then(([resCategories, resProducts]) => {
-        // How to mock response status codes >= 400?
-        if (resCategories.status >= 400) throw new Error("ERROR");
-        return Promise.all([resCategories.json(), resProducts.json()]);
-      })
-      .then(([dataCategories, dataProducts]) => {
-        const parsedProducts = parseProducts(dataProducts);
-        setCategories(["all", ...dataCategories]);
-        setProducts(parsedProducts);
-      })
-      .catch((error) => setError(error.message));
-  }, []);
-
-  if (error) return <ErrorPage errorMessage={error} />;
   return (
     <section id="shop">
       Shop section
-      {categories ? (
-        <>
-          <Categories categories={categories} />
-          <Outlet context={[products]} />
-        </>
-      ) : (
-        <Loading />
-      )}
+      <>
+        <Categories categories={categories} />
+        <Outlet context={[products]} />
+      </>
     </section>
   );
 };
