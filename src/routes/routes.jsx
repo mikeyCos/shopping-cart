@@ -1,7 +1,6 @@
 import { useLocation, useRoutes } from "react-router-dom";
 import loader from "./loader";
 import BasicLayout from "../layouts/BasicLayout";
-import Modal from "../components/Modal";
 import Product from "../components/Product";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
@@ -35,10 +34,14 @@ const routes = [
             element: <Category />,
             children: [
               {
-                path: "product/view/:product",
+                path: "product/view/modal/:product",
                 element: null,
               },
             ],
+          },
+          {
+            path: "product/view/:product",
+            element: <Product />,
           },
         ],
       },

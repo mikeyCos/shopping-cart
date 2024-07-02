@@ -164,8 +164,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Create nested routes for item/product categories.
 - [ ] Render store items/products
   - [ ] Render image of item/product, 
-  - [ ] Wrap each image with a Link element
-    - [ ] On image click, render a modal containing more product information, an 'Add to Cart' button, and an quantity input.
+  - [x] Wrap each image with a Link element
+    - [x] On image click, render a modal containing more product information, an 'Add to Cart' button, and an quantity input.
+- [ ] Render a quantity input with increment and decrement buttons.
+  - [ ] On the cart page, when the quantity input's value reaches 0, remove it's respective item/product from the cart.
+  - [ ] On the product page/modal, allow the quantity input's value be an empty string and 0.
+    - [ ] Prevent the product from being added to the cart if the quantity input's value is empty or 0, and show an error message.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

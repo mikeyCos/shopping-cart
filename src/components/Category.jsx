@@ -4,9 +4,9 @@ import {
   useOutletContext,
   useParams,
 } from "react-router-dom";
+import ProductCard from "./ProductCard";
 import Modal from "./Modal";
 import parseCategory from "../utilities/parseCategory";
-import formatPrice from "../utilities/formatPrice";
 import styles from "../styles/Category.module.css";
 
 /* Renders products based on the useParams category value
@@ -27,28 +27,21 @@ const Category = () => {
         <>
           <section className={styles.products} role="region">
             {products[productKey].map((product) => (
-              <article className={styles["product-card"]} key={product.id}>
+              <ProductCard key={product.id}>
                 <Link
-                  to={`${pathname}/product/view/${encodeURIComponent(
+                  to={`${pathname}/product/view/modal/${encodeURIComponent(
                     product.title
                   )}`}
                   state={{ product, previousLocation: pathname }}
                 >
-                  <picture>
-                    <img
-                      className={styles["product-img"]}
-                      src={product.image}
-                      loading="lazy"
-                      alt="#"
-                    />
-                  </picture>
+                  <ProductCard.Picture
+                    className={styles["product-picture"]}
+                    src={product.image}
+                    alt="#"
+                  />
                 </Link>
-
-                <div className="info">
-                  <h4>{product.title}</h4>
-                  <p>{formatPrice(product.price)}</p>
-                </div>
-              </article>
+                <ProductCard.Info title={product.title} price={product.price} />
+              </ProductCard>
             ))}
           </section>
           <Modal />

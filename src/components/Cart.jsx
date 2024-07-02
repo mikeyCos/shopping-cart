@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 import { createContext, useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import ProductCard from "./ProductCard";
+import FormQuantity from "./FormQuantity";
 import InputQuantity from "./InputQuantity";
 import formatPrice from "../utilities/formatPrice";
+import styles from "../styles/Cart.module.css";
 
 const Cart = () => {
-  const location = useLocation();
   const { cart, removeFromCart, setQuantity } = useContext(CartContext);
 
   const subTotal = cart.reduce((accumulator, currentCartItem) => {
@@ -20,23 +22,19 @@ const Cart = () => {
         <>
           {cart.map((item) => {
             return (
-              <article key={item.id}>
-                <h4>{item.title}</h4>
-                <picture>
-                  <img
-                    style={{ width: "200px" }}
+              <ProductCard key={item.id}>
+                <ProductCard.Heading title={item.title} />
+                <Link
+                  to={`/shop/product/view/${encodeURIComponent(item.title)}`}
+                  state={{ product: item }}
+                >
+                  <ProductCard.Picture
+                    className={styles["product-picture"]}
                     src={item.image}
-                    loading="lazy"
                     alt="#"
                   />
-                </picture>
-                <form
-                  noValidate={true}
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    removeFromCart(item.id);
-                  }}
-                >
+                </Link>
+                <FormQuantity submitForm={() => removeFromCart(item.id)}>
                   <p>{formatPrice(item.price)}</p>
                   <InputQuantity
                     quantity={item.quantity}
@@ -53,9 +51,9 @@ const Cart = () => {
                       newQuantity >= 0 && setQuantity(item.id, newQuantity);
                     }}
                   />
-                  <button type="submit">Delete</button>
-                </form>
-              </article>
+                  <FormQuantity.SubmitButton text="Delete" />
+                </FormQuantity>
+              </ProductCard>
             );
           })}
           <p>

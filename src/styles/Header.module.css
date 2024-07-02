@@ -20,7 +20,6 @@ nav {
 
 .nav-left {
   composes: anchor;
-  flex: 1;
 }
 
 .nav-left a {

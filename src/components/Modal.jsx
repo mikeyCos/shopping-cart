@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Product from "./Product";
+import styles from "../styles/Modal.module.css";
 
 const Modal = () => {
   const refDefault = useRef(null);
@@ -26,12 +27,14 @@ const Modal = () => {
           ref={refDefault}
           onClick={(e) => e.target.tagName === "DIALOG" && closeModal()}
           onKeyDown={(e) => e.key === "Escape" && closeModal()}
+          className={styles["modal"]}
         >
           <section>
             <button
               type="button"
               onClick={() => closeModal()}
               aria-labelledby="close"
+              className={styles["close-btn"]}
             >
               x
             </button>

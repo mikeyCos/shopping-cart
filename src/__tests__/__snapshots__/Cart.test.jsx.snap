@@ -6,18 +6,25 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
   role="region"
 >
   Cart
-  <article>
+  <article
+    class="_card_c43253"
+  >
     <h4>
       Opna Women's Short Sleeve Moisture
     </h4>
-    <picture>
-      <img
-        alt="#"
-        loading="lazy"
-        src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
-        style="width: 200px;"
-      />
-    </picture>
+    <a
+      href="/shop/product/view/Opna%20Women's%20Short%20Sleeve%20Moisture"
+    >
+      <picture
+        class="_product-picture_c7a017"
+      >
+        <img
+          alt="#"
+          loading="lazy"
+          src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+        />
+      </picture>
+    </a>
     <form
       novalidate=""
     >

@@ -1,7 +1,19 @@
 # Changelog
 ---
-### 01 JUL 2024
+### 02 JUL 2024
 - 
+---
+### 01 JUL 2024
+- Currently, `Category` and `Shop` test suites fail.
+- Created a handful of stylesheets.
+- `Category`, `Cart`, and `Product` components use the `ProductCard` component with different child components.
+- Created `FormQuantity` and `ProductCard` components; both use namespace for child components.
+- On cart page, clicking an item/product's picture will navigate to the item/product's page with shop categories. 
+---
+### 30 JUN 2024
+- The `App` component will render a splash screen on initial load and on page refresh.
+- The `App` component now takes an object prop, `router`.
+- Moved `router` variable into the `index` module.
 ---
 ### 28 JUN 2024
 - The `Modal` component no longer uses an `Outlet` to render a product. Instead, the `Product` component is directly inserted into the `Modal` component.

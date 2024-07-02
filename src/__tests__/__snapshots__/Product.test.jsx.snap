@@ -1,16 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Product component > Product component matches snapshot 1`] = `
-<article>
+<article
+  class="_card_c43253"
+>
   <h4>
     Opna Women's Short Sleeve Moisture
   </h4>
-  <picture>
+  <picture
+    class="_product-picture_b0e857"
+  >
     <img
       alt="#"
       loading="lazy"
       src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
-      style="width: 200px;"
     />
   </picture>
   <form

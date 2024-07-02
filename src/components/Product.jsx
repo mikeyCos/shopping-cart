@@ -1,8 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { CartContext } from "./Cart";
 import { useContext, useState } from "react";
+import ProductCard from "./ProductCard";
+import FormQuantity from "./FormQuantity";
 import InputQuantity from "./InputQuantity";
 import formatPrice from "../utilities/formatPrice";
+import styles from "../styles/Product.module.css";
 
 const Product = () => {
   const { state } = useLocation();
@@ -11,8 +14,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [quantityValidity, setQuantityValidity] = useState(true);
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
+  const onSubmitHandler = () => {
     const isQuantityValid = validateQuantity(quantity, setQuantityValidity);
     isQuantityValid && addToCart(product, quantity);
   };
@@ -36,18 +38,16 @@ const Product = () => {
     });
   };
 
+  const className =
+    styles[
+      state.previousLocation ? "product-picture-modal" : "product-picture"
+    ];
+
   return (
-    <article>
-      <h4>{product.title}</h4>
-      <picture>
-        <img
-          style={{ width: "200px" }}
-          src={product.image}
-          loading="lazy"
-          alt="#"
-        />
-      </picture>
-      <form noValidate={true} onSubmit={onSubmitHandler}>
+    <ProductCard>
+      <ProductCard.Heading title={product.title} />
+      <ProductCard.Picture className={className} src={product.image} alt="#" />
+      <FormQuantity submitForm={() => onSubmitHandler()}>
         <p>{product.description}</p>
         <p>{formatPrice(product.price)}</p>
         <InputQuantity
@@ -56,9 +56,9 @@ const Product = () => {
           incrementHandler={incrementQuantityHandler}
           decrementHandler={decrementQuantityHandler}
         />
-        <button type="submit">Add to cart</button>
-      </form>
-    </article>
+        <FormQuantity.SubmitButton text="Add to cart" />
+      </FormQuantity>
+    </ProductCard>
   );
 };
 
