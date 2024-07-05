@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Link, MemoryRouter, Route, Routes, useParams } from "react-router-dom";
-import { fetchMock, parsedProducts, products } from "./mocks";
-import Shop from "../components/Shop";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import routes from "../routes/routes";
+import { fetchMock, parsedProducts } from "./mocks";
+import { CartProvider } from "../components/Cart";
 
 /* Optional
  * Define fetchMock here
@@ -20,75 +21,15 @@ beforeEach(() => {
   fetchMock();
 });
 
-const Category = () => {
-  const { category = "all" } = useParams();
-  return (
-    // <section>
-    //   <h2>Category</h2>
-    //   {category && <h3>{category}</h3>}
-    //   {products && (
-    //     <section role="region">
-    //       {parsedProducts[category].map((product) => (
-    //         <article key={product.id}>
-    //           <picture>
-    //             <img src={product.image} />
-    //           </picture>
-    //           <div className="info">
-    //             <h4>{product.title}</h4>
-    //           </div>
-    //         </article>
-    //       ))}
-    //     </section>
-    //   )}
-    // </section>
-    <section>
-      <h2>Category</h2>
-      <h3>{category}</h3>
-      {products && (
-        <section role="region">
-          {parsedProducts[category].map((product) => (
-            <article key={product.id}>
-              <Link
-                to={`product/${encodeURIComponent(product.title)}`}
-                state={{ product, previousLocation: "previousLocation" }}
-              >
-                <picture>
-                  <img src={product.image} loading="lazy" alt="#" />
-                </picture>
-              </Link>
-
-              <div className="info">
-                <h4>{product.title}</h4>
-              </div>
-            </article>
-          ))}
-        </section>
-      )}
-    </section>
-  );
-};
-
 describe("Category component (Outlet)", () => {
   // How to test Outlet component?
   // https://stackoverflow.com/questions/70654872/how-to-test-react-router-v6-outlet-using-testing-library-react
   it("Category component is rendered", async () => {
-    window.history.pushState({}, "Shop", "/shop/");
+    const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
     const { container } = render(
-      // <MemoryRouter initialEntries={["/shop"]}>
-      //   <Routes>
-      //     <Route path="/shop" element={<Shop />}>
-      //       <Route path="/shop" element={<Category />} />
-      //       <Route path="/shop/:category" element={<Category />} />
-      //     </Route>
-      //   </Routes>
-      // </MemoryRouter>
-      <MemoryRouter initialEntries={[`/shop`]}>
-        <Routes>
-          <Route path="/shop" element={<Shop />}>
-            <Route path="/shop/" element={<Category />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     );
 
     await screen.findByRole("heading", { level: 3 });
@@ -98,15 +39,13 @@ describe("Category component (Outlet)", () => {
   it("Category's heading text should be 'electronics'", async () => {
     const category = "electronics";
     const regExp = new RegExp(category); // regular expression: /electronics/
+    const router = createMemoryRouter(routes, {
+      initialEntries: [`/shop/category/${category}`],
+    });
     render(
-      <MemoryRouter initialEntries={[`/shop/category/${category}`]}>
-        <Routes>
-          <Route path="/shop" element={<Shop />}>
-            <Route path="/shop" element={<Category />} />
-            <Route path="/shop/category/:category" element={<Category />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     );
 
     const categoryElectronics = await screen.findByRole("heading", {
@@ -116,37 +55,32 @@ describe("Category component (Outlet)", () => {
   });
 
   it("20 products are listed for the 'all' category", async () => {
+    const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
     const allProducts = parsedProducts["all"]; // length of 20
     render(
-      <MemoryRouter initialEntries={[`/shop`]}>
-        <Routes>
-          <Route path="/shop" element={<Shop />}>
-            <Route path="/shop" element={<Category />} />
-            <Route path="/shop/category/:category" element={<Category />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     );
 
     const productsList = await screen.findByRole("region");
     expect(productsList.children.length).toBe(allProducts.length);
   });
 
-  it("20 products are listed for the 'electronics' category", async () => {
-    const category = "electronics";
-    const electronics = parsedProducts[category]; // length of 6
+  it("4 products are listed for the 'jewelry' category", async () => {
+    const category = "jewelery";
+    const jewelry = parsedProducts[category]; // length of 4
+    // console.log(jewelry);
+    const router = createMemoryRouter(routes, {
+      initialEntries: [`/shop/category/${category}`],
+    });
     render(
-      <MemoryRouter initialEntries={[`/shop/category/${category}`]}>
-        <Routes>
-          <Route path="/shop" element={<Shop />}>
-            <Route path="/shop" element={<Category />} />
-            <Route path="/shop/category/:category" element={<Category />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     );
 
-    const electronicsList = await screen.findByRole("region");
-    expect(electronicsList.children.length).toBe(electronics.length);
+    const jewelryList = await screen.findByRole("region");
+    expect(jewelryList.children.length).toBe(jewelry.length);
   });
 });

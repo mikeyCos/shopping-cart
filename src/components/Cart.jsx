@@ -29,9 +29,9 @@ const Cart = () => {
                   state={{ product: item }}
                 >
                   <ProductCard.Picture
-                    className={styles["product-picture"]}
                     src={item.image}
                     alt="#"
+                    className={styles["product-picture"]}
                   />
                 </Link>
                 <FormQuantity submitForm={() => removeFromCart(item.id)}>

@@ -1,15 +1,27 @@
-.anchor a {
-  text-decoration: none;
+.header {
+  box-shadow: 0px 2px 8px -6px #000000;
+}
+
+.anchor {
   text-transform: capitalize;
 }
 
 nav {
   display: flex;
+
+  /* display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   padding: 0.5rem;
   position: relative;
-  /* Optional flex-wrap(?) */
+  gap: 0.5rem; */
+}
+
+nav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -24,13 +36,21 @@ nav {
 
 .nav-left a {
   display: flex;
-  /* text-decoration: none; */
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.nav-left h1 {
+  text-align: center;
+  text-wrap: balance;
 }
 
 .nav-right {
   composes: anchor;
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .cart-anchor {
@@ -45,4 +65,23 @@ nav {
   border-radius: 100%;
   width: 16px;
   text-align: center;
+}
+
+@media screen and (min-width: 481px) {
+  nav {
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .nav-left h1 {
+    position: absolute;
+    text-wrap: nowrap;
+    top: 25%;
+    left: 6rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
 }

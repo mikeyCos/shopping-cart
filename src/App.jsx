@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import {
   RouterProvider,
   createBrowserRouter,
   useNavigation,
 } from "react-router-dom";
 import routes from "./routes/routes";
-import styles from "./styles/App.module.css";
+import Loading from "./components/Loading";
 import { CartProvider } from "./components/Cart";
-import { useEffect, useState } from "react";
+import styles from "./styles/App.module.css";
 
 // const App = () => {
 //   const router = createBrowserRouter(routes);
@@ -44,7 +45,7 @@ const App = ({ router }) => {
   return (
     <div id={styles.app}>
       {showSplashScreen ? (
-        <p>LOADING...</p>
+        <Loading />
       ) : (
         <CartProvider>
           <RouterProvider router={router} />

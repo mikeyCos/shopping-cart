@@ -1,4 +1,3 @@
-import { useLocation, useRoutes } from "react-router-dom";
 import loader from "./loader";
 import BasicLayout from "../layouts/BasicLayout";
 import Product from "../components/Product";
@@ -11,12 +10,12 @@ import { Suspense } from "react";
 
 const routes = [
   {
-    element: <BasicLayout />,
     // element: (
     //   <Suspense fallback={<h1>LOADING...</h1>}>
     //     <BasicLayout />
     //   </Suspense>
     // ),
+    element: <BasicLayout />,
     errorElement: <ErrorPage />,
     id: "root",
     loader: loader,
@@ -28,6 +27,7 @@ const routes = [
       {
         path: "/shop",
         element: <Shop />,
+        // errorElement: <ErrorPage />,
         children: [
           {
             path: "category?/:category?",

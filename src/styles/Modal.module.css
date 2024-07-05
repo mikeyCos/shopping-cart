@@ -1,8 +1,21 @@
 .modal {
   position: relative;
+  margin: auto;
+  border-radius: 0.25rem;
+}
+
+.modal::backdrop {
+  background-color: rgba(244, 32, 144, 0.4);
 }
 
 .close-btn {
+  background: none;
+  border: none;
   position: absolute;
   right: 0;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: red;
 }

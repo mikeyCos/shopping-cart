@@ -39,14 +39,12 @@ const Product = () => {
   };
 
   const className =
-    styles[
-      state.previousLocation ? "product-picture-modal" : "product-picture"
-    ];
+    styles[state.previousLocation ? "product-modal" : "product"];
 
   return (
-    <ProductCard>
+    <ProductCard className={className}>
       <ProductCard.Heading title={product.title} />
-      <ProductCard.Picture className={className} src={product.image} alt="#" />
+      <ProductCard.Picture src={product.image} alt="#" />
       <FormQuantity submitForm={() => onSubmitHandler()}>
         <p>{product.description}</p>
         <p>{formatPrice(product.price)}</p>

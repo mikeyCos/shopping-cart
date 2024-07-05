@@ -3,20 +3,22 @@ import { useContext } from "react";
 import { CartContext } from "./Cart";
 import NavAnchor from "./NavAnchor";
 import CartIcon from "../assets/icons/cart-variant.svg?react";
+import AppLogo from "../assets/illustrations/undraw_shopping_app.svg?react";
 import GitHubIcon from "../assets/icons/github-mark/github-mark.svg?react";
 import styles from "../styles/Header.module.css";
 import iconStyles from "../styles/icons.module.css";
+import illustrationsStyles from "../styles/illustrations.module.css";
 
 const Header = () => {
   const { cart } = useContext(CartContext);
   return (
-    <header>
+    <header className={styles["header"]}>
       <nav className={styles["nav"]}>
         <ul className={styles["nav-left"]}>
           <li>
             <Link to="/">
-              <img src="#" alt="#" />
-              <h1>Logo</h1>
+              <AppLogo className={illustrationsStyles["logo"]} />
+              <h1>Shopping Cart App</h1>
             </Link>
           </li>
         </ul>

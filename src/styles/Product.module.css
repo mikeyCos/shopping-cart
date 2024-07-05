@@ -1,7 +1,18 @@
-.product-picture {
+.product {
   max-width: 300px;
 }
 
-.product-picture-modal {
+.product-modal {
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.product-modal picture {
   max-width: 500px;
+}
+
+@media screen and (min-width: 481px) {
+}
+
+@media screen and (min-width: 768px) {
 }

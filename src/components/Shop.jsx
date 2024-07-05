@@ -1,9 +1,12 @@
-import { Outlet, useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { Outlet, useRouteError, useRouteLoaderData } from "react-router-dom";
 import Categories from "./Categories";
 import styles from "../styles/Shop.module.css";
 
 const Shop = () => {
   const { categories, products } = useRouteLoaderData("root");
+  const data = useRouteLoaderData("root");
+  // console.log(data);
+  // if (data.error) throw data.error;
 
   return (
     <section id="shop">

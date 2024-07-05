@@ -2,26 +2,31 @@ import PropTypes from "prop-types";
 import formatPrice from "../utilities/formatPrice";
 import styles from "../styles/ProductCard.module.css";
 
-const ProductCard = ({ children }) => {
-  return <article className={styles["card"]}>{children}</article>;
+const ProductCard = ({ children, className }) => {
+  return <article className={className}>{children}</article>;
 };
 
 const ProductHeading = ({ title }) => {
   return <h4>{title}</h4>;
 };
 
-const ProductPicture = ({ className, src, alt }) => {
+const ProductPicture = ({ src, alt, className }) => {
   return (
     <picture className={className}>
-      <img src={src} loading="lazy" alt={alt} />
+      <img
+        src={src}
+        loading="lazy"
+        alt={alt}
+        className={styles["product-img"]}
+      />
     </picture>
   );
 };
 
-const ProductInfo = ({ title, price }) => {
+const ProductInfo = ({ title, price, className }) => {
   const formattedPrice = formatPrice(price);
   return (
-    <div>
+    <div className={className}>
       <h4>{title}</h4>
       <p>{formattedPrice}</p>
     </div>
@@ -37,17 +42,19 @@ ProductCard.propTypes = {
     PropTypes.object,
     PropTypes.arrayOf(PropTypes.object),
   ]),
+  className: PropTypes.string,
 };
 
 ProductPicture.propTypes = {
-  className: PropTypes.string,
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 ProductInfo.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  className: PropTypes.string,
 };
 
 ProductHeading.propTypes = {

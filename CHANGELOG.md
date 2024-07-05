@@ -1,7 +1,27 @@
 # Changelog
 ---
-### 02 JUL 2024
+### 05 JUl 2024
 - 
+---
+### 04 JUL 2024
+- On mobile, only one column of products will be displayed in the shop page; more columns of products will be displayed as the screen/window size grows.
+- Moved `Josefin_Sans` to `fonts` directory and deleted fonts' subdirectory `DM_Sans,Josefin_Sans` for duplicate font `DM-Sans`.
+- The splash screen is animated and rotates clockwise while application loads.
+- Created a few stylesheets.
+---
+### 03 JUL 2024
+- Created a few stylesheets.
+- Created `illustrations` subdirectory.
+- Currently, exceptions will render the root's `errorElement` path; in this case, the `ErrorPage` component.
+- Experimented throwing an exception in the `Shop` component to trigger it's `errorElement` path.
+- Currently, all non-skipped test suites pass.
+---
+### 02 JUL 2024
+- Created `fonts` subdirectory.
+- Created `Loading` stylesheet.
+- Currently, `ErrorPage` uses the `useRouteError` hook to retrieve an error object.
+- Removed the `catch` method in the `loader` module, so the routes' root's `errorElement` will render.
+- Currently, `ErrorPage` test suite fails.
 ---
 ### 01 JUL 2024
 - Currently, `Category` and `Shop` test suites fail.

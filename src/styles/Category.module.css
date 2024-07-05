@@ -1,9 +1,62 @@
 .products {
-}
-
-.product-picture {
-  max-width: 300px;
+  display: grid;
+  gap: 1rem;
 }
 
 .product-card {
+  display: grid;
+  border: 2px solid lightsalmon;
+  padding: 1rem;
+}
+
+.product-card > a {
+  justify-self: center;
+  width: 200px;
+  height: 200px;
+}
+
+.product-picture {
+  width: 200px;
+  height: 200px;
+}
+
+.product-card-info {
+  text-align: center;
+}
+
+.product-card-info > h4 {
+}
+
+.product-card-info > p {
+}
+
+@media screen and (min-width: 481px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-picture {
+  }
+
+  .product-card-info {
+    flex: 1;
+    display: grid;
+  }
+
+  .product-card-info > h4 {
+  }
+
+  .product-card-info > p {
+    align-self: end;
+  }
+}
+
+@media screen and (min-width: 768px) {
 }

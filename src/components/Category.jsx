@@ -25,9 +25,9 @@ const Category = () => {
       <h3>{headingCategory}</h3>
       {products && (
         <>
-          <section className={styles.products} role="region">
+          <section role="region" className={styles["products"]}>
             {products[productKey].map((product) => (
-              <ProductCard key={product.id}>
+              <ProductCard key={product.id} className={styles["product-card"]}>
                 <Link
                   to={`${pathname}/product/view/modal/${encodeURIComponent(
                     product.title
@@ -35,12 +35,16 @@ const Category = () => {
                   state={{ product, previousLocation: pathname }}
                 >
                   <ProductCard.Picture
-                    className={styles["product-picture"]}
                     src={product.image}
                     alt="#"
+                    className={styles["product-picture"]}
                   />
                 </Link>
-                <ProductCard.Info title={product.title} price={product.price} />
+                <ProductCard.Info
+                  title={product.title}
+                  price={product.price}
+                  className={styles["product-card-info"]}
+                />
               </ProductCard>
             ))}
           </section>

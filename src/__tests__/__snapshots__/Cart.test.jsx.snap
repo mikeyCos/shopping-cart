@@ -6,9 +6,7 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
   role="region"
 >
   Cart
-  <article
-    class="_card_c43253"
-  >
+  <article>
     <h4>
       Opna Women's Short Sleeve Moisture
     </h4>
@@ -20,6 +18,7 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
       >
         <img
           alt="#"
+          class="_product-img_c43253"
           loading="lazy"
           src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
         />

@@ -836,7 +836,8 @@ const categories = [
 ];
 
 const fetchMock = () => {
-  vi.spyOn(globalThis, "fetch").mockResolvedValue({
+  const fetchSpy = vi.spyOn(globalThis, "fetch");
+  fetchSpy.mockResolvedValue({
     json: vi.fn().mockReturnValueOnce(categories).mockReturnValueOnce(products),
   });
 };

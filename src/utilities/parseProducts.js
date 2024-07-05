@@ -25,7 +25,6 @@ const parseProducts = (data) => {
     { all: [...data] }
   );
 
-  console.log(products);
   return products;
 };
 

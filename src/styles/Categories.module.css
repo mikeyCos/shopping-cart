@@ -1,0 +1,13 @@
+.categories {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.categories > li {
+  padding: 0.25rem;
+}
+
+.categories a {
+  text-transform: capitalize;
+}

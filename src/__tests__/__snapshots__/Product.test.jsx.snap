@@ -2,16 +2,15 @@
 
 exports[`Product component > Product component matches snapshot 1`] = `
 <article
-  class="_card_c43253"
+  class="_product_b0e857"
 >
   <h4>
     Opna Women's Short Sleeve Moisture
   </h4>
-  <picture
-    class="_product-picture_b0e857"
-  >
+  <picture>
     <img
       alt="#"
+      class="_product-img_c43253"
       loading="lazy"
       src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
     />

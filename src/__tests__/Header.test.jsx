@@ -8,7 +8,6 @@ import { CartContext } from "../components/Cart";
  */
 
 describe("Header component", () => {
-  // Cannot test header with Link components from react-router-dom
   it("The Header component is rendered", () => {
     render(
       <CartContext.Provider value={{ cart: [] }}>

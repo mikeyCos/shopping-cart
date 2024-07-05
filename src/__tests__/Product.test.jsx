@@ -82,10 +82,7 @@ describe("Product component", () => {
     expect(quantityInput.value).toBe("2");
   });
 
-  it.skip("The up arrow increases the quantity input's value by 1", async () => {
-    /* This test does not work; why?
-     * The keyboard event, for ArrowUp key, does not increment quantity
-     */
+  it("The up arrow increases the quantity input's value by 1", async () => {
     const user = userEvent.setup();
     const initialEntries = [{ pathname: "/", state: { product } }];
     render(
@@ -94,12 +91,10 @@ describe("Product component", () => {
       </MemoryRouter>
     );
 
-    const quantityInput = screen.getByRole("spinbutton");
+    const quantityInput = screen.getByRole("textbox");
 
     await user.click(quantityInput);
     await user.keyboard("[ArrowUp]");
-    // await user.type(quantityInput, "[ArrowUp]");
-    // expect(quantityInput).toHaveFocus();
     expect(quantityInput.value).toBe("2");
   });
 });

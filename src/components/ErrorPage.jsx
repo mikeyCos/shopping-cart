@@ -1,15 +1,13 @@
-import PropTypes from "prop-types";
+import { useRouteError } from "react-router-dom";
 
-const ErrorPage = ({ errorMessage = "Error" }) => {
+const ErrorPage = () => {
+  const { error, status } = useRouteError();
+  console.log(error);
   return (
     <section id="error-section" role="region">
-      {errorMessage}
+      {error.message}
     </section>
   );
-};
-
-ErrorPage.propTypes = {
-  errorMessage: PropTypes.string,
 };
 
 export default ErrorPage;
