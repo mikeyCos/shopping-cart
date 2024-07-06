@@ -21,48 +21,77 @@ exports[`Product component > Product component matches snapshot 1`] = `
     <p>
       100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort
     </p>
-    <p>
+    <p
+      class="product-price"
+    >
       $7.95
     </p>
-    <div>
-      <label
-        for="quantity"
-      />
-      <div
-        class="_input-btn-container_e589d5"
-      >
-        <button
-          class="_input-btn-left_e589d5"
-          type="button"
-        >
-          -
-        </button>
-        <input
-          autocomplete="off"
-          class="quantity-input _input_e589d5"
-          id="quantity"
-          maxlength="3"
-          minlength="1"
-          name="quantity"
-          type="text"
-          value="1"
-        />
-        <button
-          class="_input-btn-right_e589d5"
-          type="button"
-        >
-          +
-        </button>
-      </div>
-      <p
-        class="error-message"
-      />
-    </div>
-    <button
-      type="submit"
+    <div
+      class="form-controls"
     >
-      Add to cart
-    </button>
+      <div>
+        <label
+          for="quantity"
+        />
+        <div
+          class="input-container _input-btn-container_e589d5"
+        >
+          <button
+            aria-label="decrement quantity"
+            class="_input-btn-left_e589d5"
+            type="button"
+          >
+            <svg
+              fill="currentColor"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M200-440v-80h560v80H200Z"
+              />
+            </svg>
+          </button>
+          <input
+            autocomplete="off"
+            class="quantity-input _input_e589d5"
+            id="quantity"
+            maxlength="3"
+            minlength="1"
+            name="quantity"
+            type="text"
+            value="1"
+          />
+          <button
+            aria-label="increment quantity"
+            class="_input-btn-right_e589d5"
+            type="button"
+          >
+            <svg
+              fill="currentColor"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <p
+          class="error-message _input-error_e589d5"
+        />
+      </div>
+      <button
+        class="_submit-btn_1666d4"
+        type="submit"
+      >
+        Add to cart
+      </button>
+    </div>
   </form>
 </article>
 `;

@@ -76,7 +76,7 @@ describe("Product component", () => {
     );
 
     const quantityInput = screen.getByRole("textbox");
-    const incrementButton = screen.getByRole("button", { name: "+" });
+    const incrementButton = screen.getByLabelText("increment quantity");
 
     await user.click(incrementButton);
     expect(quantityInput.value).toBe("2");

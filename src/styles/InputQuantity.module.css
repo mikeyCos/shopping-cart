@@ -1,11 +1,21 @@
 .input-btn-container {
   position: relative;
   width: fit-content;
+  height: 100%;
+}
+
+.input-btn-container:has(input:focus) {
+  outline: 2px solid #000000;
 }
 
 .input-btn {
   position: absolute;
-  width: 1rem;
+  width: clamp(1.5rem, 5vw, 4rem);
+  height: 100%;
+}
+
+.input-btn svg {
+  margin: auto;
 }
 
 .input-btn-left {
@@ -23,8 +33,16 @@
   -moz-appearance: textfield;
 }
 
+.input:focus {
+  outline: none;
+}
+
 .input::-webkit-outer-spin-button,
 .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.input-error {
+  color: rgb(255, 44, 44);
 }

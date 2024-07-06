@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import styles from "../styles/FormQuantity.module.css";
 
 const FormQuantity = ({ submitForm, children }) => {
   const onSubmitHandler = (e) => {
@@ -13,7 +14,11 @@ const FormQuantity = ({ submitForm, children }) => {
   );
 };
 
-const SubmitButton = ({ text }) => <button type="submit">{text}</button>;
+const SubmitButton = ({ text }) => (
+  <button type="submit" className={styles["submit-btn"]}>
+    {text}
+  </button>
+);
 
 FormQuantity.SubmitButton = SubmitButton;
 

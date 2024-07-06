@@ -15,7 +15,7 @@ const Cart = () => {
   }, 0);
 
   return (
-    <section id="cart" role="region">
+    <section id={styles["cart"]} role="region">
       Cart
       {cart.length === 0 && <h4>Cart is empty</h4>}
       {cart.length > 0 && (

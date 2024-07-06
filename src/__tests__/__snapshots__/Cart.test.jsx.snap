@@ -2,7 +2,7 @@
 
 exports[`Cart component > Cart component matches snapshot 1`] = `
 <section
-  id="cart"
+  id="_cart_c7a017"
   role="region"
 >
   Cart
@@ -35,13 +35,24 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
           for="quantity"
         />
         <div
-          class="_input-btn-container_e589d5"
+          class="input-container _input-btn-container_e589d5"
         >
           <button
+            aria-label="decrement quantity"
             class="_input-btn-left_e589d5"
             type="button"
           >
-            -
+            <svg
+              fill="currentColor"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M200-440v-80h560v80H200Z"
+              />
+            </svg>
           </button>
           <input
             autocomplete="off"
@@ -54,17 +65,29 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
             value="1"
           />
           <button
+            aria-label="increment quantity"
             class="_input-btn-right_e589d5"
             type="button"
           >
-            +
+            <svg
+              fill="currentColor"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+              />
+            </svg>
           </button>
         </div>
         <p
-          class="error-message"
+          class="error-message _input-error_e589d5"
         />
       </div>
       <button
+        class="_submit-btn_1666d4"
         type="submit"
       >
         Delete

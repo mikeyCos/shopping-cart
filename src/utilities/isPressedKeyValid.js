@@ -1,4 +1,4 @@
-const allowedKeys = ["backspace", "shift", "arrowleft", "arrowright"];
+const allowedKeys = ["backspace", "shift", "tab", "arrowleft", "arrowright"];
 
 /* If is key is a number, immediately return true
  * Return boolean if key is in allowedKeys array

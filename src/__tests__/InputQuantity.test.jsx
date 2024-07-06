@@ -77,7 +77,7 @@ describe("InputQuantity component", () => {
 
     render(<ParentComponent />);
 
-    const incrementButton = screen.getByRole("button", { name: "+" });
+    const incrementButton = screen.getByLabelText("increment quantity");
     const input = screen.getByRole("textbox");
     await user.click(incrementButton);
 

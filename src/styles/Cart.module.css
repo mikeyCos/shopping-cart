@@ -1,3 +1,7 @@
+#cart {
+  border: 2px solid lightsalmon;
+}
+
 .product-picture {
-  max-width: 300px;
+  max-width: 150px;
 }

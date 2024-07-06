@@ -4,12 +4,14 @@
 
 @font-face {
   font-family: DM Sans;
-  src: url(../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\wght.ttf);
+  src: url(../assets/fonts/DM_Sans/DMSans-VariableFont_opsz_wght.ttf)
+    format("truetype");
 }
 
 @font-face {
   font-family: Josefin Sans;
-  src: url(../assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf);
+  src: url(../assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf)
+    format("truetype");
 }
 
 :root {
@@ -20,4 +22,8 @@
   height: 100svh;
   font-family: DM Sans, Arial, Helvetica, sans-serif;
   color: #000000;
+}
+
+button:hover {
+  cursor: pointer;
 }

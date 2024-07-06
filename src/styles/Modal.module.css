@@ -1,11 +1,13 @@
 .modal {
   position: relative;
   margin: auto;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0px 0px 4px 0px #000000;
 }
 
 .modal::backdrop {
-  background-color: rgba(244, 32, 144, 0.4);
+  background-color: rgba(54, 54, 54, 0.4);
 }
 
 .close-btn {
@@ -13,9 +15,19 @@
   border: none;
   position: absolute;
   right: 0;
-  cursor: pointer;
+  padding: 0.5rem;
+  /* border-radius: 0.5rem; */
 }
 
 .close-btn:hover {
   background-color: red;
+}
+
+@media screen and (min-width: 481px) {
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    max-width: 700px;
+  }
 }

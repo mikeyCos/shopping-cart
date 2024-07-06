@@ -1,7 +1,11 @@
 # Changelog
 ---
 ### 05 JUl 2024
-- 
+- On mobile, content for modal product cards are horizontally stacked. On desktop, the content is divided into two columns; product picture will be on the left column and the form will be on the right column.
+- Wrapped the form's submit button and quantity input into a `.form-controls` generic container.
+- Created `onKeyDownHandler` in the `InputQuantity` component.
+- Added `close`, `increment`, `decrement` icons.
+- Created stylesheet for `FormQuantity` component.
 ---
 ### 04 JUL 2024
 - On mobile, only one column of products will be displayed in the shop page; more columns of products will be displayed as the screen/window size grows.

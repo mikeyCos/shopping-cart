@@ -47,14 +47,16 @@ const Product = () => {
       <ProductCard.Picture src={product.image} alt="#" />
       <FormQuantity submitForm={() => onSubmitHandler()}>
         <p>{product.description}</p>
-        <p>{formatPrice(product.price)}</p>
-        <InputQuantity
-          quantity={quantity}
-          setQuantity={onChangeQuantityHandler}
-          incrementHandler={incrementQuantityHandler}
-          decrementHandler={decrementQuantityHandler}
-        />
-        <FormQuantity.SubmitButton text="Add to cart" />
+        <p className="product-price">{formatPrice(product.price)}</p>
+        <div className="form-controls">
+          <InputQuantity
+            quantity={quantity}
+            setQuantity={onChangeQuantityHandler}
+            incrementHandler={incrementQuantityHandler}
+            decrementHandler={decrementQuantityHandler}
+          />
+          <FormQuantity.SubmitButton text="Add to cart" />
+        </div>
       </FormQuantity>
     </ProductCard>
   );
