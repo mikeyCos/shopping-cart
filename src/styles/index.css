@@ -16,6 +16,7 @@
 
 :root {
   --background-color-primary: #ffffff;
+  --padding-modal: 2rem;
 }
 
 #root {

@@ -2,7 +2,10 @@ import PropTypes from "prop-types";
 import formatPrice from "../utilities/formatPrice";
 import styles from "../styles/ProductCard.module.css";
 
-const ProductCard = ({ children, className }) => {
+const ProductCard = ({
+  children,
+  className = styles["product-card-default"],
+}) => {
   return <article className={className}>{children}</article>;
 };
 

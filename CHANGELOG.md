@@ -1,7 +1,19 @@
 # Changelog
 ---
-### 05 JUl 2024
-- On mobile, content for modal product cards are horizontally stacked. On desktop, the content is divided into two columns; product picture will be on the left column and the form will be on the right column.
+### 08 JUL 2024
+- 
+---
+### 07 JUL 2024
+- On desktop, individual product page's will show the product/item on the center of the page with it's description to the right of it's image. On mobile, the product/item's content will be stacked vertically.
+- Attempted to use `ScrollRestoration` component and the `preventScrollReset` attribute.
+- If a product modal is closed, the page's scroll location does not reset.
+- Currently, clicking a product/item on the shop page will render a product modal but the page's scroll location is reset; the page will scroll back to the top.
+- Currently, products in the modal view will have different heights to accommodate it's content and will not exceed a width of `700px`.
+- Items in cart are centered on desktop view.
+- Applied styles throughout stylesheet modules.
+---
+### 05 JUL 2024
+- On mobile, content for modal product cards are vertically stacked. On desktop, the content is divided into two columns; product picture will be on the left column and the form will be on the right column.
 - Wrapped the form's submit button and quantity input into a `.form-controls` generic container.
 - Created `onKeyDownHandler` in the `InputQuantity` component.
 - Added `close`, `increment`, `decrement` icons.

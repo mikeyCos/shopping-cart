@@ -25,11 +25,11 @@ const Header = () => {
 
         <ul className={styles["nav-right"]}>
           <li>
-            <NavAnchor pathname="home" />
+            <NavAnchor pathname="/home" text="home" />
           </li>
 
           <li>
-            <NavAnchor pathname="shop" />
+            <NavAnchor pathname="/shop" text="shop" />
           </li>
 
           <li>

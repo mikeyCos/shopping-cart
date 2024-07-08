@@ -11,3 +11,6 @@
 .categories a {
   text-transform: capitalize;
 }
+
+.categories a:first-of-type {
+}

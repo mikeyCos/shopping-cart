@@ -1,5 +1,8 @@
+import { useEffect, useRef } from "react";
 import {
   Link,
+  Outlet,
+  ScrollRestoration,
   useLocation,
   useOutletContext,
   useParams,
@@ -15,9 +18,16 @@ import styles from "../styles/Category.module.css";
 const Category = () => {
   const { category = "all" } = useParams();
   const [products] = useOutletContext();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname, id } = useLocation();
   const productKey = parseCategory(category);
   const headingCategory = category.replaceAll("-", " ");
+  console.log("Category component rendering");
+  // console.log(useLocation());
+
+  useEffect(() => {
+    // console.log(location);
+  }, [location]);
 
   return (
     <section>
@@ -32,7 +42,13 @@ const Category = () => {
                   to={`${pathname}/product/view/modal/${encodeURIComponent(
                     product.title
                   )}`}
-                  state={{ product, previousLocation: pathname }}
+                  state={{
+                    product,
+                    previousLocation: pathname,
+                    id: product.id,
+                  }}
+                  preventScrollReset={true}
+                  data-id={product.id}
                 >
                   <ProductCard.Picture
                     src={product.image}

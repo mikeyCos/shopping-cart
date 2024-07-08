@@ -8,10 +8,14 @@ import iconStyles from "../styles/icons.module.css";
 const Modal = () => {
   const refDefault = useRef(null);
   const { state } = useLocation();
+  // console.log(useLocation());
   const navigate = useNavigate();
 
   const closeModal = () => {
-    navigate(state.previousLocation);
+    navigate(state.previousLocation, {
+      preventScrollReset: true,
+      state: { id: state.id },
+    });
   };
 
   useEffect(() => {
@@ -24,22 +28,22 @@ const Modal = () => {
 
   return (
     <>
-      {state && (
+      {state?.product && (
         <dialog
           ref={refDefault}
           onClick={(e) => e.target.tagName === "DIALOG" && closeModal()}
           onKeyDown={(e) => e.key === "Escape" && closeModal()}
           className={styles["modal"]}
         >
+          <button
+            type="button"
+            onClick={() => closeModal()}
+            aria-labelledby="close"
+            className={styles["close-btn"]}
+          >
+            <CloseIcon className={iconStyles["icon-close"]} />
+          </button>
           <section>
-            <button
-              type="button"
-              onClick={() => closeModal()}
-              aria-labelledby="close"
-              className={styles["close-btn"]}
-            >
-              <CloseIcon className={iconStyles["icon-close"]} />
-            </button>
             <Product />
           </section>
         </dialog>

@@ -8,13 +8,6 @@
 
 nav {
   display: flex;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0.5rem;
-  position: relative;
-  gap: 0.5rem; */
 }
 
 nav {
@@ -84,4 +77,11 @@ nav {
 }
 
 @media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1025px) {
+  nav {
+    max-width: 1024px;
+    margin: auto;
+  }
 }

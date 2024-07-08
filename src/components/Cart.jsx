@@ -19,10 +19,13 @@ const Cart = () => {
       Cart
       {cart.length === 0 && <h4>Cart is empty</h4>}
       {cart.length > 0 && (
-        <>
+        <section role="region" className={styles["cart-container"]}>
           {cart.map((item) => {
             return (
-              <ProductCard key={item.id}>
+              <ProductCard
+                key={item.id}
+                className={styles["cart-product-card"]}
+              >
                 <ProductCard.Heading title={item.title} />
                 <Link
                   to={`/shop/product/view/${encodeURIComponent(item.title)}`}
@@ -36,30 +39,32 @@ const Cart = () => {
                 </Link>
                 <FormQuantity submitForm={() => removeFromCart(item.id)}>
                   <p>{formatPrice(item.price)}</p>
-                  <InputQuantity
-                    quantity={item.quantity}
-                    setQuantity={(newQuantity) => {
-                      console.log("previous quantity", item.quantity);
-                      setQuantity(item.id, newQuantity);
-                    }}
-                    incrementHandler={() => {
-                      const newQuantity = +item.quantity + 1;
-                      newQuantity <= 999 && setQuantity(item.id, newQuantity);
-                    }}
-                    decrementHandler={() => {
-                      const newQuantity = item.quantity - 1;
-                      newQuantity >= 0 && setQuantity(item.id, newQuantity);
-                    }}
-                  />
-                  <FormQuantity.SubmitButton text="Delete" />
+                  <div className="form-controls">
+                    <InputQuantity
+                      quantity={item.quantity}
+                      setQuantity={(newQuantity) => {
+                        console.log("previous quantity", item.quantity);
+                        setQuantity(item.id, newQuantity);
+                      }}
+                      incrementHandler={() => {
+                        const newQuantity = +item.quantity + 1;
+                        newQuantity <= 999 && setQuantity(item.id, newQuantity);
+                      }}
+                      decrementHandler={() => {
+                        const newQuantity = item.quantity - 1;
+                        newQuantity >= 0 && setQuantity(item.id, newQuantity);
+                      }}
+                    />
+                    <FormQuantity.SubmitButton text="Delete" />
+                  </div>
                 </FormQuantity>
               </ProductCard>
             );
           })}
-          <p>
+          <p className={styles["subtotal"]}>
             Subtotal: <span>{formatPrice(subTotal)}</span>
           </p>
-        </>
+        </section>
       )}
     </section>
   );

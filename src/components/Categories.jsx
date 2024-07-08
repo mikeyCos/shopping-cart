@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import NavAnchor from "./NavAnchor";
 import styles from "../styles/Categories.module.css";
 
 const Categories = ({ categories }) => {
@@ -10,9 +9,10 @@ const Categories = ({ categories }) => {
         {categories.map((category) => {
           return (
             <li key={category}>
-              <Link to={`category/${category.replaceAll(" ", "-")}`}>
-                {category}
-              </Link>
+              <NavAnchor
+                pathname={`category/${category.replaceAll(" ", "-")}`}
+                text={category}
+              />
             </li>
           );
         })}
