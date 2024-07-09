@@ -8,22 +8,30 @@ import iconStyles from "../styles/icons.module.css";
 const Modal = () => {
   const refDefault = useRef(null);
   const { state } = useLocation();
-  // console.log(useLocation());
+  console.log(useLocation());
   const navigate = useNavigate();
 
   const closeModal = () => {
     navigate(state.previousLocation, {
       preventScrollReset: true,
-      state: { id: state.id },
     });
   };
 
   useEffect(() => {
     if (state) {
+      adjustModalYPosition(refDefault.current, state.id);
       refDefault.current?.showModal();
+      refDefault.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else {
       refDefault.current?.close();
     }
+
+    // Prevent scroll when modal is open
+    // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
+    document.body.classList.toggle("modal-open", !!state);
   }, [state]);
 
   return (
@@ -40,6 +48,7 @@ const Modal = () => {
             onClick={() => closeModal()}
             aria-labelledby="close"
             className={styles["close-btn"]}
+            autoFocus
           >
             <CloseIcon className={iconStyles["icon-close"]} />
           </button>
@@ -50,6 +59,15 @@ const Modal = () => {
       )}
     </>
   );
+};
+
+const adjustModalYPosition = (modal, id) => {
+  const productCard = document.querySelector(`[data-id='${id}']`).parentElement;
+  const { bottom, top, height } = productCard.getBoundingClientRect();
+  const newYPosition = top + window.scrollY;
+  console.log(modal.getBoundingClientRect());
+  console.log(document.body.getBoundingClientRect());
+  modal.style.transform = `translateY(${newYPosition}px)`;
 };
 
 export default Modal;

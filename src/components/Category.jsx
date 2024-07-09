@@ -4,6 +4,7 @@ import {
   Outlet,
   ScrollRestoration,
   useLocation,
+  useNavigate,
   useOutletContext,
   useParams,
 } from "react-router-dom";
@@ -19,16 +20,11 @@ const Category = () => {
   const { category = "all" } = useParams();
   const [products] = useOutletContext();
   const location = useLocation();
-  const { pathname, id } = useLocation();
+  const { pathname } = useLocation();
   const productKey = parseCategory(category);
   const headingCategory = category.replaceAll("-", " ");
   console.log("Category component rendering");
-  // console.log(useLocation());
-
-  useEffect(() => {
-    // console.log(location);
-  }, [location]);
-
+  console.log(location);
   return (
     <section>
       <h2>Category</h2>

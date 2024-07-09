@@ -1,9 +1,8 @@
-#shop {
-  display: grid;
+#home {
 }
 
 @media screen and (min-width: 1025px) {
-  #shop {
+  #home {
     max-width: 1024px;
     margin: auto;
   }

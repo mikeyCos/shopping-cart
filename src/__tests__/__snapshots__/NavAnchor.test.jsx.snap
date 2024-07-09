@@ -5,8 +5,6 @@ exports[`NavAnchor component > NavAnchor component matches snapshot 1`] = `
   <a
     class=""
     href="/placeholder"
-  >
-    placeholder
-  </a>
+  />
 </div>
 `;

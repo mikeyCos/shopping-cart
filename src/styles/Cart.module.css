@@ -15,8 +15,10 @@
 }
 
 #cart .cart-container .subtotal {
+  height: min-content;
   text-align: end;
   margin-top: 2rem;
+  margin-right: 2rem;
 }
 
 .cart-product-card {
@@ -79,6 +81,9 @@
     justify-self: center;
     grid-column: 1;
   }
+}
+
+@media screen and (min-width: 481px) {
 }
 
 @media screen and (min-width: 768px) {

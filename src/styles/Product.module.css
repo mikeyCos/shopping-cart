@@ -19,7 +19,7 @@
 .product-modal picture {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   min-width: 0;
   min-height: 0;
 }

@@ -8,6 +8,7 @@ exports[`Categories component > The Categories component with categories prop ma
     >
       <li>
         <a
+          class=""
           href="/category/electronics"
         >
           electronics
@@ -15,6 +16,7 @@ exports[`Categories component > The Categories component with categories prop ma
       </li>
       <li>
         <a
+          class=""
           href="/category/jewelery"
         >
           jewelery
@@ -22,6 +24,7 @@ exports[`Categories component > The Categories component with categories prop ma
       </li>
       <li>
         <a
+          class=""
           href="/category/men's-clothing"
         >
           men's clothing
@@ -29,6 +32,7 @@ exports[`Categories component > The Categories component with categories prop ma
       </li>
       <li>
         <a
+          class=""
           href="/category/women's-clothing"
         >
           women's clothing

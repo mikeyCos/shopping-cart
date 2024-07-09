@@ -481,7 +481,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
     class="_main_324060"
   >
     <section
-      id="shop"
+      id="_shop_1f04d7"
     >
       Shop section
       <article>
@@ -490,6 +490,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
         >
           <li>
             <a
+              class=""
               href="/shop/category/all"
             >
               all
@@ -497,6 +498,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
           </li>
           <li>
             <a
+              class=""
               href="/shop/category/electronics"
             >
               electronics
@@ -504,6 +506,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
           </li>
           <li>
             <a
+              class=""
               href="/shop/category/jewelery"
             >
               jewelery
@@ -511,6 +514,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
           </li>
           <li>
             <a
+              class=""
               href="/shop/category/men's-clothing"
             >
               men's clothing
@@ -518,6 +522,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
           </li>
           <li>
             <a
+              class=""
               href="/shop/category/women's-clothing"
             >
               women's clothing
@@ -540,6 +545,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="1"
               href="/shop/product/view/modal/Fjallraven%20-%20Foldsack%20No.%201%20Backpack%2C%20Fits%2015%20Laptops"
             >
               <picture
@@ -568,6 +574,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="2"
               href="/shop/product/view/modal/Mens%20Casual%20Premium%20Slim%20Fit%20T-Shirts%20"
             >
               <picture
@@ -596,6 +603,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="3"
               href="/shop/product/view/modal/Mens%20Cotton%20Jacket"
             >
               <picture
@@ -624,6 +632,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="4"
               href="/shop/product/view/modal/Mens%20Casual%20Slim%20Fit"
             >
               <picture
@@ -652,6 +661,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="5"
               href="/shop/product/view/modal/John%20Hardy%20Women's%20Legends%20Naga%20Gold%20%26%20Silver%20Dragon%20Station%20Chain%20Bracelet"
             >
               <picture
@@ -680,6 +690,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="6"
               href="/shop/product/view/modal/Solid%20Gold%20Petite%20Micropave%20"
             >
               <picture
@@ -708,6 +719,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="7"
               href="/shop/product/view/modal/White%20Gold%20Plated%20Princess"
             >
               <picture
@@ -736,6 +748,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="8"
               href="/shop/product/view/modal/Pierced%20Owl%20Rose%20Gold%20Plated%20Stainless%20Steel%20Double"
             >
               <picture
@@ -764,6 +777,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="9"
               href="/shop/product/view/modal/WD%202TB%20Elements%20Portable%20External%20Hard%20Drive%20-%20USB%203.0%20"
             >
               <picture
@@ -792,6 +806,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="10"
               href="/shop/product/view/modal/SanDisk%20SSD%20PLUS%201TB%20Internal%20SSD%20-%20SATA%20III%206%20Gb%2Fs"
             >
               <picture
@@ -820,6 +835,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="11"
               href="/shop/product/view/modal/Silicon%20Power%20256GB%20SSD%203D%20NAND%20A55%20SLC%20Cache%20Performance%20Boost%20SATA%20III%202.5"
             >
               <picture
@@ -848,6 +864,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="12"
               href="/shop/product/view/modal/WD%204TB%20Gaming%20Drive%20Works%20with%20Playstation%204%20Portable%20External%20Hard%20Drive"
             >
               <picture
@@ -876,6 +893,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="13"
               href="/shop/product/view/modal/Acer%20SB220Q%20bi%2021.5%20inches%20Full%20HD%20(1920%20x%201080)%20IPS%20Ultra-Thin"
             >
               <picture
@@ -904,6 +922,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="14"
               href="/shop/product/view/modal/Samsung%2049-Inch%20CHG90%20144Hz%20Curved%20Gaming%20Monitor%20(LC49HG90DMNXZA)%20%E2%80%93%20Super%20Ultrawide%20Screen%20QLED%20"
             >
               <picture
@@ -932,6 +951,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="15"
               href="/shop/product/view/modal/BIYLACLESEN%20Women's%203-in-1%20Snowboard%20Jacket%20Winter%20Coats"
             >
               <picture
@@ -960,6 +980,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="16"
               href="/shop/product/view/modal/Lock%20and%20Love%20Women's%20Removable%20Hooded%20Faux%20Leather%20Moto%20Biker%20Jacket"
             >
               <picture
@@ -988,6 +1009,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="17"
               href="/shop/product/view/modal/Rain%20Jacket%20Women%20Windbreaker%20Striped%20Climbing%20Raincoats"
             >
               <picture
@@ -1016,6 +1038,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="18"
               href="/shop/product/view/modal/MBJ%20Women's%20Solid%20Short%20Sleeve%20Boat%20Neck%20V%20"
             >
               <picture
@@ -1044,6 +1067,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="19"
               href="/shop/product/view/modal/Opna%20Women's%20Short%20Sleeve%20Moisture"
             >
               <picture
@@ -1072,6 +1096,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
             class="_product-card_d6f91d"
           >
             <a
+              data-id="20"
               href="/shop/product/view/modal/DANVOUY%20Womens%20T%20Shirt%20Casual%20Cotton%20Short"
             >
               <picture

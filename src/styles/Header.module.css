@@ -55,7 +55,7 @@ nav {
   position: absolute;
   right: 0;
   background-color: orange;
-  border-radius: 100%;
+  /* border-radius: 100%; */
   width: 16px;
   text-align: center;
 }

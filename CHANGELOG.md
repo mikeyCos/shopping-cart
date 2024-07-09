@@ -1,7 +1,16 @@
 # Changelog
 ---
-### 08 JUL 2024
+### 09 JUL 2024
 - 
+---
+### 08 JUL 2024
+- All pages and the header's children will horizontally center page with `margin: auto` at a minimum screen size of 1025 pixels.
+- Scroll is disabled when product modal is open.
+- The product modal will be scrolled into center view with smooth scrolling; sometimes content behind the modal are hidden.
+- The product modal will be positioned near the product/item that was clicked to trigger the product modal.
+- Currently, product/item cards on the shop page will have their content stacked vertically for mobile and desktop.
+- Experimented with the `ScrollRestoration` component and the `preventScrollReset` attribute.
+- Created stylesheet for the `Home` component.
 ---
 ### 07 JUL 2024
 - On desktop, individual product page's will show the product/item on the center of the page with it's description to the right of it's image. On mobile, the product/item's content will be stacked vertically.
