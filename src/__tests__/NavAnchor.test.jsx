@@ -8,7 +8,7 @@ describe("NavAnchor component", () => {
     const pathname = "placeholder";
     const { container } = render(
       <MemoryRouter>
-        <NavAnchor pathname={pathname} />
+        <NavAnchor pathname={pathname} text={"Placeholder"} />
       </MemoryRouter>
     );
 
@@ -19,7 +19,7 @@ describe("NavAnchor component", () => {
     const pathname = "home";
     render(
       <MemoryRouter>
-        <NavAnchor pathname={pathname} />
+        <NavAnchor pathname={pathname} text={pathname} />
       </MemoryRouter>
     );
 

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import routes from "../routes/routes";
@@ -18,6 +18,7 @@ vi.mock("../utilities/parseProducts");
  */
 
 beforeEach(() => {
+  window.scrollTo = vi.fn();
   fetchMock();
 });
 
@@ -32,26 +33,7 @@ describe("Category component (Outlet)", () => {
       </CartProvider>
     );
 
-    await screen.findByRole("heading", { level: 3 });
     expect(container).matchSnapshot();
-  });
-
-  it("Category's heading text should be 'electronics'", async () => {
-    const category = "electronics";
-    const regExp = new RegExp(category); // regular expression: /electronics/
-    const router = createMemoryRouter(routes, {
-      initialEntries: [`/shop/category/${category}`],
-    });
-    render(
-      <CartProvider>
-        <RouterProvider router={router} />
-      </CartProvider>
-    );
-
-    const categoryElectronics = await screen.findByRole("heading", {
-      level: 3,
-    });
-    expect(categoryElectronics.textContent).toMatch(regExp);
   });
 
   it("20 products are listed for the 'all' category", async () => {

@@ -2,13 +2,15 @@
 
 exports[`Categories component > The Categories component with categories prop matches snapshot 1`] = `
 <div>
-  <article>
+  <article
+    class="_categories_346161"
+  >
     <ul
-      class="_categories_346161"
+      class="_categories-list_346161"
     >
       <li>
         <a
-          class=""
+          class="_link_32bc69"
           href="/category/electronics"
         >
           electronics
@@ -16,7 +18,7 @@ exports[`Categories component > The Categories component with categories prop ma
       </li>
       <li>
         <a
-          class=""
+          class="_link_32bc69"
           href="/category/jewelery"
         >
           jewelery
@@ -24,7 +26,7 @@ exports[`Categories component > The Categories component with categories prop ma
       </li>
       <li>
         <a
-          class=""
+          class="_link_32bc69"
           href="/category/men's-clothing"
         >
           men's clothing
@@ -32,7 +34,7 @@ exports[`Categories component > The Categories component with categories prop ma
       </li>
       <li>
         <a
-          class=""
+          class="_link_32bc69"
           href="/category/women's-clothing"
         >
           women's clothing

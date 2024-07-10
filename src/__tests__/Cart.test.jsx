@@ -27,7 +27,7 @@ describe("Cart component", () => {
       { pathname: "/cart", state: { previousLocation: "/shop/cart" } },
     ];
 
-    render(
+    const { container } = render(
       <CartContext.Provider value={{ cart: [{ ...product, quantity: 1 }] }}>
         <MemoryRouter initialEntries={initialEntries}>
           <Cart />
@@ -35,8 +35,7 @@ describe("Cart component", () => {
       </CartContext.Provider>
     );
 
-    const cartSection = screen.getByRole("region");
-    expect(cartSection).matchSnapshot();
+    expect(container).matchSnapshot();
   });
 
   it("There are 20 products in the cart", () => {

@@ -3,8 +3,16 @@
 }
 
 #cart {
-  border: 2px solid lightsalmon;
+  /* border: 2px solid lightsalmon; */
   height: 100%;
+}
+
+.cart-header {
+  padding: 1rem;
+}
+
+.cart-header > h4 {
+  font-size: clamp(1rem, 2.5vw, 2rem);
 }
 
 #cart .cart-container {
@@ -27,6 +35,10 @@
   padding: 1rem;
   box-shadow: 0px 4px 10px -8px #000000;
   gap: 1rem;
+}
+
+.cart-product-card:has(a:hover) {
+  outline: 2px solid lightskyblue;
 }
 
 #cart .cart-product-card a {

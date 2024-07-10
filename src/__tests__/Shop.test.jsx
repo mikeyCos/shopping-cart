@@ -18,19 +18,19 @@ vi.mock("../utilities/parseProducts");
 
 beforeEach(() => {
   vi.mock("../utilities/parseProducts");
+  window.scrollTo = vi.fn();
   fetchMock();
 });
 
 describe("Shop component", () => {
-  it("The Shop component is rendered", async () => {
+  it("The Shop component component matches snapshot", async () => {
     const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
-    render(
+    const { container } = render(
       <CartProvider>
         <RouterProvider router={router} />
       </CartProvider>
     );
-    const shopSection = await screen.findByText("Shop section");
-    expect(shopSection).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   it("Renders correct text when fetch fails", async () => {

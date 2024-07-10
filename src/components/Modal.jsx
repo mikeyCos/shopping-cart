@@ -25,13 +25,16 @@ const Modal = () => {
         behavior: "smooth",
         block: "center",
       });
+      console.log("state in useEffect");
     } else {
       refDefault.current?.close();
     }
-
+    console.log("useEffect");
     // Prevent scroll when modal is open
     // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-    document.body.classList.toggle("modal-open", !!state);
+    setTimeout(() => {
+      document.body.classList.toggle("modal-open", !!state);
+    }, 500);
   }, [state]);
 
   return (

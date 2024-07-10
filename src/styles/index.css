@@ -15,13 +15,19 @@
 }
 
 :root {
-  --background-color-primary: #ffffff;
+  --background-color-primary: #fffefa;
+  --accent-color-primary: #ffb17a;
+  --active-page-color: #2e009a;
   --padding-modal: 2rem;
 }
 
+body {
+  background-color: var(--background-color-primary);
+}
+
 body.modal-open {
-  height: 100vh;
-  overflow: hidden;
+  /* height: 100vh;
+  overflow: hidden; */
   /* position: fixed; */
 }
 

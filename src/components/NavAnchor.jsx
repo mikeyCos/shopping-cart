@@ -8,8 +8,9 @@ const NavAnchor = ({ pathname, text }) => {
       className={({ isActive, isPending, isTransitioning }) =>
         [
           isPending ? "pending" : "",
-          isActive ? styles["active"] : "",
+          isActive ? `${styles["active"]} ${styles["active-link"]}` : "",
           isTransitioning ? "transitioning" : "",
+          styles["link"],
         ]
           .filter((item) => item)
           .join(" ")

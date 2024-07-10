@@ -1,9 +1,4 @@
-import {
-  Outlet,
-  ScrollRestoration,
-  useRouteError,
-  useRouteLoaderData,
-} from "react-router-dom";
+import { Outlet, useRouteLoaderData } from "react-router-dom";
 import Categories from "./Categories";
 import styles from "../styles/Shop.module.css";
 
@@ -15,11 +10,8 @@ const Shop = () => {
 
   return (
     <section id={styles["shop"]}>
-      Shop section
-      <>
-        <Categories categories={categories} />
-        <Outlet context={[products]} />
-      </>
+      <Categories categories={categories} />
+      <Outlet context={[products]} />
     </section>
   );
 };

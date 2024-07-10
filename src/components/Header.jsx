@@ -1,5 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { useContext, useEffect, useRef } from "react";
 import { CartContext } from "./Cart";
 import NavAnchor from "./NavAnchor";
 import CartIcon from "../assets/icons/cart-variant.svg?react";
@@ -10,7 +10,21 @@ import iconStyles from "../styles/icons.module.css";
 import illustrationsStyles from "../styles/illustrations.module.css";
 
 const Header = () => {
-  const { cart } = useContext(CartContext);
+  const cartNumberRef = useRef(null);
+  const { cart, isUpdatingCart } = useContext(CartContext);
+  console.log("header component running");
+  console.log("isUpdatingCart:", isUpdatingCart);
+  useEffect(() => {
+    // Is there another way to achieve this without the useEffect hook?
+    if (isUpdatingCart) {
+      const tempStyles = styles["foo"];
+      cartNumberRef.current?.classList.add(tempStyles);
+      setTimeout(() => {
+        cartNumberRef.current?.classList.remove(tempStyles);
+      }, 500);
+    }
+  });
+
   return (
     <header className={styles["header"]}>
       <nav className={styles["nav"]}>
@@ -34,17 +48,20 @@ const Header = () => {
 
           <li>
             <Link to="/cart" className={styles["cart-anchor"]}>
-              <span className={styles["cart-number"]}>{cart.length}</span>
-
+              <span ref={cartNumberRef} className={styles["cart-number"]}>
+                {cart.length}
+              </span>
               <CartIcon
-                className={`cart ${iconStyles.icon} ${styles["anchor-no-decoration"]}`}
+                className={`cart ${iconStyles["icon"]} ${styles["anchor-no-decoration"]}`}
               />
             </Link>
           </li>
 
           <li>
             <a href="#" target="_blank">
-              <GitHubIcon className={`github ${iconStyles.icon}`} />
+              <GitHubIcon
+                className={`${iconStyles["icon"]} ${iconStyles["icon-github"]}`}
+              />
             </a>
           </li>
         </ul>

@@ -1,4 +1,10 @@
 .submit-btn {
   border: none;
+  border-radius: 0.5rem;
   width: 100%;
+  box-shadow: 0px 4px 5px -6px #000000;
+}
+
+.submit-btn:active {
+  box-shadow: 0px 4px 4px -2px #000000;
 }

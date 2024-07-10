@@ -1,7 +1,13 @@
 # Changelog
 ---
-### 09 JUL 2024
+### 10 JUL 2024
 - 
+---
+### 09 JUL 2024
+- Added `isUpdatingCart` to `CartProvider` to add and remove a class to the container with number of items in cart.
+- Tried to style input quantity buttons behind the input element; buttons are not clickable by mouse with `z-index: -1`.
+- Fixed tests to accommodate added and removed content.
+- Added a variety of styles to a variety of components.
 ---
 ### 08 JUL 2024
 - All pages and the header's children will horizontally center page with `margin: auto` at a minimum screen size of 1025 pixels.

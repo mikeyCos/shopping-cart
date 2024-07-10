@@ -20,8 +20,8 @@
   justify-content: center;
 }
 
-.product-card > a:hover {
-  border: 2px solid lightskyblue;
+.product-card:has(a:hover) {
+  outline: 2px solid var(--accent-color-primary);
 }
 
 .product-picture {
@@ -35,7 +35,7 @@
   align-content: space-between;
   padding: 0.5rem;
   text-align: center;
-  border: 2px solid lightgreen;
+  /* border: 2px solid lightgreen; */
 }
 
 .product-card-info > h4 {

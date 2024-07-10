@@ -4,8 +4,8 @@ import styles from "../styles/Categories.module.css";
 
 const Categories = ({ categories }) => {
   return (
-    <article>
-      <ul className={styles["categories"]}>
+    <article className={styles["categories"]}>
+      <ul className={styles["categories-list"]}>
         {categories.map((category) => {
           return (
             <li key={category}>

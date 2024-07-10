@@ -14,10 +14,13 @@ const Cart = () => {
     return accumulator + currentCartItem.price * currentCartItem.quantity;
   }, 0);
 
+  const headingText =
+    cart.length === 0 ? "Your cart is empty" : "Shopping cart";
   return (
     <section id={styles["cart"]} role="region">
-      Cart
-      {cart.length === 0 && <h4>Cart is empty</h4>}
+      <header className={styles["cart-header"]}>
+        <h4>{headingText}</h4>
+      </header>
       {cart.length > 0 && (
         <section role="region" className={styles["cart-container"]}>
           {cart.map((item) => {
@@ -77,6 +80,7 @@ const CartContext = createContext([]);
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [isUpdatingCart, setIsUpdatingCart] = useState(false);
   /* Removing item from cart
    * Check if item is in cart
    * If item is in cart
@@ -87,6 +91,7 @@ const CartProvider = ({ children }) => {
    * Update item's quantity
    */
   const addToCart = (product, quantity) => {
+    setIsUpdatingCart(true);
     const { id } = product;
 
     /* // Option 1:
@@ -139,6 +144,7 @@ const CartProvider = ({ children }) => {
 
   const removeFromCart = (productID) => {
     setTimeout(() => {
+      setIsUpdatingCart(true);
       setCart((prevCart) => {
         return prevCart.filter((product) => product.id !== productID);
       });
@@ -159,7 +165,7 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, setQuantity }}
+      value={{ cart, addToCart, isUpdatingCart, removeFromCart, setQuantity }}
     >
       {children}
     </CartContext.Provider>

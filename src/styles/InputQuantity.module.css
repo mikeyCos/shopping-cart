@@ -7,6 +7,12 @@
   position: relative;
   /* width: fit-content; */
   height: 100%;
+  border: 1px solid #000000;
+  border-radius: 0.5rem;
+}
+
+.input:hover {
+  cursor: pointer;
 }
 
 .input-btn-container:has(input:focus) {
@@ -17,6 +23,8 @@
   position: absolute;
   width: clamp(1.5rem, 5vw, 4rem);
   height: 100%;
+  border: none;
+  /* z-index: -1; */
 }
 
 .input-btn svg {
@@ -34,18 +42,14 @@
 }
 
 .input {
+  border: none;
+  background: transparent;
   text-align: center;
   -moz-appearance: textfield;
 }
 
 .input:focus {
   outline: none;
-}
-
-.input::-webkit-outer-spin-button,
-.input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 .input-error {

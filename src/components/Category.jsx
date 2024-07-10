@@ -22,13 +22,10 @@ const Category = () => {
   const location = useLocation();
   const { pathname } = useLocation();
   const productKey = parseCategory(category);
-  const headingCategory = category.replaceAll("-", " ");
   console.log("Category component rendering");
   console.log(location);
   return (
     <section>
-      <h2>Category</h2>
-      <h3>{headingCategory}</h3>
       {products && (
         <>
           <section role="region" className={styles["products"]}>
