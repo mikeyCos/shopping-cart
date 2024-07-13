@@ -1,7 +1,24 @@
 # Changelog
 ---
+### 12 JUL 2024
+- `Main` component's test suite is failing.
+- Created `ErrorPage` CSS module.
+- Created hover transitions for anchors created by the `NavAnchor` component. 
+- The scroll button to the top and bottom will not be revealed if there is no vertical scrollbar. If a user is at the top of the page, scroll button to the top will not be revealed. Likewise, if a user is at the bottom of the page, the scroll button to the bottom will not be revealed.
+- The scroll button to the top will be revealed if `document.documentElement.scrollTop === 0`.
+- The scroll button to the bottom will be revealed if `document.documentElement.scrollTop + window.innerHeight !== document.body.scrollHeight`.
+- `ScrollButtons` is not rendered in the `Main` component.
+- Saved `arrow_downward_alt` and `arrow_upward_alt` SVG files.
+---
+### 11 JUL 2024
+- Created `ScrollButtons` component and it's respective CSS module; the component will be rendered in the `App` component.
+- The cart icon will not shake when incrementing or decrementing the quantities.
+- The product modal will be centered on the page if it's `DOMRect.y` is less than or equal to 0.
+- Disabled scroll when the product modal is open.
+---
 ### 10 JUL 2024
-- 
+- The cart icon will shake when the quantity changes.
+- Created `callback` function in `Modal` component to be used with a `ResizeObserver`; the modal will now render above or below a product card if there is space within the `document.body.scrollHeight`.
 ---
 ### 09 JUL 2024
 - Added `isUpdatingCart` to `CartProvider` to add and remove a class to the container with number of items in cart.

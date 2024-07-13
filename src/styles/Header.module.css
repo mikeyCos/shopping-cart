@@ -51,6 +51,13 @@ nav {
   position: relative;
 }
 
+.cart-anchor:has(.cart-number-changing) > svg {
+  animation-name: shake;
+  animation-timing-function: ease-out;
+  animation-duration: 100ms;
+  animation-iteration-count: infinite;
+}
+
 .cart-number {
   /* Touch up */
   position: absolute;
@@ -68,8 +75,9 @@ nav {
   padding: clamp(0rem, 1.75vw, 0.65rem);
 }
 
-.foo {
-  background-color: red;
+.cart-number-changing {
+  background-color: rgb(255, 115, 0);
+  z-index: 1;
 }
 
 @media screen and (min-width: 481px) {
@@ -95,5 +103,15 @@ nav {
   nav {
     max-width: 1024px;
     margin: auto;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(5deg);
   }
 }

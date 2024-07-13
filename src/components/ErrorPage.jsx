@@ -1,11 +1,12 @@
 import { useRouteError } from "react-router-dom";
+import styles from "../styles/ErrorPage.module.css";
 
 const ErrorPage = () => {
   const { error, status } = useRouteError();
   console.log(error);
   return (
-    <section id="error-section" role="region">
-      {error.message}
+    <section id={styles["error-section"]} role="region">
+      <p>{error.message}</p>
     </section>
   );
 };

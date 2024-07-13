@@ -8,7 +8,11 @@ const FormQuantity = ({ submitForm, children }) => {
   };
 
   return (
-    <form noValidate={true} onSubmit={onSubmitHandler}>
+    <form
+      noValidate={true}
+      onSubmit={onSubmitHandler}
+      className={styles["form-quantity"]}
+    >
       {children}
     </form>
   );

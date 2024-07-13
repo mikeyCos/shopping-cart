@@ -18,23 +18,24 @@ const Modal = () => {
   };
 
   useEffect(() => {
+    const observer = new ResizeObserver((entries) =>
+      callBack(entries, refDefault.current, state.id)
+    );
+    document.body.classList.toggle("modal-open", !!state); // testing
     if (state) {
-      adjustModalYPosition(refDefault.current, state.id);
+      // adjustModalYPosition(refDefault.current, state.id);
+      const categorySection = document.querySelector("#category");
+      observer.observe(categorySection);
       refDefault.current?.showModal();
-      refDefault.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-      console.log("state in useEffect");
     } else {
       refDefault.current?.close();
     }
-    console.log("useEffect");
     // Prevent scroll when modal is open
     // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-    setTimeout(() => {
-      document.body.classList.toggle("modal-open", !!state);
-    }, 500);
+
+    return () => {
+      observer.disconnect();
+    };
   }, [state]);
 
   return (
@@ -64,13 +65,47 @@ const Modal = () => {
   );
 };
 
-const adjustModalYPosition = (modal, id) => {
-  const productCard = document.querySelector(`[data-id='${id}']`).parentElement;
-  const { bottom, top, height } = productCard.getBoundingClientRect();
-  const newYPosition = top + window.scrollY;
-  console.log(modal.getBoundingClientRect());
-  console.log(document.body.getBoundingClientRect());
-  modal.style.transform = `translateY(${newYPosition}px)`;
+const callBack = (entries, modal, id) => {
+  if (modal) {
+    for (let entry of entries) {
+      if (entry.contentBoxSize) {
+        if (entry.contentBoxSize[0]) {
+          const productCard = document.querySelector(
+            `[data-id='${id}']`
+          ).parentElement;
+          const productCardBounds = productCard.getBoundingClientRect();
+          const modalBounds = modal.getBoundingClientRect();
+          const newPosition = adjustModalYPosition(
+            productCardBounds,
+            modalBounds
+          );
+          // modal.style.top = `${newPosition}px`;
+          modal.style.transform = `translateY(${newPosition}px)`;
+        }
+      }
+    }
+  }
+};
+
+const adjustModalYPosition = (productCardBounds, modalBounds) => {
+  const productCardMiddle =
+    productCardBounds.top + Math.round(productCardBounds.height / 2);
+
+  // If modal top is a negative number
+  // Modal will vertically centered on the viewport
+  // (window.innerHeight - modal height) / 2
+  // If modal height plus product card middle is greater than the viewport's height
+  //  Modal will be above the productCard
+  // Else
+  //  Modal will be below the productCard
+  if (modalBounds.y <= 0) {
+    // if (modalBounds.y >= window.innerHeight) {
+    return (window.innerHeight - modalBounds.height) / 2;
+  } else if (modalBounds.height + productCardMiddle > window.innerHeight) {
+    return productCardMiddle - modalBounds.height;
+  } else {
+    return productCardMiddle;
+  }
 };
 
 export default Modal;

@@ -16,6 +16,7 @@ exports[`Product component > Product component matches snapshot 1`] = `
     />
   </picture>
   <form
+    class="_form-quantity_1666d4"
     novalidate=""
   >
     <p>

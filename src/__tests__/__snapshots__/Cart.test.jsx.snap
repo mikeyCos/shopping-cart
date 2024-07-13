@@ -38,6 +38,7 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
           </picture>
         </a>
         <form
+          class="_form-quantity_1666d4"
           novalidate=""
         >
           <p>
@@ -111,15 +112,15 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
           </div>
         </form>
       </article>
-      <p
-        class="_subtotal_c7a017"
-      >
-        Subtotal: 
-        <span>
-          $7.95
-        </span>
-      </p>
     </section>
+    <p
+      class="_subtotal_c7a017"
+    >
+      Subtotal: 
+      <span>
+        $7.95
+      </span>
+    </p>
   </section>
 </div>
 `;

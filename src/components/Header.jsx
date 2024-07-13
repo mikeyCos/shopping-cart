@@ -12,12 +12,11 @@ import illustrationsStyles from "../styles/illustrations.module.css";
 const Header = () => {
   const cartNumberRef = useRef(null);
   const { cart, isUpdatingCart } = useContext(CartContext);
-  console.log("header component running");
-  console.log("isUpdatingCart:", isUpdatingCart);
+
   useEffect(() => {
     // Is there another way to achieve this without the useEffect hook?
     if (isUpdatingCart) {
-      const tempStyles = styles["foo"];
+      const tempStyles = styles["cart-number-changing"];
       cartNumberRef.current?.classList.add(tempStyles);
       setTimeout(() => {
         cartNumberRef.current?.classList.remove(tempStyles);

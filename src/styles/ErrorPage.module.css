@@ -1,0 +1,4 @@
+#error-section {
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  padding: 1rem;
+}

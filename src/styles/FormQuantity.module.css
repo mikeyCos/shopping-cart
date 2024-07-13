@@ -1,3 +1,7 @@
+.form-quantity > :global(.form-controls) > * {
+  margin-top: 0.5rem;
+}
+
 .submit-btn {
   border: none;
   border-radius: 0.5rem;

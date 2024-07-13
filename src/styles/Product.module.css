@@ -10,9 +10,7 @@
 
 .product-modal {
   display: grid;
-  /* padding: 2rem; */
   gap: 1rem;
-  border: 2px solid orangered;
   height: 100%;
 }
 

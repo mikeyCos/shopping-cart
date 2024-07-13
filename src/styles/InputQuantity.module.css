@@ -34,11 +34,23 @@
 .input-btn-left {
   composes: input-btn;
   left: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-right: 1px solid;
+}
+
+.input-btn-left:active {
+  box-shadow: -2px 0px 2px 0px #000000;
 }
 
 .input-btn-right {
   composes: input-btn;
   right: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-left: 1px solid;
+}
+
+.input-btn-right:active {
+  box-shadow: 2px 0px 2px 0px #000000;
 }
 
 .input {

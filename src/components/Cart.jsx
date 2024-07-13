@@ -22,52 +22,56 @@ const Cart = () => {
         <h4>{headingText}</h4>
       </header>
       {cart.length > 0 && (
-        <section role="region" className={styles["cart-container"]}>
-          {cart.map((item) => {
-            return (
-              <ProductCard
-                key={item.id}
-                className={styles["cart-product-card"]}
-              >
-                <ProductCard.Heading title={item.title} />
-                <Link
-                  to={`/shop/product/view/${encodeURIComponent(item.title)}`}
-                  state={{ product: item }}
+        <>
+          <section role="region" className={styles["cart-container"]}>
+            {cart.map((item) => {
+              return (
+                <ProductCard
+                  key={item.id}
+                  className={styles["cart-product-card"]}
                 >
-                  <ProductCard.Picture
-                    src={item.image}
-                    alt="#"
-                    className={styles["product-picture"]}
-                  />
-                </Link>
-                <FormQuantity submitForm={() => removeFromCart(item.id)}>
-                  <p>{formatPrice(item.price)}</p>
-                  <div className="form-controls">
-                    <InputQuantity
-                      quantity={item.quantity}
-                      setQuantity={(newQuantity) => {
-                        console.log("previous quantity", item.quantity);
-                        setQuantity(item.id, newQuantity);
-                      }}
-                      incrementHandler={() => {
-                        const newQuantity = +item.quantity + 1;
-                        newQuantity <= 999 && setQuantity(item.id, newQuantity);
-                      }}
-                      decrementHandler={() => {
-                        const newQuantity = item.quantity - 1;
-                        newQuantity >= 0 && setQuantity(item.id, newQuantity);
-                      }}
+                  <ProductCard.Heading title={item.title} />
+                  <Link
+                    to={`/shop/product/view/${encodeURIComponent(item.title)}`}
+                    state={{ product: item }}
+                  >
+                    <ProductCard.Picture
+                      src={item.image}
+                      alt="#"
+                      className={styles["product-picture"]}
                     />
-                    <FormQuantity.SubmitButton text="Delete" />
-                  </div>
-                </FormQuantity>
-              </ProductCard>
-            );
-          })}
+                  </Link>
+                  <FormQuantity submitForm={() => removeFromCart(item.id)}>
+                    <p>{formatPrice(item.price)}</p>
+                    <div className="form-controls">
+                      <InputQuantity
+                        quantity={item.quantity}
+                        setQuantity={(newQuantity) => {
+                          console.log("previous quantity", item.quantity);
+                          setQuantity(item.id, newQuantity);
+                        }}
+                        incrementHandler={() => {
+                          const newQuantity = +item.quantity + 1;
+                          newQuantity <= 999 &&
+                            setQuantity(item.id, newQuantity);
+                        }}
+                        decrementHandler={() => {
+                          const newQuantity = item.quantity - 1;
+                          newQuantity >= 0 && setQuantity(item.id, newQuantity);
+                        }}
+                      />
+                      <FormQuantity.SubmitButton text="Delete" />
+                    </div>
+                  </FormQuantity>
+                </ProductCard>
+              );
+            })}
+          </section>
+
           <p className={styles["subtotal"]}>
             Subtotal: <span>{formatPrice(subTotal)}</span>
           </p>
-        </section>
+        </>
       )}
     </section>
   );
@@ -91,9 +95,7 @@ const CartProvider = ({ children }) => {
    * Update item's quantity
    */
   const addToCart = (product, quantity) => {
-    setIsUpdatingCart(true);
     const { id } = product;
-
     /* // Option 1:
     const newCart = productInCart
       ? cart.map((productInCart) => {
@@ -120,6 +122,7 @@ const CartProvider = ({ children }) => {
       return productInCart;
     });
 
+    setIsUpdatingCart(!isInCart);
     setCart(isInCart ? newCart : [...cart, { ...product, quantity }]);
 
     /* // Option 2:
@@ -143,11 +146,12 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (productID) => {
+    setIsUpdatingCart(true);
     setTimeout(() => {
-      setIsUpdatingCart(true);
       setCart((prevCart) => {
         return prevCart.filter((product) => product.id !== productID);
       });
+      setIsUpdatingCart(false);
     }, 250);
   };
 
@@ -155,6 +159,7 @@ const CartProvider = ({ children }) => {
     if (quantity == 0) {
       removeFromCart(productID);
     } else {
+      setIsUpdatingCart(false);
       setCart((prevCart) =>
         prevCart.map((product) => {
           return product.id === productID ? { ...product, quantity } : product;

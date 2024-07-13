@@ -22,7 +22,7 @@
   gap: 1rem;
 }
 
-#cart .cart-container .subtotal {
+#cart .subtotal {
   height: min-content;
   text-align: end;
   margin-top: 2rem;

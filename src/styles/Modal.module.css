@@ -1,12 +1,21 @@
 .modal {
-  position: relative;
-  /* margin-top: 125vh; */
+  position: fixed;
   margin: 0 auto;
   /* margin: auto; */
   /* padding: 1rem; */
   border-radius: 0.5rem;
   border: none;
   box-shadow: 0px 0px 4px 0px #000000;
+  transition-property: transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+  transform: translateY(-1000%);
+}
+
+.modal[open] {
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
 }
 
 .modal::backdrop {

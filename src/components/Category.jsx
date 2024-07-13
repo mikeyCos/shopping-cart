@@ -25,7 +25,7 @@ const Category = () => {
   console.log("Category component rendering");
   console.log(location);
   return (
-    <section>
+    <section id="category">
       {products && (
         <>
           <section role="region" className={styles["products"]}>

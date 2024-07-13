@@ -8,6 +8,7 @@ import {
 import routes from "./routes/routes";
 import Loading from "./components/Loading";
 import { CartProvider } from "./components/Cart";
+import ScrollButtons from "./components/ScrollButtons";
 import styles from "./styles/App.module.css";
 
 // const App = () => {
@@ -47,9 +48,12 @@ const App = ({ router }) => {
       {showSplashScreen ? (
         <Loading />
       ) : (
-        <CartProvider>
-          <RouterProvider router={router} />
-        </CartProvider>
+        <>
+          <CartProvider>
+            <RouterProvider router={router} />
+          </CartProvider>
+          {/* <ScrollButtons /> */}
+        </>
       )}
     </div>
   );

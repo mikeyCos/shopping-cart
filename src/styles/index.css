@@ -17,6 +17,7 @@
 :root {
   --background-color-primary: #fffefa;
   --accent-color-primary: #ffb17a;
+  --accent-color-secondary: #61c9a8;
   --active-page-color: #2e009a;
   --padding-modal: 2rem;
 }
@@ -26,9 +27,8 @@ body {
 }
 
 body.modal-open {
-  /* height: 100vh;
-  overflow: hidden; */
-  /* position: fixed; */
+  /* height: 100vh; */
+  overflow: hidden;
 }
 
 #root {

@@ -1,17 +1,15 @@
-import { Outlet, useRouteLoaderData } from "react-router-dom";
+import { Outlet, useOutletContext, useRouteLoaderData } from "react-router-dom";
 import Categories from "./Categories";
 import styles from "../styles/Shop.module.css";
 
 const Shop = () => {
   const { categories, products } = useRouteLoaderData("root");
-  const data = useRouteLoaderData("root");
-  // console.log(data);
-  // if (data.error) throw data.error;
-
+  // const ScrollButtons = useOutletContext();
   return (
     <section id={styles["shop"]}>
       <Categories categories={categories} />
       <Outlet context={[products]} />
+      {/* <ScrollButtons /> */}
     </section>
   );
 };
