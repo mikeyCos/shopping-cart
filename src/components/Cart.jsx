@@ -10,9 +10,21 @@ import styles from "../styles/Cart.module.css";
 const Cart = () => {
   const { cart, removeFromCart, setQuantity } = useContext(CartContext);
 
-  const subTotal = cart.reduce((accumulator, currentCartItem) => {
+  /* const subTotal = cart.reduce((accumulator, currentCartItem) => {
     return accumulator + currentCartItem.price * currentCartItem.quantity;
-  }, 0);
+  }, 0); */
+
+  const { subTotal, subQuantity } = cart.reduce(
+    (accumulator, currentCartItem) => {
+      return {
+        subTotal:
+          accumulator.subTotal +
+          currentCartItem.price * currentCartItem.quantity,
+        subQuantity: accumulator.subQuantity + currentCartItem.quantity,
+      };
+    },
+    { subTotal: 0, subQuantity: 0 }
+  );
 
   const headingText =
     cart.length === 0 ? "Your cart is empty" : "Shopping cart";
@@ -69,7 +81,7 @@ const Cart = () => {
           </section>
 
           <p className={styles["subtotal"]}>
-            Subtotal: <span>{formatPrice(subTotal)}</span>
+            Subtotal ({subQuantity} items): <span>{formatPrice(subTotal)}</span>
           </p>
         </>
       )}
@@ -94,7 +106,7 @@ const CartProvider = ({ children }) => {
    *
    * Update item's quantity
    */
-  const addToCart = (product, quantity) => {
+  const addToCart = (product, quantity = 1) => {
     const { id } = product;
     /* // Option 1:
     const newCart = productInCart

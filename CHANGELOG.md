@@ -1,5 +1,17 @@
 # Changelog
 ---
+### 14 JUL 2024
+- Created `_redirects` in `public` directory.
+- Currently, all non-skipped tests pass.
+- Fixed `Timed out in waitForElementToBeRemoved` error by adding a `timeout` option for `waitForElementToBeRemoved` to wait for the loading page/screen to be removed and selecting SVG element with `queryByTitle`. 
+- Fixed known false positive tests rendering a single `div` tag in the `body` element. This was due by passing a `router` prop to the `App` component, rendering a `RouterProvider` as if it were defined in `index.jsx`, and not waiting for the loading page/screen to be removed.
+- Product/items can be added to the cart from the shop page; on the shop page, clicking the add to cart button will add 1 respective product/item to the cart. 
+- Hovering over product/item cards will reveal the `QuickActions` component.
+---
+### 13 JUL 2024
+- On the shop page, instead of wrapping the product card's picture with a link, it's content are wrapped around a link.
+- Created `QuickActions` component.
+---
 ### 12 JUL 2024
 - `Main` component's test suite is failing.
 - Created `ErrorPage` CSS module.

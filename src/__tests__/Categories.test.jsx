@@ -23,6 +23,7 @@ describe("Categories component", () => {
     );
 
     const categoriesList = screen.getByRole("list");
+
     expect(categoriesList.children.length).toEqual(categories.length);
   });
 });

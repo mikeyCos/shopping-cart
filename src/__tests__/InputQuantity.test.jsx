@@ -52,7 +52,7 @@ describe("InputQuantity component", () => {
     await user.dblClick(input);
     await user.paste("4");
 
-    expect(setQuantity).toBeCalledWith("4");
+    expect(setQuantity).toBeCalledWith(4);
   });
 
   it("Clicking the incrementButton will increase the quality input's value by 1, initial value is '3", async () => {

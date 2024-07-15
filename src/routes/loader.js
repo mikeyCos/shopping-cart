@@ -20,7 +20,6 @@ const loader = async () => {
       // How to mock response status codes >= 400?
       // How to refactor the if blocks for status codes?
       const invalidResponse = responses.find((res) => res.status >= 400);
-      // console.log(invalidResponse);
       invalidResponse && throwException(invalidResponse);
       const [resCategories, resProducts] = responses;
       return Promise.all([resCategories.json(), resProducts.json()]);

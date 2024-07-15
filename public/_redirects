@@ -1,0 +1,6 @@
+/
+/home
+/shop
+/cart
+/shop/category :category
+/shop/product/view/modal/:product

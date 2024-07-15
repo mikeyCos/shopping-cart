@@ -6,12 +6,8 @@ import Home from "../components/Home";
 describe("Home component", () => {
   it("The Home component is rendered", () => {
     // Instead, get heading role for the home section
-    render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>
-    );
-    const homeSection = screen.getByText("Home section");
-    expect(homeSection).toBeInTheDocument();
+    const { container } = render(<Home />);
+
+    expect(container).toMatchSnapshot();
   });
 });

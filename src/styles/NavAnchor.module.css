@@ -1,7 +1,6 @@
 a.active.active-link {
   color: var(--active-page-color);
   font-weight: 900;
-  transform: translateY(-5px);
 }
 
 a.link.active.active-link::after {

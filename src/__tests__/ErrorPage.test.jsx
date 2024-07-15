@@ -15,6 +15,7 @@ describe("ErrorPage component", () => {
     );
 
     const errorPageSection = screen.getByRole("region");
+
     expect(errorPageSection).toBeInTheDocument();
   });
 
@@ -30,6 +31,7 @@ describe("ErrorPage component", () => {
 
     render(<RouterProvider router={router} />);
     const errorPageSection = await screen.findByRole("region");
+
     expect(errorPageSection).toHaveTextContent(errorMessage);
   });
 });

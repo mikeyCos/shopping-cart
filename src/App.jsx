@@ -52,7 +52,6 @@ const App = ({ router }) => {
           <CartProvider>
             <RouterProvider router={router} />
           </CartProvider>
-          {/* <ScrollButtons /> */}
         </>
       )}
     </div>

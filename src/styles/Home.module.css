@@ -1,4 +1,10 @@
 #home {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#home > * {
 }
 
 @media screen and (min-width: 1025px) {

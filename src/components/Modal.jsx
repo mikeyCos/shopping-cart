@@ -8,7 +8,6 @@ import iconStyles from "../styles/icons.module.css";
 const Modal = () => {
   const refDefault = useRef(null);
   const { state } = useLocation();
-  console.log(useLocation());
   const navigate = useNavigate();
 
   const closeModal = () => {
@@ -18,9 +17,11 @@ const Modal = () => {
   };
 
   useEffect(() => {
-    const observer = new ResizeObserver((entries) =>
-      callBack(entries, refDefault.current, state.id)
-    );
+    const observer =
+      state &&
+      new ResizeObserver((entries) => {
+        return callBack(entries, refDefault.current, state.id);
+      });
     document.body.classList.toggle("modal-open", !!state); // testing
     if (state) {
       // adjustModalYPosition(refDefault.current, state.id);
@@ -34,7 +35,7 @@ const Modal = () => {
     // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
     };
   }, [state]);
 
@@ -50,7 +51,7 @@ const Modal = () => {
           <button
             type="button"
             onClick={() => closeModal()}
-            aria-labelledby="close"
+            aria-label="close"
             className={styles["close-btn"]}
             autoFocus
           >

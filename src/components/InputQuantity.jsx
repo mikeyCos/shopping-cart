@@ -11,7 +11,7 @@ const InputQuantity = ({
   decrementHandler,
 }) => {
   const onChangeHandler = (e) => {
-    const value = e.target.value;
+    const value = +e.target.value;
     setQuantity(value);
   };
 

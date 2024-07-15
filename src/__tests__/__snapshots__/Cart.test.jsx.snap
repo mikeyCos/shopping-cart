@@ -116,7 +116,9 @@ exports[`Cart component > Cart component matches snapshot 1`] = `
     <p
       class="_subtotal_c7a017"
     >
-      Subtotal: 
+      Subtotal (
+      1
+       items): 
       <span>
         $7.95
       </span>

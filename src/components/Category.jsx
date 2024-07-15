@@ -1,15 +1,12 @@
-import { useEffect, useRef } from "react";
 import {
   Link,
-  Outlet,
-  ScrollRestoration,
   useLocation,
-  useNavigate,
   useOutletContext,
   useParams,
 } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import Modal from "./Modal";
+import QuickActions from "./QuickActions";
 import parseCategory from "../utilities/parseCategory";
 import styles from "../styles/Category.module.css";
 
@@ -19,11 +16,11 @@ import styles from "../styles/Category.module.css";
 const Category = () => {
   const { category = "all" } = useParams();
   const [products] = useOutletContext();
-  const location = useLocation();
   const { pathname } = useLocation();
   const productKey = parseCategory(category);
   console.log("Category component rendering");
-  console.log(location);
+  console.log("pathname", pathname);
+  console.log("category", category);
   return (
     <section id="category">
       {products && (
@@ -48,12 +45,14 @@ const Category = () => {
                     alt="#"
                     className={styles["product-picture"]}
                   />
+                  <ProductCard.Info
+                    title={product.title}
+                    price={product.price}
+                    className={styles["product-card-info"]}
+                  />
                 </Link>
-                <ProductCard.Info
-                  title={product.title}
-                  price={product.price}
-                  className={styles["product-card-info"]}
-                />
+
+                <QuickActions product={product} />
               </ProductCard>
             ))}
           </section>
