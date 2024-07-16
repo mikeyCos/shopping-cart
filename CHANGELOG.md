@@ -1,6 +1,8 @@
 # Changelog
 ---
 ### 15 JUL 2024
+- Added more HTTP status code objects in `setErrorMessage` module.
+- Added `[[redirects]]` for the HTTP status code 404.
 - Removed `_redirects` and created `netlify.toml` in the root directory.
 - Changed `href` value for the GitHub anchor from `#` to `https://github.com/mikeyCos/shopping-cart`.
 ---
