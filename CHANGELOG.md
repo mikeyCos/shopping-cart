@@ -1,5 +1,9 @@
 # Changelog
 ---
+### 15 JUL 2024
+- Removed `_redirects` and created `netlify.toml` in the root directory.
+- Changed `href` value for the GitHub anchor from `#` to `https://github.com/mikeyCos/shopping-cart`.
+---
 ### 14 JUL 2024
 - Created `_redirects` in `public` directory.
 - Currently, all non-skipped tests pass.

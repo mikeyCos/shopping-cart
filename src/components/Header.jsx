@@ -57,7 +57,7 @@ const Header = () => {
           </li>
 
           <li>
-            <a href="#" target="_blank">
+            <a href="https://github.com/mikeyCos/shopping-cart" target="_blank">
               <GitHubIcon
                 className={`${iconStyles["icon"]} ${iconStyles["icon-github"]}`}
               />
