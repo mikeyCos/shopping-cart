@@ -458,7 +458,7 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
           </li>
           <li>
             <a
-              href="#"
+              href="https://github.com/mikeyCos/shopping-cart"
               target="_blank"
             >
               <svg
@@ -1545,7 +1545,9 @@ exports[`Category component (Outlet) > Category component is rendered 1`] = `
         </div>
       </div>
     </main>
-    <footer>
+    <footer
+      class="_footer_4d8704"
+    >
       <div>
         Placeholder
       </div>

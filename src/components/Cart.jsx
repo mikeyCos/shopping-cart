@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import FormQuantity from "./FormQuantity";
@@ -10,24 +10,23 @@ import styles from "../styles/Cart.module.css";
 const Cart = () => {
   const { cart, removeFromCart, setQuantity } = useContext(CartContext);
 
-  /* const subTotal = cart.reduce((accumulator, currentCartItem) => {
-    return accumulator + currentCartItem.price * currentCartItem.quantity;
-  }, 0); */
-
-  const { subTotal, subQuantity } = cart.reduce(
-    (accumulator, currentCartItem) => {
-      return {
-        subTotal:
-          accumulator.subTotal +
-          currentCartItem.price * currentCartItem.quantity,
-        subQuantity: accumulator.subQuantity + currentCartItem.quantity,
-      };
-    },
-    { subTotal: 0, subQuantity: 0 }
-  );
+  const { subTotal, subQuantity } = useMemo(() => {
+    return cart.reduce(
+      (accumulator, currentCartItem) => {
+        return {
+          subTotal:
+            accumulator.subTotal +
+            currentCartItem.price * currentCartItem.quantity,
+          subQuantity: accumulator.subQuantity + currentCartItem.quantity,
+        };
+      },
+      { subTotal: 0, subQuantity: 0 }
+    );
+  }, [cart]);
 
   const headingText =
     cart.length === 0 ? "Your cart is empty" : "Shopping cart";
+
   return (
     <section id={styles["cart"]} role="region">
       <header className={styles["cart-header"]}>

@@ -458,7 +458,7 @@ exports[`Shop component > The Shop component component matches snapshot 1`] = `
           </li>
           <li>
             <a
-              href="#"
+              href="https://github.com/mikeyCos/shopping-cart"
               target="_blank"
             >
               <svg
@@ -579,7 +579,9 @@ exports[`Shop component > The Shop component component matches snapshot 1`] = `
         </div>
       </div>
     </main>
-    <footer>
+    <footer
+      class="_footer_4d8704"
+    >
       <div>
         Placeholder
       </div>

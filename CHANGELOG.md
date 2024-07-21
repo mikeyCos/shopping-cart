@@ -1,5 +1,12 @@
 # Changelog
 ---
+### 20 JUL 2024
+- Updated README.md.
+- The `InputQuantity` component's `onChangeHandler` destructures the input's value, checks if the value is not a number
+- Added `className` attribute to the `Footer` component to utilize it's respective CSS module.
+- Added an options object,`{ timeout: 2000 }`, to `waitForElementToBeRemoved` in the `App` test suite.
+- Now, the `netlify.toml` configuration has a single redirect rule.
+---
 ### 15 JUL 2024
 - Added more HTTP status code objects in `setErrorMessage` module.
 - Added `[[redirects]]` for the HTTP status code 404.

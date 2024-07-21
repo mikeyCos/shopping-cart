@@ -11,8 +11,10 @@ const InputQuantity = ({
   decrementHandler,
 }) => {
   const onChangeHandler = (e) => {
-    const value = +e.target.value;
-    setQuantity(value);
+    const { value } = e.target;
+    const isValueNumeric = !isNaN(value) && !isNaN(parseInt(value));
+    const newQuantity = isValueNumeric ? value : "";
+    setQuantity(newQuantity);
   };
 
   const onKeyDownHandler = (e) => {

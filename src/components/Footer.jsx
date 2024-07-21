@@ -1,8 +1,8 @@
-import "../styles/Footer.module.css";
+import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles["footer"]}>
       <div>Placeholder</div>
     </footer>
   );

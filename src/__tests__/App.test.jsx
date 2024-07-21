@@ -17,7 +17,9 @@ describe("App component", () => {
     const router = createBrowserRouter(routes);
     const { container } = render(<App router={router} />);
 
-    await waitForElementToBeRemoved(() => screen.getByTitle("Loading"));
+    await waitForElementToBeRemoved(() => screen.getByTitle("Loading"), {
+      timeout: 2000,
+    });
     expect(container).toMatchSnapshot();
   });
 

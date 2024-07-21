@@ -86,7 +86,17 @@ Project: Shopping Cart
 
 Hello world,
 
-Pellentesque tincidunt vel ante lobortis vehicula. Donec ex justo, volutpat nec ultricies non, elementum nec nibh. Maecenas porttitor est ac nibh congue, sed placerat lorem bibendum. Duis non ante in ex sollicitudin pulvinar nec sit amet turpis. Pellentesque ac elit sed libero vehicula convallis. Pellentesque tincidunt tellus nec lacus mollis pellentesque. Integer tempus sit amet nunc a auctor. Morbi at ullamcorper dolor, non placerat orci. Ut ut efficitur metus. In efficitur enim id sodales porta. Phasellus scelerisque, augue sit amet semper suscipit, lacus nunc laoreet lorem, sit amet elementum orci justo in risus. Ut diam est, egestas sed ligula ut, cursus dignissim nibh. Mauris in est dui. Pellentesque in sem ut dolor laoreet porta. Etiam vitae accumsan tortor. Vestibulum magna mi, sagittis eget consequat a, tincidunt in ligula.
+The Shopping Cart project is my third project built with React and JavaScript. Also, this is the first time I used CSS Modules and React Router on a project-scale. At the time of creating the project, this was the third and last React project in The Odin Project's React Course. The Shopping Cart project's objectives were meant to practice previous React concepts which included but not limited to component lifecycle, React testing, type checking with PropTypes, React Router, and CSS Modules. There were many instances I found myself staring at lines of code in confusion and despair. In time, those lows were meant with highs of success. Despite the headaches, I am thrilled with what I failed, practiced, and implemented.
+
+How does the application work? On load or on refresh, a spinner-like component is rendered until data has been loaded and then application's content is rendered. The application of three main regions: the `header`, `main`, and `footer`. The header includes the logo paired with the title of the application, and a set of links (`Home`, `Shop`, `Shopping Cart (icon)`, `GitHub (icon)`). Note, only `Home`, `Shop`, and the `Shopping Cart (icon)` are used as routes in the `header`. The root, a pathway of `/`, of the application defaults to a placeholder home page.
+
+Both the logo and `Home` on click will navigate users to the `Home` page. Clicking `Home`, `Shop`, and the `Shopping Cart (icon)` will change the content inside the `main` tag. The `Shop` page renders a list of categories: `All`, `Electronics`, `Jewelery`, `Men's Clothing`, and `Women's Clothing`. The categories are links and are used as routes. Therefore, clicking on any of these links will only change the content inside the `section` tag with `id='category'` and it's respective items/products. As the category name, `All`, implies, renders all items/products being sold in the shop. Clicking `Electronics` will render item/product cards that are considered electronics. Each item/product card contains a picture of item/product, name of item/product and it's price. Futhermore, hovering over an item/product's card will reveal a button to add one quantity of said item/product.
+
+Clicking the item/product's card render's a modal containing more information of the clicked item/product. The information includes a item/product picture, short description on the item/product, price, increment/decrement buttons, a quantity input, and a 'Add to cart' button. On the modal, the increment/decrement buttons will increase/decrease the quantity input's value by one; the value never gets set to zero or above nine-hundred and ninety-nine. A user can manually type a number into the input. The quantity input's value cannot be blank or zero, otherwise an error message will be revealed after trying to add the item/product to the cart. Adding and removing unique items from the cart will update the number floating near the `Shopping Cart` icon, and icon will shake. In other words, adding the exact same item more than once will not update the number nor shake the `Shopping Cart` icon.
+
+Similarly to the `Shop` page, the `Cart` page will render item/product cards, and the cart's subtotal (in United States dollar). However, if there are no items in the cart, then only the text "Your cart is empty" will be rendered. Each item/product card contains the name of the item/product, a picture of item/product, it's price, increment/decrement buttons, a quantity input with it's current value, and a 'Delete' button. Clicking the decrement button when the quantity input's value is one will automatically remove the item/product from the cart. Likewise, clearing the quantity input's value with the `backspace` key will remove the item/product from the cart. Incrementing/decrementing quantities and/or removing item/products from the cart will update the cart's subtotal.
+
+In the tradition of past projects, I implemented more than what is required. 
 
 Struggles:
 - Figuring out a good place to fetch data from an API
@@ -124,19 +134,17 @@ This is a list of things you need to use the software and how to install them.
 
 ### Installation
 
-1. Create repository
-    - Option 1:
-      1. Go to [module-react-starter repository](https://github.com/mikeyCos/module-react-starter) on GitHub and click 'Use this template' button or click [Create a new repository](https://github.com/new?template_name=module-react-starter&template_owner=mikeyCos).
-    - Option 2:
-      1. Clone [module-react-starter repository](https://github.com/mikeyCos/module-react-starter) using HTTPS/SSH/GitHub CLI; [more on cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
-      2. Navigate to cloned repository.
-      3. Remove `.git` folder.
-      4. Run `git init`.
-      5. Run `git branch -M main`.
-      6. Create a new repository on GitHub.
-      7. Run `git remote add origin REPLACE_WITH_SSH_OR_HTTPS`.
-      8. Run `git add . && git commit`.
+1. Clone repository
+    1. Clone [shopping-cart repository](https://github.com/mikeyCos/shopping-cart using HTTPS/SSH/GitHub CLI; [more on cloning a repository](https://docs.githu  com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+    2. Navigate to cloned repository.
+    3. Remove `.git` folder.
+    4. Run `git init`.
+    5. Run `git branch -M main`.
+    6. Create a new repository on GitHub.
+    7. Run `git remote add origin REPLACE_WITH_SSH_OR_HTTPS`.
+    8. Run `git add . && git commit`.
 2. Navigate to local repository and install NPM packages with `npm install`.
+3. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,20 +164,27 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [x] Create skeleton components.
 - [x] Create test suites.
-  - [ ] Test components match their snapshots.
+  - [x] Test components match their snapshots.
   - [ ] Test event handlers (attempt).
-- [ ] Fetch from an API for store items/products.
-- [ ] Create routes to home, shop and cart pages.
-  - [ ] Refactor routes using loaders.
-- [ ] Create nested routes for item/product categories.
-- [ ] Render store items/products
-  - [ ] Render image of item/product, 
+- [x] Fetch from an API for store items/products.
+- [x] Create routes to home, shop and cart pages.
+  - [x] Refactor routes using loaders.
+- [x] Create nested routes for item/product categories.
+- [x] Render store items/products
+  - [x] Render image of item/product, 
   - [x] Wrap each image with a Link element
     - [x] On image click, render a modal containing more product information, an 'Add to Cart' button, and an quantity input.
-- [ ] Render a quantity input with increment and decrement buttons.
-  - [ ] On the cart page, when the quantity input's value reaches 0, remove it's respective item/product from the cart.
-  - [ ] On the product page/modal, allow the quantity input's value be an empty string and 0.
-    - [ ] Prevent the product from being added to the cart if the quantity input's value is empty or 0, and show an error message.
+- [x] Create a quantity input with increment and decrement buttons.
+  - [x] On the cart page, when the quantity input's value reaches 0, remove it's respective item/product from the cart.
+  - [ ] On the cart page, clearing the input with the `backspace` key should not remove the item/product form the cart; only if the input is blank and the input loses focus.
+  - [x] On the product page/modal, allow the quantity input's value be an empty string and 0.
+    - [x] Prevent the product from being added to the cart if the quantity input's value is empty or 0, and show an error message.
+- [x] Create buttons for scrolling to the top and bottom of page.
+  - [x] Only show top button if user is below the top.
+  - [x] Only show bottom button if user is above the bottom.
+  - [ ] Changing the window size should impact whether or not the buttons are visible.
+- [x] Create a quick actions component.
+  - [ ] Add item/product button will only add one respective item/product into the cart. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,8 +203,8 @@ Project Link: [https://github.com/mikeyCos/cv-application](https://github.com/mi
 ## Acknowledgments
 
 - [Best README Template](https://github.com/othneildrew/Best-README-Template)
-- []()
-- [Illustrations](https://undraw.co/search)
+- [Fake Store API](https://fakestoreapi.com)
+- [Illustrations](https://undraw.co)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
