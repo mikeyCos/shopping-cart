@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { CartContext } from "./Cart";
+import { CartContext } from "../context/CartContext";
 import AddShoppingCartIcon from "../assets/icons/add_shopping_cart.svg?react";
 import styles from "../styles/QuickActions.module.css";
 

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Main from "../components/Main";
-import { CartProvider } from "../components/Cart";
+import CartProvider from "../context/CartContext";
 
 describe("Main component", () => {
   it("The Main component is rendered", () => {

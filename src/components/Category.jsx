@@ -18,9 +18,7 @@ const Category = () => {
   const [products] = useOutletContext();
   const { pathname } = useLocation();
   const productKey = parseCategory(category);
-  console.log("Category component rendering");
-  console.log("pathname", pathname);
-  console.log("category", category);
+
   return (
     <section id="category">
       {products && (

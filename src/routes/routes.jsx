@@ -6,7 +6,7 @@ import Home from "../components/Home";
 import Shop from "../components/Shop";
 import Cart from "../components/Cart";
 import Category from "../components/Category";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 const routes = [
   {
@@ -30,7 +30,17 @@ const routes = [
         // errorElement: <ErrorPage />,
         children: [
           {
-            path: "category?/:category?",
+            path: "",
+            element: <Category />,
+            children: [
+              {
+                path: "product/view/modal/:product",
+                element: null,
+              },
+            ],
+          },
+          {
+            path: "category/:category?",
             element: <Category />,
             children: [
               {

@@ -1,7 +1,14 @@
 # Changelog
 ---
+### 21 JUL 2024
+- Updated README.md.
+- Copied the route responsible for rendering the `Category` component, and set it's path to an empty string; index routes cannot have children.
+- Removed `console.log` calls throughout project.
+- Created `context` directory and `CartContext` module with `CartProvider` and `CartContext` exports.
+---
 ### 20 JUL 2024
 - Updated README.md.
+- HTTP status code conditionally renders in `ErrorPage` component. 
 - The `InputQuantity` component's `onChangeHandler` destructures the input's value, checks if the value is not a number
 - Added `className` attribute to the `Footer` component to utilize it's respective CSS module.
 - Added an options object,`{ timeout: 2000 }`, to `waitForElementToBeRemoved` in the `App` test suite.

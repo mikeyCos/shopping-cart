@@ -2,7 +2,7 @@ import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Header from "../components/Header";
-import { CartContext } from "../components/Cart";
+import { CartContext } from "../context/CartContext";
 /* Testing components that renders a <Link> or a <Route>
  * https://v5.reactrouter.com/web/guides/testing
  */

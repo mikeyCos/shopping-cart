@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { CartContext } from "./Cart";
+import { CartContext } from "../context/CartContext";
 import { useContext, useState } from "react";
 import ProductCard from "./ProductCard";
 import FormQuantity from "./FormQuantity";
@@ -70,7 +70,7 @@ const validateQuantity = (quantity, callBack) => {
   const isQuantityValid = /^(?!^0)\d{1,3}$/.test(quantity);
   const input = document.querySelector(".quantity-input");
   const errorMessage = document.querySelector(".error-message");
-  console.log("validateQuantity firing!");
+
   if (!isQuantityValid) {
     errorMessage.textContent =
       "Do not leave blank. Enter a number between 1 and 999.";

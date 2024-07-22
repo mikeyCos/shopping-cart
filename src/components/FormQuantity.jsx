@@ -67,7 +67,6 @@ export default FormQuantity;
   <InputQuantity
     quantity={item.quantity}
     setQuantity={(newQuantity) => {
-      console.log("previous quantity", item.quantity);
       setQuantity(item.id, newQuantity);
     }}
     incrementHandler={() => {

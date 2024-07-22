@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import Product from "../components/Product";
 import { product } from "./mocks";
 import userEvent from "@testing-library/user-event";
-import { CartProvider } from "../components/Cart";
+import CartProvider from "../context/CartContext";
 
 describe("Product component", () => {
   it("Product component matches snapshot", () => {

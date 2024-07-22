@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 import Modal from "../components/Modal";
 
 /* (ノಠ益ಠ)ノ彡┻━┻
- * Dialog element not supported in testing-library
+ * Dialog element not supported in testing-library (?)
  * https://github.com/jsdom/jsdom/issues/3294
  */
 describe.skip("Modal component", () => {
@@ -27,8 +27,6 @@ describe.skip("Modal component", () => {
     );
 
     const dialog = screen.getByRole("dialog", { hidden: true });
-    console.log("dialog.open", dialog.open);
     await dialog.showModal();
-    console.log("dialog.open", dialog.open);
   });
 });

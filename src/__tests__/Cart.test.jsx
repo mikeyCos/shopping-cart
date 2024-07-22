@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Cart, { CartProvider, CartContext } from "../components/Cart";
+import Cart from "../components/Cart";
+import CartProvider, { CartContext } from "../context/CartContext";
 import { product, products } from "./mocks";
 import userEvent from "@testing-library/user-event";
 

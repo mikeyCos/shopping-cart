@@ -29,24 +29,24 @@
 <br />
 <div align="center">
   <a href="https://github.com/mikeyCos/cv-application">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./src/assets/media/project_logo_00.png" alt="Logo" width="200" height="auto">
   </a>
 
-<h3 align="center">ProjectName</h3>
+<h3 align="center">Shopping Cart</h3>
 
   <p align="center">
-    project_description
+    Shopping Cart is a simple 
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">Live Preview</a>
-    ·
+    <a href="https://shoppingcart-mikeycos.netlify.app/">Live Preview</a>
+    <!-- ·
     <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a> -->
     ·
-    <a href="https://github.com/mikeyCos/cv-application/blob/main/CHANGELOG.md">Changelog</a>
+    <a href="https://github.com/mikeyCos/shopping-cart/blob/main/CHANGELOG.md">Changelog</a>
   </p>
 </div>
 
@@ -69,8 +69,8 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <!-- <li><a href="#contributing">Contributing</a></li> -->
+    <!-- <li><a href="#contact">Contact</a></li> -->
     <li><a href="#acknowledgments">Acknowledgments</a></li>
     <li><a href="#questions">Questions</a></li>
   </ol>
@@ -80,7 +80,7 @@
 
 ## About The Project
 
-[![CV Application Screen Shot][product-screenshot]](https://example.com)
+[![Shopping Cart Screen Shot][product-screenshot]](https://shoppingcart-mikeycos.netlify.app/)
 
 Project: Shopping Cart
 
@@ -90,20 +90,23 @@ The Shopping Cart project is my third project built with React and JavaScript. A
 
 How does the application work? On load or on refresh, a spinner-like component is rendered until data has been loaded and then application's content is rendered. The application of three main regions: the `header`, `main`, and `footer`. The header includes the logo paired with the title of the application, and a set of links (`Home`, `Shop`, `Shopping Cart (icon)`, `GitHub (icon)`). Note, only `Home`, `Shop`, and the `Shopping Cart (icon)` are used as routes in the `header`. The root, a pathway of `/`, of the application defaults to a placeholder home page.
 
-Both the logo and `Home` on click will navigate users to the `Home` page. Clicking `Home`, `Shop`, and the `Shopping Cart (icon)` will change the content inside the `main` tag. The `Shop` page renders a list of categories: `All`, `Electronics`, `Jewelery`, `Men's Clothing`, and `Women's Clothing`. The categories are links and are used as routes. Therefore, clicking on any of these links will only change the content inside the `section` tag with `id='category'` and it's respective items/products. As the category name, `All`, implies, renders all items/products being sold in the shop. Clicking `Electronics` will render item/product cards that are considered electronics. Each item/product card contains a picture of item/product, name of item/product and it's price. Futhermore, hovering over an item/product's card will reveal a button to add one quantity of said item/product.
+Both the logo and `Home` on click will navigate users to the `Home` page. Clicking `Home`, `Shop`, and the `Shopping Cart (icon)` will change the content inside the `main` tag. The `Shop` page renders a list of categories: `All`, `Electronics`, `Jewelery`, `Men's Clothing`, and `Women's Clothing`. The categories are links and are used as routes. Therefore, clicking on any of these links will only change the content inside the `section` tag with `id='category'` and it's respective items/products. As the category name, `All`, implies, renders all items/products being sold in the shop. Clicking `Electronics` will render item/product cards that are considered electronics. Each item/product card contains a picture of item/product, title of item/product and it's price. Futhermore, hovering over an item/product's card will reveal a button to add one quantity of said item/product.
 
 Clicking the item/product's card render's a modal containing more information of the clicked item/product. The information includes a item/product picture, short description on the item/product, price, increment/decrement buttons, a quantity input, and a 'Add to cart' button. On the modal, the increment/decrement buttons will increase/decrease the quantity input's value by one; the value never gets set to zero or above nine-hundred and ninety-nine. A user can manually type a number into the input. The quantity input's value cannot be blank or zero, otherwise an error message will be revealed after trying to add the item/product to the cart. Adding and removing unique items from the cart will update the number floating near the `Shopping Cart` icon, and icon will shake. In other words, adding the exact same item more than once will not update the number nor shake the `Shopping Cart` icon.
 
-Similarly to the `Shop` page, the `Cart` page will render item/product cards, and the cart's subtotal (in United States dollar). However, if there are no items in the cart, then only the text "Your cart is empty" will be rendered. Each item/product card contains the name of the item/product, a picture of item/product, it's price, increment/decrement buttons, a quantity input with it's current value, and a 'Delete' button. Clicking the decrement button when the quantity input's value is one will automatically remove the item/product from the cart. Likewise, clearing the quantity input's value with the `backspace` key will remove the item/product from the cart. Incrementing/decrementing quantities and/or removing item/products from the cart will update the cart's subtotal.
+Similarly to the `Shop` page, the `Cart` page will render item/product cards, and the cart's subtotal (in United States dollar). However, if there are no items in the cart, then only the text "Your cart is empty" will be rendered. Each item/product card contains the title of the item/product, a picture of item/product, it's price, increment/decrement buttons, a quantity input with it's current value, and a 'Delete' button. Clicking the decrement button when the quantity input's value is one will automatically remove the item/product from the cart. Likewise, clearing the quantity input's value with the `backspace` key will remove the item/product from the cart. Incrementing/decrementing quantities and/or removing item/products from the cart will update the cart's subtotal.
 
-In the tradition of past projects, I implemented more than what is required. 
+In the tradition of past projects, I implemented more than what is required by the project specifications. I used React Router one step further by defining and making use of a `loader` in my routes. Originally, I was fetching data from an API in a `useEffect` hook defined in the `Shop` component. This means each time the `Shop` page was rendered, a spinner-like component is temporarily rendered, a request is sent to an API, the request gets resolved, and the `Shop` page rerenders using the resolved data. Using a `loader` in my routes resolved the `Shop` component from rendering and refetching.
 
-Struggles:
-- Figuring out a good place to fetch data from an API
-- Testing components dependant on internal state
-- Controlling and sharing a Cart state 
-  - Used the React Context API
-- Clicking a product/item's image will render a modal with more product information
+I got ahead of The Odin Project's lesson on "Managing State With The Context API", because I needed to preserve items in the cart between routes. From a bit of Googling and experimentation, React's Context API came to the rescue. The default export `CartProvider` is only used in the `App` component by passing routes defined in a `RouterProvider`. Now, the `useContext` hook can be utilized with the `CartContext` and items in the cart are preserved across the application.
+
+Furthermore, I implemented an item/product modal. When an item/product card is clicked on the `Shop` page, a modal appears with more information about the item/product, increment/decrement buttons, a quantity input, and a 'Add to cart' button. Also, when the item/product card is clicked, the pathway is changed to accommodate the item/product's title. The modal can be closed by clicking outside the modal, pressing the `esc` key, and clicking on the 'close' button. This was quite challenging to implement in lieu of React Router, but I am very satisfied with the results.
+
+Other small additions worth mentioning, is the ability to view the item/product on it's own page from the `Cart` page and the `ScrollButtons` component. The same content from the modal is rendered, but the `Product` component is used in lieu of the `Outlet` component. Whereas the `Product` component is directly in the `Modal` component. The `ScrollButtons` component allows users to scroll to the bottom and/or top of the web application by clicking the respective buttons. The 'top' button only appears if the scrollbar is not at the top and the 'bottom' button only appears if the scrollbar is not at the bottom.
+
+One of the most challenging aspects of the projects was identifying what to test, creating tests, querying DOM elements, identifying when and how to create mocks, and updating tests with new behavioral and/or component implementations. In addition, I needed to be aware of where in routes are components rendered. Therefore, I needed to provide an initial path to render the test suite's component. For example, the initial path for testing the `Shop` component will need to be `/shop`. The `createMemoryRouter` is used to define a router of routes with an `initialEntries` option, then the router is passed into the `App` component's `router` prop.
+
+I am content with the project's current state, and the React concepts I put into practice. As much as I would like to create a checkout page and the ability to wishlist items/products, I must set this aside. 
 
 To failing forward, cheers!
 
@@ -143,8 +146,9 @@ This is a list of things you need to use the software and how to install them.
     6. Create a new repository on GitHub.
     7. Run `git remote add origin REPLACE_WITH_SSH_OR_HTTPS`.
     8. Run `git add . && git commit`.
-2. Navigate to local repository and install NPM packages with `npm install`.
-3. 
+2. Navigate to local repository.
+    1. Install NPM packages with `npm install`.
+    2. Update test snapshots with `npm test` then `u`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,7 +188,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
   - [x] Only show bottom button if user is above the bottom.
   - [ ] Changing the window size should impact whether or not the buttons are visible.
 - [x] Create a quick actions component.
-  - [ ] Add item/product button will only add one respective item/product into the cart. 
+  - [x] Add item/product button will only add one respective item/product into the cart.
+  - [ ] Wishlist and/or favorite button will add item/product into a wishlist or favorites.
+- [ ] Checkout page.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -231,7 +237,6 @@ Project Link: [https://github.com/mikeyCos/cv-application](https://github.com/mi
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
@@ -250,3 +255,5 @@ Project Link: [https://github.com/mikeyCos/cv-application](https://github.com/mi
 [JQuery-url]: https://jquery.com
 [JavaScript-url]: https://www.javascript.com/
 [JavaScript.js]: https://img.shields.io/badge/javascript-20232A?style=for-the-badge&logo=javascript
+[demo-overview-gif]: ./demo/demo_overview.gif
+[product-screenshot]: ./src/assets/media/project_screenshot_00.png

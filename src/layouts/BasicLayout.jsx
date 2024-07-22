@@ -8,22 +8,18 @@ const BasicLayout = () => {
     <>
       <ScrollRestoration
       // getKey={(location, matches) => {
-      //   console.log(location);
       //   const { state } = location;
       //   if (state?.id) {
       //     const element = document.querySelector(`[data-id='${state.id}']`);
-      //     console.log(element);
       //     element.scrollIntoView();
       //   }
       // }}
       />
       {/* <ScrollRestoration
         getKey={(location, matches) => {
-          console.log(location);
           const { state } = location;
           if (state?.id) {
               const element = document.querySelector(`[data-id='${state.id}']`);
-              console.log(element);
               element.scrollIntoView();
             // return state.id;
           }

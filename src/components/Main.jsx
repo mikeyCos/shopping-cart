@@ -5,7 +5,7 @@ import ScrollButtons from "./ScrollButtons";
 const Main = () => {
   return (
     <main className={styles.main}>
-      <Outlet context={ScrollButtons} />
+      <Outlet />
       <ScrollButtons />
     </main>
   );

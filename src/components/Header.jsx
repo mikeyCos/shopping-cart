@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useRef } from "react";
-import { CartContext } from "./Cart";
+import { CartContext } from "../context/CartContext";
 import NavAnchor from "./NavAnchor";
 import CartIcon from "../assets/icons/cart-variant.svg?react";
 import AppLogo from "../assets/illustrations/undraw_shopping_app.svg?react";

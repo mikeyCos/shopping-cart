@@ -4,10 +4,9 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import { createMemoryRouter } from "react-router-dom";
 import { fetchMock } from "./mocks";
 import App from "../App";
-import { CartProvider } from "../components/Cart";
 import routes from "../routes/routes";
 
 /* Optional
