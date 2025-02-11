@@ -29,18 +29,17 @@
 <br />
 <div align="center">
   <a href="https://github.com/mikeyCos/cv-application">
-    <img src="./src/assets/media/project_logo_00.png" alt="Logo" width="200" height="auto">
+    <img src="./demo/media/project_logo_00.png" alt="Logo" width="200" height="auto">
   </a>
 
 <h3 align="center">Shopping Cart</h3>
 
   <p align="center">
-    Shopping Cart is a simple 
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
+    Basic front end application with routes and API fetching.
     <br />
     <a href="https://shoppingcart-mikeycos.netlify.app/">Live Preview</a>
+    ·
+    <a href="./PROJECT_SPECIFICATIONS.md">Project Specifications</a>
     <!-- ·
     <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -116,6 +115,7 @@ To failing forward, cheers!
 
 - [![React][React.js]][React-url]
 - [![JavaScript][JavaScript.js]][JavaScript-url]
+- [![CSS3][CSS3]][CSS3-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +138,7 @@ This is a list of things you need to use the software and how to install them.
 ### Installation
 
 1. Clone repository
-    1. Clone [shopping-cart repository](https://github.com/mikeyCos/shopping-cart using HTTPS/SSH/GitHub CLI; [more on cloning a repository](https://docs.githu  com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+    1. Clone [shopping-cart repository](https://github.com/mikeyCos/shopping-cart) using HTTPS/SSH/GitHub CLI; [more on cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
     2. Navigate to cloned repository.
     3. Remove `.git` folder.
     4. Run `git init`.
@@ -156,9 +156,17 @@ This is a list of things you need to use the software and how to install them.
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Go to the [live preview](https://shoppingcart-mikeycos.netlify.app/), navigate to the shop page, click on a shop item, type the quantity or click on the increment/decrement buttons, click on `Add to cart` button to add item to cart, click the cart icon to view cart. Hovering over an item will display a quick-add button that will add `1` of the corresponding item to the cart; clicking the button multiple times will accumulate the item's total quantity.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Items can be removed from cart by clicking the `Delete` button or if the current item quantity is `1`, then clicking the decrement button will automatically remove the item from the cart. The cart's subtotal will update as soon as item quantities are changed.
+
+<div align="center">
+  <a href="./demo/media/overview.gif">
+    <img src="./demo/media/overview.gif" alt="Usage Overview">
+  </a>
+  
+  _For more examples, please refer to the [Demo](./demo/DEMO.md)_
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,7 +208,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/mikeyCos/cv-application](https://github.com/mikeyCos/cv-application)
+- [Repo](https://github.com/mikeyCos/shopping-cart)
+- [Live Preview](https://shoppingcart-mikeycos.netlify.app/home)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -216,11 +225,11 @@ Project Link: [https://github.com/mikeyCos/cv-application](https://github.com/mi
 
 <!-- QUESTIONS -->
 
-## Questions
+<!-- ## Questions
 
-1. Lorem ipsum
+1. N/A
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -255,5 +264,7 @@ Project Link: [https://github.com/mikeyCos/cv-application](https://github.com/mi
 [JQuery-url]: https://jquery.com
 [JavaScript-url]: https://www.javascript.com/
 [JavaScript.js]: https://img.shields.io/badge/javascript-20232A?style=for-the-badge&logo=javascript
+[CSS3]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://www.w3.org/TR/2001/WD-css3-roadmap-20010523/
 [demo-overview-gif]: ./demo/demo_overview.gif
-[product-screenshot]: ./src/assets/media/project_screenshot_00.png
+[product-screenshot]: ./demo/media/project_screenshot_00.png
